@@ -5,7 +5,7 @@ const products = [
 {
 name: "GLP3 R",
 amount: "30 mg",
-image: "/glp3-r-30mg.png",
+image: "/glp3-r-30mg.png.png",
 description:
 "Research compound with batch documentation and third-party laboratory records.",
 },
