@@ -3,10 +3,11 @@ void message;
 
 const products = [
 {
-name: "Retatrutide",
-amount: "Research Compound",
+name: "GLP3 R",
+amount: "30 mg",
+image: "/glp3-r-30mg.png",
 description:
-"Research information, batch documentation, and third-party laboratory records.",
+"Research compound with batch documentation and third-party laboratory records.",
 },
 {
 name: "Tirzepatide",
@@ -128,7 +129,16 @@ Product photography coming soon
 key={product.name}
 className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-950"
 >
-{/* Product image placeholder */}
+{/* Product image */}
+{product.image ? (
+<div className="aspect-square overflow-hidden border-b border-slate-800 bg-white">
+<img
+src={product.image}
+alt={`${product.name} ${product.amount}`}
+className="h-full w-full object-contain p-6"
+/>
+</div>
+) : (
 <div className="flex aspect-square items-center justify-center border-b border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950">
 <div className="text-center">
 <div className="mx-auto flex h-24 w-16 items-center justify-center rounded-lg border border-slate-700 bg-slate-900 shadow-2xl">
@@ -141,6 +151,7 @@ Product Image
 </p>
 </div>
 </div>
+)}
 
 <div className="p-6">
 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-400">
