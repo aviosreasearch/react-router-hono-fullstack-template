@@ -4,7 +4,7 @@ void message;
 const products = [
 {
 name: "GLP3 R",
-amount: "Multiple Sizes",
+amount: "Research Compound",
 sizes: ["10 mg", "15 mg", "30 mg", "50 mg"],
 image: "/glp3-r-30mg.png.png",
 description:
