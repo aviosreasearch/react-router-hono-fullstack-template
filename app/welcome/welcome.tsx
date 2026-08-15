@@ -4,7 +4,8 @@ void message;
 const products = [
 {
 name: "GLP3 R",
-amount: "30 mg",
+amount: "Multiple Sizes",
+sizes: ["10 mg", "15 mg", "30 mg", "50 mg"],
 image: "/glp3-r-30mg.png.png",
 description:
 "Research compound with batch documentation and third-party laboratory records.",
@@ -159,6 +160,23 @@ Product Image
 </p>
 
 <h3 className="mt-2 text-2xl font-semibold">{product.name}</h3>
+  {"sizes" in product && product.sizes?.length ? (
+<div className="mt-5">
+<label className="mb-2 block text-sm font-semibold text-slate-300">
+Select amount
+</label>
+<select
+defaultValue="30 mg"
+className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none"
+>
+{product.sizes.map((size) => (
+<option key={size} value={size}>
+{size}
+</option>
+))}
+</select>
+</div>
+) : null}
 
 <p className="mt-3 leading-7 text-slate-400">
 {product.description}
