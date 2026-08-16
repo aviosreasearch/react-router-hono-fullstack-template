@@ -33,7 +33,7 @@ return (
 <img
 src="/AVIOS Research logo.png"
 alt="Avios Research"
-className="h-14 w-auto object-contain"
+className="h-24 w-auto object-contain"
 />
 </a>
 <nav className="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
@@ -63,15 +63,15 @@ View Compounds
 {/* Hero */}
 <section className="mx-auto max-w-7xl px-6 pb-24 pt-24">
 <p className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-sky-400">
-Avios Research
+RESEARCH PEPTIDE CATALOG
 </p>
 
 <h1 className="max-w-5xl text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-Research compounds.
+Premium Research Peptides.
 <br />
-Clear documentation.
+Built for Research.
 <br />
-Better transparency.
+Backed by Documentation.
 </h1>
 
 <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
