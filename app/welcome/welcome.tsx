@@ -6,7 +6,7 @@ const products = [
 name: "GLP3 R",
 amount: "Research Compound",
 sizes: ["10 mg", "15 mg", "30 mg", "50 mg"],
-image: "/glp3-r-30mg.png.png",
+image: "/avios-hero-vial-v2.png",
 description:
 "Research compound with batch documentation and third-party laboratory records.",
 },
