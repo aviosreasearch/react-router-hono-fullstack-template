@@ -29,15 +29,13 @@ return (
 {/* Navigation */}
 <header className="border-b border-slate-800 bg-slate-950/95">
 <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-<a href="#" className="flex flex-col">
-<span className="text-xl font-bold tracking-[0.18em] text-white">
-AVIOS
-</span>
-<span className="text-xs font-semibold uppercase tracking-[0.32em] text-sky-400">
-Research
-</span>
+<a href="#" className="flex items-center">
+<img
+src="/AVIOS Research logo.png"
+alt="Avios Research"
+className="h-14 w-auto object-contain"
+/>
 </a>
-
 <nav className="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
 <a href="#products" className="transition hover:text-white">
 Research Compounds
