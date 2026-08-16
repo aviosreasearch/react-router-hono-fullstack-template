@@ -61,7 +61,9 @@ View Compounds
 </header>
 
 {/* Hero */}
-<section className="mx-auto max-w-7xl px-6 pb-24 pt-24">
+<section className="mx-auto max-w-7xl px-6 pb-16 pt-14">
+  <div className="grid items-center gap-10 lg:grid-cols-2">
+    <div>
 <p className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-sky-400">
 RESEARCH PEPTIDE CATALOG
 </p>
@@ -95,6 +97,15 @@ className="rounded-lg border border-slate-700 px-7 py-3.5 font-semibold text-whi
 Verify a COA
 </a>
 </div>
+  </div>
+
+    <div className="relative hidden min-h-[520px] overflow-hidden rounded-3xl lg:block">
+      <div
+        className="absolute inset-0 bg-cover bg-[72%_center] bg-no-repeat"
+        style={{ backgroundImage: 'url("/avios-hero-glp3.png")' }}
+      />
+    </div>
+  </div>
 </section>
 
 {/* Products */}
