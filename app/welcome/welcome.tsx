@@ -102,7 +102,7 @@ Verify a COA
     <div className="relative hidden min-h-[520px] overflow-hidden rounded-3xl lg:block">
       <div
         className="absolute inset-0 bg-cover bg-[72%_center] bg-no-repeat"
-        style={{ backgroundImage: 'url("/avios-hero-glp3.png")' }}
+        style={{ backgroundImage: 'url("/avios-hero-vial-v2.png")' }}
       />
     </div>
   </div>
