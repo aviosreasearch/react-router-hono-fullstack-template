@@ -5,7 +5,12 @@ const products = [
 {
 name: "GLP3 R",
 amount: "Research Compound",
-sizes: ["10 mg", "15 mg", "30 mg", "50 mg"],
+sizes: [
+{ label: "10 mg", price: 89 },
+{ label: "15 mg", price: 119 },
+{ label: "30 mg", price: 199 },
+{ label: "50 mg", price: 289 },
+],
 image: "/avios-glp3r-product.png",
 description:
 "Research compound with batch documentation and third-party laboratory records.",
@@ -179,9 +184,9 @@ defaultValue="30 mg"
 className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none"
 >
 {product.sizes.map((size) => (
-<option key={size} value={size}>
-{size}
-</option>
+  <option key={size.label} value={size.label}>
+    {size.label} — ${size.price}
+  </option>
 ))}
 </select>
 </div>
