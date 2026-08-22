@@ -117,7 +117,7 @@ Verify a COA
 <section
 id="products"
 className="border-y border-slate-800 bg-slate-900/40"
->
+style={{ backgroundImage: 'url("/avios-motsc-hero.png")' }}
 <div className="mx-auto max-w-7xl px-6 py-24">
 <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
 <div>
