@@ -106,7 +106,7 @@ Verify a COA
 
     <div className="relative hidden min-h-[520px] overflow-hidden rounded-3xl lg:block">
       <div
-className="absolute inset-0 bg-[length:115%] bg-center bg-no-repeat"
+className="absolute inset-0 bg-[length:140%] bg-center bg-no-repeat"
         style={{ backgroundImage: 'url("/avios-motsc-hero-v2.png")' }}
       />
     </div>
