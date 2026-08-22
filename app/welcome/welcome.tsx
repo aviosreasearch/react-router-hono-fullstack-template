@@ -107,7 +107,7 @@ Verify a COA
     <div className="relative hidden min-h-[520px] overflow-hidden rounded-3xl lg:block">
       <div
         className="absolute inset-0 bg-cover bg-[72%_center] bg-no-repeat"
-        style={{ backgroundImage: 'url("/avios-hero-vial-v2.png")' }}
+        style={{ backgroundImage: 'url("/avios-motsc-hero.png")' }}
       />
     </div>
   </div>
@@ -117,7 +117,7 @@ Verify a COA
 <section
 id="products"
 className="border-y border-slate-800 bg-slate-900/40"
-style={{ backgroundImage: 'url("/avios-motsc-hero.png")' }}
+>
 <div className="mx-auto max-w-7xl px-6 py-24">
 <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
 <div>
