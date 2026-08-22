@@ -16,16 +16,14 @@ export function Welcome({ message }: { message: string }) {
         "Research compound with batch documentation and third-party laboratory records.",
     },
     {
-{
-  name: "MOTS-C",
-  amount: "Research Compound",
-  sizes: [
-    { label: "20 mg", price: 0 },
-  ],
-  image: "/avios-motsc-product.png",
-  description:
-    "Research compound with batch documentation and third-party laboratory records.",
-},
+      name: "MOTS-C",
+      amount: "Research Compound",
+      sizes: [{ label: "20 mg", price: 0 }],
+      image: "/avios-motsc-product.png",
+      description:
+        "Research compound with batch documentation and third-party laboratory records.",
+    },
+    {
       name: "Featured Compound",
       amount: "More Coming Soon",
       description:
@@ -153,7 +151,7 @@ export function Welcome({ message }: { message: string }) {
                 key={product.name}
                 className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-950"
               >
-                {/* Product image */}
+                {/* Product Image */}
                 {product.image ? (
                   <div className="aspect-square overflow-hidden border-b border-slate-800 bg-white">
                     <img
@@ -194,7 +192,7 @@ export function Welcome({ message }: { message: string }) {
                       </label>
 
                       <select
-                        defaultValue="30 mg"
+                        defaultValue={product.sizes[0].label}
                         className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none"
                       >
                         {product.sizes.map((size) => (
@@ -352,9 +350,7 @@ export function Welcome({ message }: { message: string }) {
             </p>
           </div>
 
-          <p className="text-sm text-slate-600">
-            © 2026 Avios Research
-          </p>
+          <p className="text-sm text-slate-600">© 2026 Avios Research</p>
         </div>
       </footer>
     </main>
