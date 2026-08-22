@@ -1,252 +1,138 @@
-import { useState } from "react";
 
-const sizes = [
-  { label: "10 mg", price: 59.99 },
-  { label: "15 mg", price: 79.99 },
-  { label: "30 mg", price: 129.99 },
-  { label: "50 mg", price: 199.99 },
-];
+import {
+  publicProductLots,
+  type ProductSlug,
+} from "../data/public-product-lots";
 
-export default function Glp3RProduct() {
-  const [selectedSize, setSelectedSize] = useState(sizes[0]);
+type LotDocumentationProps = {
+  productSlug: ProductSlug;
+};
+
+export default function LotDocumentation({
+  productSlug,
+}: LotDocumentationProps) {
+  const lots = publicProductLots[productSlug];
 
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
-      {/* Navigation */}
-      <header className="border-b border-slate-800 bg-slate-950/95">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-          <a href="/" className="flex items-center">
-            <img
-              src="/AVIOS Research logo.png"
-              alt="Avios Research"
-              className="h-24 w-auto object-contain"
-            />
-          </a>
+    <section className="border-t border-slate-800 pt-8">
+      <div className="mb-6">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-400">
+          Lot & Laboratory Records
+        </p>
 
-          <a
-            href="/#products"
-            className="rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-slate-500 hover:text-white"
-          >
-            ← Back to Compounds
-          </a>
+        <h2 className="mt-2 text-xl font-semibold text-white">
+          Product Documentation
+        </h2>
+
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-400">
+          Available supplier documentation and independent laboratory reports
+          are organized by product lot for traceability and verification.
+        </p>
+      </div>
+
+      {lots.length === 0 ? (
+        <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-5">
+          <p className="font-medium text-white">
+            Lot documentation pending
+          </p>
+
+          <p className="mt-2 text-sm leading-6 text-slate-400">
+            Documentation will be published here when the applicable lot and
+            laboratory records are available.
+          </p>
         </div>
-      </header>
+      ) : (
+        <div className="space-y-5">
+          {lots.map((lot) => (
+            <div
+              key={`${lot.lotNumber}-${lot.strength}`}
+              className="rounded-xl border border-slate-800 bg-slate-900/40 p-5"
+            >
+              <div className="flex flex-col gap-3 border-b border-slate-800 pb-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    Avios Lot
+                  </p>
 
-      {/* Product */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-12 lg:grid-cols-2">
-          {/* Product Image */}
-          <div className="overflow-hidden rounded-3xl border border-slate-800 bg-white">
-            <div className="aspect-square">
-              <img
-                src="/avios-glp3r-product.png"
-                alt={`GLP3 R ${selectedSize.label}`}
-                className="h-full w-full object-contain p-10"
-              />
-            </div>
-          </div>
-
-          {/* Product Information */}
-          <div className="flex flex-col justify-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-400">
-              Metabolic Research
-            </p>
-
-            <h1 className="mt-4 text-5xl font-bold tracking-tight">
-              GLP3 R
-            </h1>
-
-            <p className="mt-4 max-w-xl text-lg leading-8 text-slate-400">
-              Research compound supported by organized product information,
-              lot records, and available laboratory documentation.
-            </p>
-
-            {/* Research Use Notice */}
-            <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">
-                For Research Use Only
-              </p>
-
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Not intended for human consumption.
-              </p>
-            </div>
-
-            {/* Strength Selector */}
-            <div className="mt-8">
-              <label className="mb-2 block text-sm font-semibold text-slate-300">
-                Select amount
-              </label>
-
-              <select
-                value={selectedSize.label}
-                onChange={(event) => {
-                  const size = sizes.find(
-                    (item) => item.label === event.target.value
-                  );
-
-                  if (size) {
-                    setSelectedSize(size);
-                  }
-                }}
-                className="w-full max-w-sm rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none transition focus:border-sky-500"
-              >
-                {sizes.map((size) => (
-                  <option key={size.label} value={size.label}>
-                    {size.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Price */}
-            <div className="mt-6">
-              <p className="text-sm font-medium text-slate-500">
-                Price
-              </p>
-
-              <p className="mt-1 text-4xl font-bold tracking-tight">
-                ${selectedSize.price.toFixed(2)}
-              </p>
-            </div>
-
-            {/* Documentation */}
-            <div className="mt-10 border-t border-slate-800 pt-8">
-              <h2 className="text-xl font-semibold">
-                Product Documentation
-              </h2>
-
-              <div className="mt-5 space-y-4">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">
-                    Compound
-                  </span>
-
-                  <span className="font-medium">
-                    GLP3 R
-                  </span>
+                  <p className="mt-1 font-semibold text-white">
+                    {lot.lotNumber}
+                  </p>
                 </div>
 
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">
-                    Amount
-                  </span>
+                <div className="sm:text-right">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    Strength
+                  </p>
 
-                  <span className="font-medium">
-                    {selectedSize.label}
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">
-                    Lot
-                  </span>
-
-                  <span className="font-medium text-slate-400">
-                    Lot information coming soon
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">
-                    COA / Lab Report
-                  </span>
-
-                  <span className="font-medium text-slate-400">
-                    Documentation coming soon
-                  </span>
+                  <p className="mt-1 font-semibold text-white">
+                    {lot.strength}
+                  </p>
                 </div>
               </div>
+
+              <div className="mt-5 space-y-4">
+                {lot.documents.length === 0 ? (
+                  <p className="text-sm text-slate-400">
+                    Documentation for this lot is pending.
+                  </p>
+                ) : (
+                  lot.documents.map((document, index) => (
+                    <div
+                      key={`${document.label}-${index}`}
+                      className="rounded-lg border border-slate-800 bg-slate-950/40 p-4"
+                    >
+                      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                        <div>
+                          <p className="font-semibold text-white">
+                            {document.label}
+                          </p>
+
+                          <p className="mt-1 text-sm text-slate-400">
+                            {document.kind}
+                          </p>
+
+                          {document.laboratory ? (
+                            <p className="mt-1 text-sm text-slate-500">
+                              Laboratory: {document.laboratory}
+                            </p>
+                          ) : null}
+                        </div>
+
+                        <div className="flex flex-wrap gap-3">
+                          <a
+                            href={document.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="rounded-lg bg-sky-500 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-sky-400"
+                          >
+                            View Report
+                          </a>
+
+                          {document.verificationUrl ? (
+                            <a
+                              href={document.verificationUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="rounded-lg border border-slate-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:border-sky-500 hover:text-sky-400"
+                            >
+                              Verify Report
+                            </a>
+                          ) : null}
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
-          </div>
+          ))}
         </div>
-      </section>
+      )}
 
-      {/* Documentation Section */}
-      <section className="border-y border-slate-800 bg-slate-900/40">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-7">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
-                Lot Records
-              </p>
-
-              <h3 className="mt-3 text-xl font-semibold">
-                Batch Traceability
-              </h3>
-
-              <p className="mt-3 leading-7 text-slate-400">
-                Available inventory can be associated with an Avios lot record
-                and its corresponding source documentation.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-7">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
-                Documentation
-              </p>
-
-              <h3 className="mt-3 text-xl font-semibold">
-                Laboratory Records
-              </h3>
-
-              <p className="mt-3 leading-7 text-slate-400">
-                Supplier-provided and independently obtained laboratory records
-                will be identified according to their source when available.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-7">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
-                Storage
-              </p>
-
-              <h3 className="mt-3 text-xl font-semibold">
-                Laboratory Storage
-              </h3>
-
-              <p className="mt-3 leading-7 text-slate-400">
-                Product-specific laboratory storage information will be
-                provided with the applicable product documentation.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Research Use Footer Notice */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="rounded-2xl border border-slate-800 bg-slate-900 p-8">
-          <h2 className="text-xl font-semibold">
-            Research Use Notice
-          </h2>
-
-          <p className="mt-4 max-w-4xl leading-7 text-slate-400">
-            GLP3 R products offered by Avios Research are presented solely as
-            research materials. They are not intended for human consumption,
-            therapeutic use, diagnosis, treatment, or prevention of disease.
-          </p>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-slate-800">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-10 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="font-bold tracking-[0.15em]">
-              AVIOS RESEARCH
-            </p>
-
-            <p className="mt-2 text-sm text-slate-500">
-              Research use only. Not intended for human consumption.
-            </p>
-          </div>
-
-          <p className="text-sm text-slate-600">
-            © 2026 Avios Research
-          </p>
-        </div>
-      </footer>
-    </main>
+      <p className="mt-5 text-xs leading-5 text-slate-500">
+        Laboratory documentation applies only to the specific lot or sample
+        identified in the associated report.
+      </p>
+    </section>
   );
 }
