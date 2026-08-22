@@ -16,13 +16,16 @@ export function Welcome({ message }: { message: string }) {
         "Research compound with batch documentation and third-party laboratory records.",
     },
     {
-      name: "MOTS-C",
-      amount: "20 mg",
-      image: "/avios-motsc-product.png",
-      description:
-        "Research compound with batch documentation and third-party laboratory records.",
-    },
-    {
+{
+  name: "MOTS-C",
+  amount: "Research Compound",
+  sizes: [
+    { label: "20 mg", price: 0 },
+  ],
+  image: "/avios-motsc-product.png",
+  description:
+    "Research compound with batch documentation and third-party laboratory records.",
+},
       name: "Featured Compound",
       amount: "More Coming Soon",
       description:
