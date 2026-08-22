@@ -1,7 +1,114 @@
+import { useState } from "react";
+
+type ProductSize = {
+  label: string;
+  price: number;
+};
+
+type Product = {
+  name: string;
+  amount: string;
+  sizes?: ProductSize[];
+  image?: string;
+  description: string;
+};
+
+function ProductCard({ product }: { product: Product }) {
+  const [selectedSize, setSelectedSize] = useState(
+    product.sizes?.[0] ?? null
+  );
+
+  return (
+    <article className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-950">
+      {/* Product Image */}
+      {product.image ? (
+        <div className="aspect-square overflow-hidden border-b border-slate-800 bg-white">
+          <img
+            src={product.image}
+            alt={`${product.name} ${product.amount}`}
+            className="h-full w-full object-contain p-6"
+          />
+        </div>
+      ) : (
+        <div className="flex aspect-square items-center justify-center border-b border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950">
+          <div className="text-center">
+            <div className="mx-auto flex h-24 w-16 items-center justify-center rounded-lg border border-slate-700 bg-slate-900 shadow-2xl">
+              <span className="text-xs font-bold tracking-wider text-sky-400">
+                AVIOS
+              </span>
+            </div>
+
+            <p className="mt-4 text-xs uppercase tracking-[0.2em] text-slate-600">
+              Product Image
+            </p>
+          </div>
+        </div>
+      )}
+
+      <div className="p-6">
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-400">
+          {product.amount}
+        </p>
+
+        <h3 className="mt-2 text-2xl font-semibold">{product.name}</h3>
+
+        {product.sizes?.length ? (
+          <div className="mt-5">
+            <label className="mb-2 block text-sm font-semibold text-slate-300">
+              Select amount
+            </label>
+
+            <select
+              value={selectedSize?.label ?? ""}
+              onChange={(event) => {
+                const size = product.sizes?.find(
+                  (item) => item.label === event.target.value
+                );
+
+                if (size) {
+                  setSelectedSize(size);
+                }
+              }}
+              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none transition focus:border-sky-500"
+            >
+              {product.sizes.map((size) => (
+                <option key={size.label} value={size.label}>
+                  {size.label}
+                </option>
+              ))}
+            </select>
+
+            {selectedSize ? (
+              <div className="mt-5">
+                <p className="text-sm font-medium text-slate-500">Price</p>
+                <p className="mt-1 text-3xl font-bold tracking-tight text-white">
+                  ${selectedSize.price.toFixed(2)}
+                </p>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+
+        <p className="mt-5 leading-7 text-slate-400">
+          {product.description}
+        </p>
+
+        <a
+          href="#verification"
+          className="mt-6 inline-flex items-center font-semibold text-white transition hover:text-sky-300"
+        >
+          View research details
+          <span className="ml-2">→</span>
+        </a>
+      </div>
+    </article>
+  );
+}
+
 export function Welcome({ message }: { message: string }) {
   void message;
 
-  const products = [
+  const products: Product[] = [
     {
       name: "GLP3 R",
       amount: "Research Compound",
@@ -18,7 +125,7 @@ export function Welcome({ message }: { message: string }) {
     {
       name: "MOTS-C",
       amount: "Research Compound",
-      sizes: [{ label: "20 mg", price: 0 }],
+      sizes: [{ label: "20 mg", price: 59.99 }],
       image: "/avios-motsc-product.png",
       description:
         "Research compound with batch documentation and third-party laboratory records.",
@@ -48,12 +155,15 @@ export function Welcome({ message }: { message: string }) {
             <a href="#products" className="transition hover:text-white">
               Research Compounds
             </a>
+
             <a href="#verification" className="transition hover:text-white">
               COA Verification
             </a>
+
             <a href="#research" className="transition hover:text-white">
               Research Library
             </a>
+
             <a href="#about" className="transition hover:text-white">
               About
             </a>
@@ -147,76 +257,7 @@ export function Welcome({ message }: { message: string }) {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
-              <article
-                key={product.name}
-                className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-950"
-              >
-                {/* Product Image */}
-                {product.image ? (
-                  <div className="aspect-square overflow-hidden border-b border-slate-800 bg-white">
-                    <img
-                      src={product.image}
-                      alt={`${product.name} ${product.amount}`}
-                      className="h-full w-full object-contain p-6"
-                    />
-                  </div>
-                ) : (
-                  <div className="flex aspect-square items-center justify-center border-b border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950">
-                    <div className="text-center">
-                      <div className="mx-auto flex h-24 w-16 items-center justify-center rounded-lg border border-slate-700 bg-slate-900 shadow-2xl">
-                        <span className="text-xs font-bold tracking-wider text-sky-400">
-                          AVIOS
-                        </span>
-                      </div>
-
-                      <p className="mt-4 text-xs uppercase tracking-[0.2em] text-slate-600">
-                        Product Image
-                      </p>
-                    </div>
-                  </div>
-                )}
-
-                <div className="p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-400">
-                    {product.amount}
-                  </p>
-
-                  <h3 className="mt-2 text-2xl font-semibold">
-                    {product.name}
-                  </h3>
-
-                  {"sizes" in product && product.sizes?.length ? (
-                    <div className="mt-5">
-                      <label className="mb-2 block text-sm font-semibold text-slate-300">
-                        Select amount
-                      </label>
-
-                      <select
-                        defaultValue={product.sizes[0].label}
-                        className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none"
-                      >
-                        {product.sizes.map((size) => (
-                          <option key={size.label} value={size.label}>
-                            {size.label} — ${size.price}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  ) : null}
-
-                  <p className="mt-3 leading-7 text-slate-400">
-                    {product.description}
-                  </p>
-
-                  <a
-                    href="#verification"
-                    className="mt-6 inline-flex items-center font-semibold text-white"
-                  >
-                    View research details
-                    <span className="ml-2">→</span>
-                  </a>
-                </div>
-              </article>
+              <ProductCard key={product.name} product={product} />
             ))}
           </div>
         </div>
@@ -266,11 +307,11 @@ export function Welcome({ message }: { message: string }) {
               </div>
 
               <div className="flex flex-wrap gap-3 pt-2">
-                <button className="rounded-lg bg-white px-5 py-3 font-semibold text-slate-950">
+                <button className="rounded-lg bg-white px-5 py-3 font-semibold text-slate-950 transition hover:bg-slate-200">
                   View COA
                 </button>
 
-                <button className="rounded-lg border border-slate-700 px-5 py-3 font-semibold">
+                <button className="rounded-lg border border-slate-700 px-5 py-3 font-semibold transition hover:border-slate-500">
                   Verify Report
                 </button>
               </div>
@@ -296,6 +337,7 @@ export function Welcome({ message }: { message: string }) {
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-800 bg-slate-950 p-7">
               <h3 className="text-xl font-semibold">Compound Profiles</h3>
+
               <p className="mt-3 leading-7 text-slate-400">
                 Organized background information and mechanisms for research
                 compounds.
@@ -304,6 +346,7 @@ export function Welcome({ message }: { message: string }) {
 
             <div className="rounded-2xl border border-slate-800 bg-slate-950 p-7">
               <h3 className="text-xl font-semibold">Published Literature</h3>
+
               <p className="mt-3 leading-7 text-slate-400">
                 References to published scientific studies and research
                 literature.
@@ -312,6 +355,7 @@ export function Welcome({ message }: { message: string }) {
 
             <div className="rounded-2xl border border-slate-800 bg-slate-950 p-7">
               <h3 className="text-xl font-semibold">Study Evidence</h3>
+
               <p className="mt-3 leading-7 text-slate-400">
                 Human and preclinical evidence clearly distinguished where
                 applicable.
@@ -345,6 +389,7 @@ export function Welcome({ message }: { message: string }) {
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-10 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="font-bold tracking-[0.15em]">AVIOS RESEARCH</p>
+
             <p className="mt-2 text-sm text-slate-500">
               Research use only. Not intended for human consumption.
             </p>
