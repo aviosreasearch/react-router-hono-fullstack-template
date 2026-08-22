@@ -1,10 +1,13 @@
 import { useState } from "react";
 
 const sizes = [
-  { label: "20 mg", price: 59.99 },
+  { label: "10 mg", price: 59.99 },
+  { label: "15 mg", price: 79.99 },
+  { label: "30 mg", price: 129.99 },
+  { label: "50 mg", price: 199.99 },
 ];
 
-export default function MotsCProduct() {
+export default function Glp3RProduct() {
   const [selectedSize, setSelectedSize] = useState(sizes[0]);
 
   return (
@@ -36,8 +39,8 @@ export default function MotsCProduct() {
           <div className="overflow-hidden rounded-3xl border border-slate-800 bg-white">
             <div className="aspect-square">
               <img
-                src="/avios-motsc-product.png"
-                alt={`MOTS-C ${selectedSize.label}`}
+                src="/avios-glp3r-product.png"
+                alt={`GLP3 R ${selectedSize.label}`}
                 className="h-full w-full object-contain p-10"
               />
             </div>
@@ -46,11 +49,11 @@ export default function MotsCProduct() {
           {/* Product Information */}
           <div className="flex flex-col justify-center">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-400">
-              Metabolic / Mitochondrial Research
+              Metabolic Research
             </p>
 
             <h1 className="mt-4 text-5xl font-bold tracking-tight">
-              MOTS-C
+              GLP3 R
             </h1>
 
             <p className="mt-4 max-w-xl text-lg leading-8 text-slate-400">
@@ -69,7 +72,7 @@ export default function MotsCProduct() {
               </p>
             </div>
 
-            {/* Strength */}
+            {/* Strength Selector */}
             <div className="mt-8">
               <label className="mb-2 block text-sm font-semibold text-slate-300">
                 Select amount
@@ -115,26 +118,40 @@ export default function MotsCProduct() {
 
               <div className="mt-5 space-y-4">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">Compound</span>
-                  <span className="font-medium">MOTS-C</span>
+                  <span className="text-slate-500">
+                    Compound
+                  </span>
+
+                  <span className="font-medium">
+                    GLP3 R
+                  </span>
                 </div>
 
                 <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">Amount</span>
+                  <span className="text-slate-500">
+                    Amount
+                  </span>
+
                   <span className="font-medium">
                     {selectedSize.label}
                   </span>
                 </div>
 
                 <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">Lot</span>
+                  <span className="text-slate-500">
+                    Lot
+                  </span>
+
                   <span className="font-medium text-slate-400">
                     Lot information coming soon
                   </span>
                 </div>
 
                 <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">COA / Lab Report</span>
+                  <span className="text-slate-500">
+                    COA / Lab Report
+                  </span>
+
                   <span className="font-medium text-slate-400">
                     Documentation coming soon
                   </span>
@@ -205,7 +222,7 @@ export default function MotsCProduct() {
           </h2>
 
           <p className="mt-4 max-w-4xl leading-7 text-slate-400">
-            MOTS-C products offered by Avios Research are presented solely as
+            GLP3 R products offered by Avios Research are presented solely as
             research materials. They are not intended for human consumption,
             therapeutic use, diagnosis, treatment, or prevention of disease.
           </p>
