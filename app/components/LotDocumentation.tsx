@@ -1,3 +1,4 @@
+
 import {
   publicProductLots,
   type ProductSlug,
@@ -5,127 +6,133 @@ import {
 
 type LotDocumentationProps = {
   productSlug: ProductSlug;
-  selectedStrength: string;
 };
 
-export function LotDocumentation({
+export default function LotDocumentation({
   productSlug,
-  selectedStrength,
 }: LotDocumentationProps) {
-  const matchingLots = publicProductLots[productSlug].filter(
-    (lot) => lot.strength === selectedStrength
-  );
+  const lots = publicProductLots[productSlug];
 
   return (
-    <div className="mt-10 border-t border-slate-800 pt-8">
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-400">
-            Traceability
-          </p>
+    <section className="border-t border-slate-800 pt-8">
+      <div className="mb-6">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-400">
+          Lot & Laboratory Records
+        </p>
 
-          <h2 className="mt-2 text-2xl font-semibold">
-            Lot & Laboratory Documentation
-          </h2>
-        </div>
+        <h2 className="mt-2 text-xl font-semibold text-white">
+          Product Documentation
+        </h2>
 
-        <p className="text-sm text-slate-500">
-          Selected amount: {selectedStrength}
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-400">
+          Available supplier documentation and independent laboratory reports
+          are organized by product lot for traceability and verification.
         </p>
       </div>
 
-      {matchingLots.length === 0 ? (
-        <div className="mt-6 rounded-xl border border-slate-800 bg-slate-900/60 p-6">
-          <p className="font-semibold text-slate-300">
-            Documentation not yet published
+      {lots.length === 0 ? (
+        <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-5">
+          <p className="font-medium text-white">
+            Lot documentation pending
           </p>
 
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
-            Lot-specific documentation for this product amount will appear here
-            when the applicable records are available for publication.
+          <p className="mt-2 text-sm leading-6 text-slate-400">
+            Documentation will be published here when the applicable lot and
+            laboratory records are available.
           </p>
         </div>
       ) : (
-        <div className="mt-6 space-y-5">
-          {matchingLots.map((lot) => (
+        <div className="space-y-5">
+          {lots.map((lot) => (
             <div
-              key={lot.lotNumber}
-              className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6"
+              key={`${lot.lotNumber}-${lot.strength}`}
+              className="rounded-xl border border-slate-800 bg-slate-900/40 p-5"
             >
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex flex-col gap-3 border-b border-slate-800 pb-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
                     Avios Lot
                   </p>
 
-                  <p className="mt-1 text-xl font-semibold">
+                  <p className="mt-1 font-semibold text-white">
                     {lot.lotNumber}
                   </p>
                 </div>
 
                 <div className="sm:text-right">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                    Amount
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    Strength
                   </p>
 
-                  <p className="mt-1 font-semibold">
+                  <p className="mt-1 font-semibold text-white">
                     {lot.strength}
                   </p>
                 </div>
               </div>
 
-              <div className="mt-6 space-y-4">
-                {lot.documents.map((document) => (
-                  <div
-                    key={`${lot.lotNumber}-${document.label}`}
-                    className="rounded-xl border border-slate-800 bg-slate-950 p-5"
-                  >
-                    <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                      <div>
-                        <p className="text-sm font-semibold text-white">
-                          {document.label}
-                        </p>
-
-                        <p className="mt-1 text-sm text-slate-500">
-                          {document.kind}
-                        </p>
-
-                        {document.laboratory ? (
-                          <p className="mt-1 text-sm text-slate-500">
-                            Laboratory: {document.laboratory}
+              <div className="mt-5 space-y-4">
+                {lot.documents.length === 0 ? (
+                  <p className="text-sm text-slate-400">
+                    Documentation for this lot is pending.
+                  </p>
+                ) : (
+                  lot.documents.map((document, index) => (
+                    <div
+                      key={`${document.label}-${index}`}
+                      className="rounded-lg border border-slate-800 bg-slate-950/40 p-4"
+                    >
+                      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                        <div>
+                          <p className="font-semibold text-white">
+                            {document.label}
                           </p>
-                        ) : null}
-                      </div>
 
-                      <div className="flex flex-wrap gap-3">
-                        <a
-                          href={document.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-slate-200"
-                        >
-                          View Report
-                        </a>
+                          <p className="mt-1 text-sm text-slate-400">
+                            {document.kind}
+                          </p>
 
-                        {document.verificationUrl ? (
+                          {document.laboratory ? (
+                            <p className="mt-1 text-sm text-slate-500">
+                              Laboratory: {document.laboratory}
+                            </p>
+                          ) : null}
+                        </div>
+
+                        <div className="flex flex-wrap gap-3">
                           <a
-                            href={document.verificationUrl}
+                            href={document.url}
                             target="_blank"
                             rel="noreferrer"
-                            className="rounded-lg border border-slate-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:border-slate-500"
+                            className="rounded-lg bg-sky-500 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-sky-400"
                           >
-                            Verify Report
+                            View Report
                           </a>
-                        ) : null}
+
+                          {document.verificationUrl ? (
+                            <a
+                              href={document.verificationUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="rounded-lg border border-slate-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:border-sky-500 hover:text-sky-400"
+                            >
+                              Verify Report
+                            </a>
+                          ) : null}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))
+                )}
               </div>
             </div>
           ))}
         </div>
       )}
-    </div>
+
+      <p className="mt-5 text-xs leading-5 text-slate-500">
+        Laboratory documentation applies only to the specific lot or sample
+        identified in the associated report.
+      </p>
+    </section>
   );
 }
