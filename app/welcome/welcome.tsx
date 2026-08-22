@@ -20,6 +20,12 @@ name: "Tirzepatide",
 amount: "Research Compound",
 description:
 "Research information, batch documentation, and third-party laboratory records.",
+{
+  name: "MOTS-C",
+  amount: "20 mg",
+  image: "/avios-motsc-product.png",
+  description:
+    "Research compound with batch documentation and third-party laboratory records.",
 },
 {
 name: "Featured Compound",
