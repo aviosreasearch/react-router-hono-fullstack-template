@@ -32,13 +32,23 @@ export default function Welcome({ message }: { message: string }) {
   name: "NAD+",
   amount: "500 mg",
   category: "Metabolic / Cellular Research",
-  sizes: [{ label: "500 mg", price: 59.99 }],
+  sizes: [{ label: "500 mg", price: 54.99 }],
   image: "/avios-nad-product.PNG",
   href: "/products/nad-plus",
   description:
     "Research material with associated documentation and laboratory records.",
-},
-  ];
+  },
+  {
+    name: "GHK-CU",
+    amount: "100 mg",
+    category: "Copper Peptide Research",
+    sizes: [{ label: "100 mg", price: 59.99 }],
+    image: "/ghk-cu-100mg.png",
+    href: "/products/ghk-cu",
+    description:
+      "Research peptide with associated product information and laboratory documentation.",
+  },
+];
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
