@@ -154,7 +154,7 @@ export default function NadPlusProduct() {
       </section>
 
       {/* Documentation */}
-      <LotDocumentation />
+      <LotDocumentation productSlug="nad-plus" />
     </main>
   );
 }
