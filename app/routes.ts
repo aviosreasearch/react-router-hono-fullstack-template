@@ -5,4 +5,5 @@ export default [
   index("routes/home.tsx"),
   route("products/glp3-r", "routes/products.glp3-r.tsx"),
   route("products/mots-c", "routes/products.mots-c.tsx"),
+  route("products/nad-plus", "routes/products.nad-plus.tsx"),
 ] satisfies RouteConfig;
