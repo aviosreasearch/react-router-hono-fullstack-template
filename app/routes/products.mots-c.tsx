@@ -26,7 +26,7 @@ export default function MotsCProduct() {
           </a>
 
           <a
-            href="/#products"
+           href="/"
             className="rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-slate-500 hover:text-white"
           >
             ← Back to Compounds
