@@ -387,8 +387,8 @@ export default function Welcome({ message }: { message: string }) {
                 available.
               </p>
             </div>
-          </div>
-        </div>
+          
+         </div>
       </section>
 
       {/* About */}
@@ -452,10 +452,9 @@ export default function Welcome({ message }: { message: string }) {
     <p className="text-sm text-slate-600">
       © 2026 Avios Research
     </p>
-  </div>
+
 </footer>
-        </div>
-      </footer>
+     
     </main>
   );
 }
