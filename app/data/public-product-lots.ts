@@ -20,6 +20,5 @@ export const publicProductLots = {
   "glp3-r": [] as PublicProductLot[],
   "nad-plus": [] as PublicProductLot[],
 };
-};
 
 export type ProductSlug = keyof typeof publicProductLots;
