@@ -22,46 +22,58 @@ export default function Welcome() {
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="border-b border-slate-800">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28">
-          <div className="max-w-4xl">
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-cyan-400">
-              Research Materials & Laboratory Documentation
-            </p>
+ 
+{/* Hero */}
+<section className="border-b border-slate-800">
+  <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:py-24">
+    {/* Hero Copy */}
+    <div>
+      <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-cyan-400">
+        Research Materials & Laboratory Documentation
+      </p>
 
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              Research compounds with documentation at the center.
-            </h1>
+      <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+        Research compounds with documentation at the center.
+      </h1>
 
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-              Avios Research organizes compound information, lot records,
-              laboratory documentation, and research-use materials in one
-              clear, professional catalog.
-            </p>
+      <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+        Avios Research organizes compound information, lot records,
+        laboratory documentation, and research-use materials in one
+        clear, professional catalog.
+      </p>
 
-            <div className="mt-8 rounded-2xl border border-cyan-900/70 bg-slate-900/70 p-5">
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-300">
-                For Research Use Only
-              </p>
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Products and information presented by Avios Research are
-                intended for laboratory and research purposes only and are not
-                intended for human consumption.
-              </p>
-            </div>
+      <div className="mt-8 rounded-2xl border border-cyan-900/70 bg-slate-900/70 p-5">
+        <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-300">
+          For Research Use Only
+        </p>
 
-            <div className="mt-8">
-              <a
-                href="#products"
-                className="inline-flex rounded-lg bg-cyan-400 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-cyan-300"
-              >
-                Browse Compounds
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+        <p className="mt-2 text-sm leading-6 text-slate-400">
+          Products and information presented by Avios Research are
+          intended for laboratory and research purposes only and are not
+          intended for human consumption.
+        </p>
+      </div>
+
+      <div className="mt-8">
+        <a
+          href="#products"
+          className="inline-flex rounded-lg bg-cyan-400 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-cyan-300"
+        >
+          Browse Compounds
+        </a>
+      </div>
+    </div>
+
+    {/* MOTS-C Hero Image */}
+    <div className="flex items-center justify-center">
+      <img
+        src="/avios-motsc-hero-v2.png"
+        alt="Avios Research MOTS-C"
+        className="max-h-[560px] w-full max-w-xl object-contain"
+      />
+    </div>
+  </div>
+</section>
 
       {/* Products */}
       <section id="products" className="scroll-mt-8">
