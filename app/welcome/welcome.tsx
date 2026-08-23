@@ -389,6 +389,7 @@ export default function Welcome({ message }: { message: string }) {
             </div>
           
          </div>
+         </div>
       </section>
 
       {/* About */}
