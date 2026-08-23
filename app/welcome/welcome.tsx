@@ -1,4 +1,4 @@
-export function Welcome({ message }: { message: string }) {
+export default function Welcome({ message }: { message: string }) {
   void message;
 
   const products = [
