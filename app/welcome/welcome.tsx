@@ -27,15 +27,17 @@ export default function Welcome({ message }: { message: string }) {
       description:
         "Research compound with batch documentation and third-party laboratory records.",
     },
-    {
-      name: "Featured Compound",
-      amount: "More Coming Soon",
-      category: "Additional Research",
-      sizes: [],
-      href: "#products",
-      description:
-        "Additional Avios Research compounds will be added as inventory is photographed and documented.",
-    },
+
+{
+  name: "NAD+",
+  amount: "500 mg",
+  category: "Metabolic / Cellular Research",
+  sizes: [{ label: "500 mg", price: 0 }],
+  image: "/avios-nad-product.PNG",
+  href: "/products/nad-plus",
+  description:
+    "Research material with associated documentation and laboratory records.",
+},
   ];
 
   return (
