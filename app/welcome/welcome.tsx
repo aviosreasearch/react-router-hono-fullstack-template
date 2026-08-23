@@ -174,15 +174,17 @@ export default function Welcome({ message }: { message: string }) {
                 className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-950"
               >
                 {/* Product Image */}
-                {product.image ? (
-                  <div className="aspect-square overflow-hidden border-b border-slate-800 bg-white">
-                    <img
-                      src={product.image}
-                      alt={`${product.name} ${product.amount}`}
-                      className="h-full w-full object-contain p-6"
-                    />
-                  </div>
-                ) : (
+               {product.image ? (
+  <a href={product.href} className="block">
+    <div className="aspect-square overflow-hidden border-b border-slate-800 bg-white">
+      <img
+        src={product.image}
+        alt={`${product.name} ${product.amount}`}
+        className="h-full w-full object-contain p-6"
+      />
+    </div>
+  </a>
+) : (
                   <div className="flex aspect-square items-center justify-center border-b border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950">
                     <div className="text-center">
                       <div className="mx-auto flex h-24 w-16 items-center justify-center rounded-lg border border-slate-700 bg-slate-900 shadow-2xl">
