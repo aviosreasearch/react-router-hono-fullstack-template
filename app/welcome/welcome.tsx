@@ -32,7 +32,7 @@ export default function Welcome({ message }: { message: string }) {
   name: "NAD+",
   amount: "500 mg",
   category: "Metabolic / Cellular Research",
-  sizes: [{ label: "500 mg", price: 0 }],
+  sizes: [{ label: "500 mg", price: 59.99 }],
   image: "/avios-nad-product.PNG",
   href: "/products/nad-plus",
   description:
