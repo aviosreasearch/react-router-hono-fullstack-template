@@ -414,21 +414,46 @@ export default function Welcome({ message }: { message: string }) {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-10 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="font-bold tracking-[0.15em]">
-              AVIOS RESEARCH
-            </p>
+     
+<footer className="border-t border-slate-800">
+  <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between">
+    <div>
+      <p className="font-bold tracking-[0.15em]">
+        AVIOS RESEARCH
+      </p>
 
-            <p className="mt-2 text-sm text-slate-500">
-              Research use only. Not intended for human consumption.
-            </p>
-          </div>
+      <p className="mt-2 text-sm text-slate-500">
+        Research use only. Not intended for human consumption.
+      </p>
+    </div>
 
-          <p className="text-sm text-slate-600">
-            © 2026 Avios Research
-          </p>
+    <nav className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-400">
+      <a href="/contact" className="transition hover:text-white">
+        Contact
+      </a>
+
+      <a href="/research-use" className="transition hover:text-white">
+        Research Use Policy
+      </a>
+
+      <a href="/terms" className="transition hover:text-white">
+        Terms
+      </a>
+
+      <a href="/privacy" className="transition hover:text-white">
+        Privacy
+      </a>
+
+      <a href="/shipping-returns" className="transition hover:text-white">
+        Shipping & Returns
+      </a>
+    </nav>
+
+    <p className="text-sm text-slate-600">
+      © 2026 Avios Research
+    </p>
+  </div>
+</footer>
         </div>
       </footer>
     </main>
