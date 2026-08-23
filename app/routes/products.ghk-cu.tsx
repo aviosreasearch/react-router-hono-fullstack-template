@@ -3,7 +3,7 @@ import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 
 const sizes = [
-  { label: "500 mg", price: 59.99 },
+  { label: "100 mg", price: 59.99 },
 ];
 
 export default function GhkCuProduct() {
