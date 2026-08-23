@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import LotDocumentation from "../components/LotDocumentation";
+import { LotDocumentation } from "../components/LotDocumentation";
 
 const sizes = [
   { label: "10 mg", price: 59.99 },
@@ -107,7 +106,9 @@ export default function Glp3RProduct() {
 
             {/* Price */}
             <div className="mt-6">
-              <p className="text-sm font-medium text-slate-500">Price</p>
+              <p className="text-sm font-medium text-slate-500">
+                Price
+              </p>
 
               <p className="mt-1 text-4xl font-bold tracking-tight">
                 ${selectedSize.price.toFixed(2)}
@@ -116,40 +117,83 @@ export default function Glp3RProduct() {
 
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
-              <h2 className="text-xl font-semibold">Product Information</h2>
+              <h2 className="text-xl font-semibold">
+                Product Information
+              </h2>
 
               <div className="mt-5 space-y-4">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">Compound</span>
-                  <span className="font-medium">GLP3 R</span>
+                  <span className="text-slate-500">
+                    Compound
+                  </span>
+
+                  <span className="font-medium">
+                    GLP3 R
+                  </span>
                 </div>
 
                 <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">Amount</span>
-                  <span className="font-medium">{selectedSize.label}</span>
+                  <span className="text-slate-500">
+                    Amount
+                  </span>
+
+                  <span className="font-medium">
+                    {selectedSize.label}
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between gap-6 border-b border-slate-800 pb-4">
+                  <span className="text-slate-500">
+                    Category
+                  </span>
+
+                  <span className="text-right font-medium">
+                    Metabolic Research
+                  </span>
                 </div>
 
                 <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">Intended Use</span>
-                  <span className="font-medium text-slate-300">
-                    Research use only
+                  <span className="text-slate-500">
+                    Intended Use
+                  </span>
+
+                  <span className="font-medium">
+                    Laboratory Research
                   </span>
                 </div>
               </div>
             </div>
+
+            {/* Lot & COA Documentation */}
+            <LotDocumentation
+              productSlug="glp3-r"
+              selectedStrength={selectedSize.label}
+            />
           </div>
         </div>
       </section>
 
-      {/* Lot Documentation */}
-      <section className="mx-auto max-w-7xl px-6 pb-20">
-        <LotDocumentation productSlug="glp3-r" />
-      </section>
-
-      {/* Supporting Documentation */}
+      {/* Research Documentation */}
       <section className="border-y border-slate-800 bg-slate-900/40">
         <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="mb-10 max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-400">
+              Documentation
+            </p>
+
+            <h2 className="mt-3 text-3xl font-bold tracking-tight">
+              Research Material Records
+            </h2>
+
+            <p className="mt-4 leading-7 text-slate-400">
+              Avios Research organizes product documentation around product
+              identity, amount, lot records, and the laboratory records
+              applicable to available inventory.
+            </p>
+          </div>
+
           <div className="grid gap-6 md:grid-cols-3">
+            {/* Lot Records */}
             <div className="rounded-2xl border border-slate-800 bg-slate-950 p-7">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
                 Lot Records
@@ -161,25 +205,28 @@ export default function Glp3RProduct() {
 
               <p className="mt-3 leading-7 text-slate-400">
                 Available inventory can be associated with an Avios lot record
-                and its corresponding source documentation.
+                and the documentation applicable to that specific lot.
               </p>
             </div>
 
+            {/* Laboratory Records */}
             <div className="rounded-2xl border border-slate-800 bg-slate-950 p-7">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
-                Documentation
+                Laboratory Records
               </p>
 
               <h3 className="mt-3 text-xl font-semibold">
-                Laboratory Records
+                Documented Testing
               </h3>
 
               <p className="mt-3 leading-7 text-slate-400">
-                Supplier-provided and independent laboratory records are
-                identified according to their source when available.
+                Supplier-provided and independently obtained laboratory records
+                are identified according to the source and type of
+                documentation available.
               </p>
             </div>
 
+            {/* Storage */}
             <div className="rounded-2xl border border-slate-800 bg-slate-950 p-7">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
                 Storage
@@ -190,18 +237,24 @@ export default function Glp3RProduct() {
               </h3>
 
               <p className="mt-3 leading-7 text-slate-400">
-                Product-specific laboratory storage information will be
-                provided with the applicable product documentation.
+                Product-specific laboratory storage information can be provided
+                with the applicable product and documentation records.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Research Use Notice */}
+      {/* Research Material Notice */}
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-8">
-          <h2 className="text-xl font-semibold">Research Use Notice</h2>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
+            Research Material
+          </p>
+
+          <h2 className="mt-3 text-2xl font-semibold">
+            Research Use Notice
+          </h2>
 
           <p className="mt-4 max-w-4xl leading-7 text-slate-400">
             GLP3 R products offered by Avios Research are presented solely as
@@ -215,14 +268,18 @@ export default function Glp3RProduct() {
       <footer className="border-t border-slate-800">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-10 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="font-bold tracking-[0.15em]">AVIOS RESEARCH</p>
+            <p className="font-bold tracking-[0.15em]">
+              AVIOS RESEARCH
+            </p>
 
             <p className="mt-2 text-sm text-slate-500">
               Research use only. Not intended for human consumption.
             </p>
           </div>
 
-          <p className="text-sm text-slate-600">© 2026 Avios Research</p>
+          <p className="text-sm text-slate-600">
+            © 2026 Avios Research
+          </p>
         </div>
       </footer>
     </main>
