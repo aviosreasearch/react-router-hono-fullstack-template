@@ -43,7 +43,7 @@ export default function Welcome({ message }: { message: string }) {
     amount: "100 mg",
     category: "Copper Peptide Research",
     sizes: [{ label: "100 mg", price: 59.99 }],
-    image: "/ghk-cu-100mg.png",
+    image: "/ghk-cu-100mg.PNG",
     href: "/products/ghk-cu",
     description:
       "Research peptide with associated product information and laboratory documentation.",
