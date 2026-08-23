@@ -6,4 +6,5 @@ export default [
   route("products/glp3-r", "routes/products.glp3-r.tsx"),
   route("products/mots-c", "routes/products.mots-c.tsx"),
   route("products/nad-plus", "routes/products.nad-plus.tsx"),
+  route("products/ghk-cu", "routes/products.ghk-cu.tsx"),
 ] satisfies RouteConfig;
