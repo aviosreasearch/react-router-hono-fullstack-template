@@ -51,7 +51,7 @@ export default function LotDocumentation({
               <div className="flex flex-col gap-3 border-b border-slate-800 pb-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                    Avios Lot
+                   Documented Batch / Lot
                   </p>
 
                   <p className="mt-1 font-semibold text-white">
