@@ -73,7 +73,7 @@ export default function Contact() {
             </p>
 
             <Link
-              to="/research-use-policy"
+              to="/research-use"
               className="mt-4 inline-block text-sm font-medium text-sky-400 hover:text-sky-300"
             >
               Read our Research Use Policy →
