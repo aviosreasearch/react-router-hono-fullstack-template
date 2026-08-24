@@ -1,6 +1,5 @@
 import { useState } from "react";
-
-import LotDocumentation from "../components/LotDocumentation";
+import { LotDocumentation } from "../components/LotDocumentation";
 
 const sizes = [
   {
@@ -26,7 +25,7 @@ export default function MotsCProduct() {
           </a>
 
           <a
-           href="/"
+            href="/#products"
             className="rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-slate-500 hover:text-white"
           >
             ← Back to Compounds
@@ -76,11 +75,15 @@ export default function MotsCProduct() {
 
             {/* Strength Selector */}
             <div className="mt-8">
-              <label className="mb-2 block text-sm font-semibold text-slate-300">
+              <label
+                htmlFor="mots-c-strength"
+                className="mb-2 block text-sm font-semibold text-slate-300"
+              >
                 Select amount
               </label>
 
               <select
+                id="mots-c-strength"
                 value={selectedSize.label}
                 onChange={(event) => {
                   const size = sizes.find(
