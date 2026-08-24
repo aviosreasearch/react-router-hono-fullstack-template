@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LotDocumentation } from "../components/LotDocumentation";
+import LotDocumentation from "../components/LotDocumentation";
 
 const sizes = [
   {
