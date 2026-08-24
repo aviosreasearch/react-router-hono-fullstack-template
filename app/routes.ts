@@ -7,4 +7,5 @@ export default [
   route("products/nad-plus", "routes/products.nad-plus.tsx"),
   route("products/ghk-cu", "routes/products.ghk-cu.tsx"),
   route("research-use", "routes/research-use-policy.tsx"),
+  route("contact", "routes/contact.tsx"),
 ] satisfies RouteConfig;
