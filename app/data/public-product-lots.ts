@@ -34,7 +34,20 @@ export const publicProductLots = {
     },
   ] as PublicProductLot[],
 
-  "nad-plus": [] as PublicProductLot[],
+ "nad-plus": [
+  {
+    lotNumber: "20260503",
+    strength: "500 mg",
+    documents: [
+      {
+        label: "Nexus Scientific COA — Task #100710",
+        kind: "Independent Lab Report",
+        url: "/coas/NAD+-500mg-Nexus.pdf",
+        laboratory: "Nexus Scientific",
+      },
+    ],
+  },
+] as PublicProductLot[],
   "ghk-cu": [] as PublicProductLot[],
 };
 
