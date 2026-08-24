@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LotDocumentation } from "../components/LotDocumentation";
+import LotDocumentation from "../components/LotDocumentation";
 
 const sizes = [
   { label: "10 mg", price: 59.99 },
