@@ -1,3 +1,4 @@
+
 export type PublicLotDocument = {
   label: string;
   kind:
@@ -17,7 +18,22 @@ export type PublicProductLot = {
 
 export const publicProductLots = {
   "mots-c": [] as PublicProductLot[],
-  "glp3-r": [] as PublicProductLot[],
+
+  "glp3-r": [
+    {
+      lotNumber: "20260505101",
+      strength: "10 mg",
+      documents: [
+        {
+          label: "Janoshik Independent Lab Report — Task #165661",
+          kind: "Independent Lab Report",
+          url: "/coas/glp3-r-10mg-janoshik.pdf",
+          laboratory: "Janoshik",
+        },
+      ],
+    },
+  ] as PublicProductLot[],
+
   "nad-plus": [] as PublicProductLot[],
   "ghk-cu": [] as PublicProductLot[],
 };
