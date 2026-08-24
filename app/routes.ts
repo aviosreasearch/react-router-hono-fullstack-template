@@ -8,4 +8,5 @@ export default [
   route("products/ghk-cu", "routes/products.ghk-cu.tsx"),
   route("research-use", "routes/research-use-policy.tsx"),
   route("contact", "routes/contact.tsx"),
+  route("terms", "routes/terms.tsx"),
 ] satisfies RouteConfig;
