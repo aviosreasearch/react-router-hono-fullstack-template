@@ -1,6 +1,7 @@
+import { useCart } from "../components/CartProvider";
 export default function Welcome({ message }: { message: string }) {
   void message;
-
+const { cartCount } = useCart();
   const products = [
     {
       name: "GLP3 R",
@@ -99,6 +100,13 @@ export default function Welcome({ message }: { message: string }) {
           >
             View Compounds
           </a>
+
+         <a
+  href="/cart"
+  className="rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-sky-500/50 hover:text-white"
+>
+  Cart ({cartCount})
+</a> 
         </div>
       </header>
 
