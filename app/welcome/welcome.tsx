@@ -445,9 +445,13 @@ export default function Welcome({ message }: { message: string }) {
         Privacy
       </a>
 
-      <a href="/shipping-returns" className="transition hover:text-white">
-        Shipping & Returns
-      </a>
+      <a href="/shipping" className="transition hover:text-white">
+  Shipping
+</a>
+
+<a href="/returns" className="transition hover:text-white">
+  Returns & Refunds
+</a>
     </nav>
 
     <p className="text-sm text-slate-600">
