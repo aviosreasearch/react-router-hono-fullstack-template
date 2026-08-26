@@ -13,4 +13,5 @@ export default [
   route("shipping", "routes/shipping.tsx"),
   route("returns", "routes/returns.tsx"),
   route("checkout", "routes/checkout.tsx"),
+  route("cart", "routes/cart.tsx"),
 ] satisfies RouteConfig;
