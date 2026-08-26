@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../components/CartProvider";
 
 export default function Checkout() {
   const {
