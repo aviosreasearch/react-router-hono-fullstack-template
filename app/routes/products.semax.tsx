@@ -1,11 +1,11 @@
 
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
-
+import AddToCartButton from "../components/AddToCartButton";
 const sizes = [
   {
     label: "10 mg",
-    price: 0, // Replace with final Semax price
+    price: 40.00, 
   },
 ];
 
@@ -111,11 +111,16 @@ export default function SemaxProduct() {
                 Price
               </p>
 
-              <p className="mt-1 text-2xl font-semibold tracking-tight text-slate-400">
-                Price coming soon
-              </p>
+      <p className="mt-1 text-4xl font-bold tracking-tight text-white">
+  ${selectedSize.price.toFixed(2)}
+</p>
             </div>
-
+<AddToCartButton
+  id={`semax-${selectedSize.label.replace(/\s+/g, "-").toLowerCase()}`}
+  name="Semax"
+  strength={selectedSize.label}
+  price={selectedSize.price}
+/>
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
               <h2 className="text-xl font-semibold">
