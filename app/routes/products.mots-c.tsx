@@ -1,5 +1,6 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
+import AddToCartButton from "../components/AddToCartButton";
 
 const sizes = [
   {
@@ -114,7 +115,12 @@ export default function MotsCProduct() {
                 ${selectedSize.price.toFixed(2)}
               </p>
             </div>
-
+<AddToCartButton
+  id={`mots-c-${selectedSize.label.replace(/\s+/g, "-").toLowerCase()}`}
+  name="MOTS-C"
+  strength={selectedSize.label}
+  price={selectedSize.price}
+/>
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
               <h2 className="text-xl font-semibold">
