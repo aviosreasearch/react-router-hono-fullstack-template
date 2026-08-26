@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
-
+import AddToCartButton from "../components/AddToCartButton";
 const sizes = [
   { label: "10 mg", price: 59.99 },
   { label: "15 mg", price: 79.99 },
@@ -114,7 +114,12 @@ export default function Glp3RProduct() {
                 ${selectedSize.price.toFixed(2)}
               </p>
             </div>
-
+<AddToCartButton
+id={`glp3-r-${selectedSize.label.replace(/\s+/g, "-").toLowerCase()}`}
+name="GLP3 R"
+strength={selectedSize.label}
+price={selectedSize.price}
+/>
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
               <h2 className="text-xl font-semibold">
