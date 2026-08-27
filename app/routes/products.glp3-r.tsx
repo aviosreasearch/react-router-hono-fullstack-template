@@ -2,12 +2,12 @@ import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
 const sizes = [
-  { label: "10 mg", price: 59.99 },
-  { label: "15 mg", price: 79.99 },
-  { label: "30 mg", price: 129.99 },
-  { label: "50 mg", price: 199.99 },
+  { label: "10 mg", price: 50.00 },
+  { label: "15 mg", price: 70.00 },
+  { label: "20 mg", price: 90.00 },
+  { label: "30 mg", price: 120.00 },
+  { label: "50 mg", price: 190.00 },
 ];
-
 export default function Glp3RProduct() {
   const [selectedSize, setSelectedSize] = useState(sizes[0]);
 
