@@ -26,7 +26,7 @@ export default function Welcome({ message }: { message: string }) {
       name: "MOTS-C",
       amount: "Research Compound",
       category: "Metabolic / Mitochondrial Research",
-      sizes: [{ label: "20 mg", price: 59.99 }],
+      sizes: [{ label: "20 mg", price: 55.00 }],
       image: "/avios-motsc-product.png",
       href: "/products/mots-c",
       description:
