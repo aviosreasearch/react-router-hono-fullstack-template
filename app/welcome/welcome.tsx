@@ -10,13 +10,13 @@ export default function Welcome({ message }: { message: string }) {
       name: "GLP3 R",
       amount: "Research Compound",
       category: "Metabolic Research",
-    sizes: [
-  { label: "10 mg", price: 50.00 },
-  { label: "15 mg", price: 70.00 },
-  { label: "20 mg", price: 90.00 },
-  { label: "30 mg", price: 120.00 },
-  { label: "50 mg", price: 190.00 },
-],
+      sizes: [
+        { label: "10 mg", price: 50.00 },
+        { label: "15 mg", price: 70.00 },
+        { label: "20 mg", price: 90.00 },
+        { label: "30 mg", price: 120.00 },
+        { label: "50 mg", price: 190.00 },
+      ],
       image: "/avios-glp3r-product.png",
       href: "/products/glp3-r",
       description:
@@ -36,19 +36,29 @@ export default function Welcome({ message }: { message: string }) {
       name: "Semax",
       amount: "10 mg",
       category: "Cognitive Research",
-      sizes: [{ label: "10 mg", price: 40.0 }],
+      sizes: [{ label: "10 mg", price: 40.00 }],
       image: "/avios-semax-product.PNG",
       href: "/products/semax",
       description:
         "Research compound with organized product documentation and available laboratory records.",
     },
     {
+      name: "DSIP",
+      amount: "10 mg",
+      category: "Research Peptide",
+      sizes: [{ label: "10 mg", price: 40.00 }],
+      image: "/avios-dsip-product.PNG",
+      href: "/products/dsip",
+      description:
+        "Research peptide with organized product documentation and available laboratory records.",
+    },
+    {
       name: "NAD+",
       amount: "Research Material",
       category: "Metabolic / Cellular Research",
       sizes: [
-        { label: "500 mg", price: 55.0 },
-        { label: "1000 mg", price: 90.0 },
+        { label: "500 mg", price: 55.00 },
+        { label: "1000 mg", price: 90.00 },
       ],
       image: "/avios-nad-product.PNG",
       href: "/products/nad-plus",
