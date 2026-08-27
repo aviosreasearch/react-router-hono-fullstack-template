@@ -18,7 +18,9 @@ export type PublicProductLot = {
 
 export const publicProductLots = {
   "mots-c": [] as PublicProductLot[],
-"semax": [] as PublicProductLot[],
+  "semax": [] as PublicProductLot[],
+  "dsip": [] as PublicProductLot[],
+
   "glp3-r": [
     {
       lotNumber: "20260505101",
@@ -34,20 +36,21 @@ export const publicProductLots = {
     },
   ] as PublicProductLot[],
 
- "nad-plus": [
-  {
-    lotNumber: "20260503",
-    strength: "500 mg",
-    documents: [
-      {
-        label: "Nexus Scientific COA — Task #100710",
-        kind: "Independent Lab Report",
-        url: "/coas/NAD+-500mg-Nexus.pdf",
-        laboratory: "Nexus Scientific",
-      },
-    ],
-  },
-] as PublicProductLot[],
+  "nad-plus": [
+    {
+      lotNumber: "20260503",
+      strength: "500 mg",
+      documents: [
+        {
+          label: "Nexus Scientific COA — Task #100710",
+          kind: "Independent Lab Report",
+          url: "/coas/NAD+-500mg-Nexus.pdf",
+          laboratory: "Nexus Scientific",
+        },
+      ],
+    },
+  ] as PublicProductLot[],
+
   "ghk-cu": [] as PublicProductLot[],
 };
 
