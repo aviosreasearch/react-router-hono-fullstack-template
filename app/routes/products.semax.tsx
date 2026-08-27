@@ -41,7 +41,7 @@ export default function SemaxProduct() {
           <div className="overflow-hidden rounded-3xl border border-slate-800 bg-white">
             <div className="aspect-square">
               <img
-                src="/avios-semax-product.png"
+                src="/avios-semax-product.PNG"
                 alt={`Semax ${selectedSize.label}`}
                 className="h-full w-full object-contain p-10"
               />
