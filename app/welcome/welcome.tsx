@@ -10,13 +10,13 @@ export default function Welcome({ message }: { message: string }) {
       name: "GLP3 R",
       amount: "Research Compound",
       category: "Metabolic Research",
-      sizes: [
-        { label: "10 mg", price: 59.99 },
-        { label: "15 mg", price: 79.99 },
-        { label: "30 mg", price: 129.99 },
-        { label: "40 mg", price: 0 },
-        { label: "50 mg", price: 199.99 },
-      ],
+    sizes: [
+  { label: "10 mg", price: 50.00 },
+  { label: "15 mg", price: 70.00 },
+  { label: "20 mg", price: 90.00 },
+  { label: "30 mg", price: 120.00 },
+  { label: "50 mg", price: 190.00 },
+],
       image: "/avios-glp3r-product.png",
       href: "/products/glp3-r",
       description:
