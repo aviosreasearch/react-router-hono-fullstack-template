@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
+import AddToCartButton from "../components/AddToCartButton";
 
 const sizes = [
   { label: "100 mg", price: 59.99 },
@@ -38,7 +39,7 @@ export default function GhkCuProduct() {
           <div className="overflow-hidden rounded-3xl border border-slate-800 bg-white">
             <div className="aspect-square">
               <img
-               src="/ghk-cu-100mg.PNG"
+                src="/ghk-cu-100mg.PNG"
                 alt={`GHK-CU ${selectedSize.label}`}
                 className="h-full w-full object-contain p-10"
               />
@@ -52,7 +53,7 @@ export default function GhkCuProduct() {
             </p>
 
             <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-             GHK-CU
+              GHK-CU
             </h1>
 
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
@@ -110,6 +111,15 @@ export default function GhkCuProduct() {
               </p>
             </div>
 
+            <AddToCartButton
+              id={`ghk-cu-${selectedSize.label
+                .replace(/\s+/g, "-")
+                .toLowerCase()}`}
+              name="GHK-CU"
+              strength={selectedSize.label}
+              price={selectedSize.price}
+            />
+
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
               <h2 className="text-2xl font-bold">Product Information</h2>
@@ -154,7 +164,10 @@ export default function GhkCuProduct() {
       </section>
 
       {/* Documentation */}
-      <LotDocumentation productSlug="ghk-cu" />
+      <LotDocumentation
+        productSlug="ghk-cu"
+        selectedStrength={selectedSize.label}
+      />
     </main>
   );
 }
