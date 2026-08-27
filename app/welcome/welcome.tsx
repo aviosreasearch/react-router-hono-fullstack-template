@@ -45,7 +45,7 @@ export default function Welcome({ message }: { message: string }) {
     {
       name: "DSIP",
       amount: "10 mg",
-      category: "Research Peptide",
+      category: "Sleep & Circadian Research",
       sizes: [{ label: "10 mg", price: 40.00 }],
       image: "/avios-dsip-product.PNG",
       href: "/products/dsip",
