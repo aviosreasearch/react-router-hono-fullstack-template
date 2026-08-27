@@ -18,7 +18,7 @@ export type PublicProductLot = {
 
 export const publicProductLots = {
   "mots-c": [] as PublicProductLot[],
-
+"semax": [] as PublicProductLot[],
   "glp3-r": [
     {
       lotNumber: "20260505101",
