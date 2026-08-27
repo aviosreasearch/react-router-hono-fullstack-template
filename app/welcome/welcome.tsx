@@ -33,7 +33,7 @@ const { cartCount } = useCart();
     amount: "10 mg",
     category: "Cognitive Research",
     sizes: [{ label: "10 mg", price: 40.00 }],
-    image: "/avios-semax-product.png",
+    image: "/avios-semax-product.PNG",
     href: "/products/semax",
     description:
       "Research compound with organized product documentation and available laboratory records.",
