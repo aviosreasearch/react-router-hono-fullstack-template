@@ -21,6 +21,7 @@ export const publicProductLots = {
   "semax": [] as PublicProductLot[],
   "dsip": [] as PublicProductLot[],
   "trzp": [] as PublicProductLot[],
+  "tesamorelin": [] as PublicProductLot[],
 
   "glp3-r": [
     {
