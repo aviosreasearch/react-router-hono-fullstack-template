@@ -1,9 +1,11 @@
 
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
+import AddToCartButton from "../components/AddToCartButton";
 
 const sizes = [
-  { label: "500 mg", price: 59.99 },
+  { label: "500 mg", price: 55.0 },
+  { label: "1000 mg", price: 90.0 },
 ];
 
 export default function NadPlusProduct() {
@@ -110,6 +112,15 @@ export default function NadPlusProduct() {
               </p>
             </div>
 
+            <AddToCartButton
+              id={`nad-plus-${selectedSize.label
+                .replace(/\s+/g, "-")
+                .toLowerCase()}`}
+              name="NAD+"
+              strength={selectedSize.label}
+              price={selectedSize.price}
+            />
+
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
               <h2 className="text-2xl font-bold">Product Information</h2>
@@ -154,7 +165,10 @@ export default function NadPlusProduct() {
       </section>
 
       {/* Documentation */}
-      <LotDocumentation productSlug="nad-plus" />
+      <LotDocumentation
+        productSlug="nad-plus"
+        selectedStrength={selectedSize.label}
+      />
     </main>
   );
 }
