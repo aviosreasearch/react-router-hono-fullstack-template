@@ -6,6 +6,7 @@ export default [
   route("products/mots-c", "routes/products.mots-c.tsx"),
   route("products/semax", "routes/products.semax.tsx"),
   route("products/dsip", "routes/products.dsip.tsx"),
+  route("products/trzp", "routes/products.trzp.tsx"),
   route("products/nad-plus", "routes/products.nad-plus.tsx"),
   route("products/ghk-cu", "routes/products.ghk-cu.tsx"),
   route("research-use", "routes/research-use-policy.tsx"),
