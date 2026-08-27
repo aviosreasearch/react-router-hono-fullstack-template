@@ -1,5 +1,11 @@
 
-const products = [
+import { useCart } from "../components/CartProvider";
+
+export default function Welcome({ message }: { message: string }) {
+  void message;
+  const { cartCount } = useCart();
+
+  const products = [
   {
     name: "GLP3 R",
     amount: "Research Compound",
