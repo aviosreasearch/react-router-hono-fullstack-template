@@ -1,5 +1,13 @@
 
+import { useCart } from "../components/CartProvider";
+
 export default function Membership() {
+  const {
+    isMember,
+    activateMembership,
+    deactivateMembership,
+  } = useCart();
+
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       {/* Navigation */}
@@ -88,12 +96,35 @@ export default function Membership() {
             </div>
           </div>
 
-          <button
-            type="button"
-            className="mt-8 w-full rounded-lg bg-white px-6 py-3.5 font-semibold text-slate-950 transition hover:bg-slate-200"
-          >
-            Join Membership
-          </button>
+          {isMember ? (
+            <>
+              <div className="mt-8 rounded-xl border border-sky-500/30 bg-sky-500/10 p-5 text-center">
+                <p className="font-semibold text-sky-300">
+                  Membership Active
+                </p>
+
+                <p className="mt-2 text-sm text-slate-400">
+                  Your 15% member discount is active for testing.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={deactivateMembership}
+                className="mt-4 w-full rounded-lg border border-slate-700 px-6 py-3.5 font-semibold text-slate-300 transition hover:border-slate-500 hover:text-white"
+              >
+                Deactivate Test Membership
+              </button>
+            </>
+          ) : (
+            <button
+              type="button"
+              onClick={activateMembership}
+              className="mt-8 w-full rounded-lg bg-white px-6 py-3.5 font-semibold text-slate-950 transition hover:bg-slate-200"
+            >
+              Join Membership
+            </button>
+          )}
 
           <p className="mt-4 text-center text-xs leading-5 text-slate-500">
             Membership billing and account activation will be connected with
