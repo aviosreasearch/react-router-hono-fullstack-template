@@ -1,3 +1,4 @@
+
 import { useState, type FormEvent } from "react";
 import { useCart } from "../components/CartProvider";
 
@@ -8,6 +9,9 @@ export default function Checkout() {
     cartTotal,
     updateQuantity,
     removeItem,
+    isMember,
+    memberDiscount,
+    discountedCartTotal,
   } = useCart();
 
   const [agreementAccepted, setAgreementAccepted] = useState(false);
@@ -331,6 +335,18 @@ export default function Checkout() {
                 </span>
               </div>
 
+              {isMember ? (
+                <div className="mt-5 rounded-xl border border-sky-500/30 bg-sky-500/10 p-4">
+                  <p className="text-sm font-semibold text-sky-300">
+                    Avios Membership Active
+                  </p>
+
+                  <p className="mt-1 text-xs text-slate-400">
+                    Your 15% member discount is applied below.
+                  </p>
+                </div>
+              ) : null}
+
               <div className="mt-6 space-y-5">
                 {items.map((item) => (
                   <div
@@ -423,6 +439,16 @@ export default function Checkout() {
                   </span>
                 </div>
 
+                {isMember ? (
+                  <div className="flex items-center justify-between text-sky-400">
+                    <span>Member Discount (15%)</span>
+
+                    <span className="font-semibold">
+                      -${memberDiscount.toFixed(2)}
+                    </span>
+                  </div>
+                ) : null}
+
                 <div className="flex items-center justify-between text-slate-400">
                   <span>Shipping</span>
 
@@ -438,7 +464,11 @@ export default function Checkout() {
                     </span>
 
                     <span className="text-2xl font-bold">
-                      ${cartTotal.toFixed(2)}
+                      $
+                      {(isMember
+                        ? discountedCartTotal
+                        : cartTotal
+                      ).toFixed(2)}
                     </span>
                   </div>
 
