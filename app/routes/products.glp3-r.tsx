@@ -6,6 +6,7 @@ const sizes = [
   { label: "15 mg", price: 70.00 },
   { label: "20 mg", price: 90.00 },
   { label: "30 mg", price: 120.00 },
+  { label: "40 mg", price: 160.00 },
   { label: "50 mg", price: 190.00 },
 ];
 export default function Glp3RProduct() {
