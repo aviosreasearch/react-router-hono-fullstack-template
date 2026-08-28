@@ -22,18 +22,31 @@ type CartContextType = {
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
+
   cartCount: number;
   cartTotal: number;
+
+  isMember: boolean;
+  activateMembership: () => void;
+  deactivateMembership: () => void;
+
+  membershipDiscountRate: number;
+  memberDiscount: number;
+  discountedCartTotal: number;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
+  const [isMember, setIsMember] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const savedCart = localStorage.getItem("avios-cart");
+    const savedMembership = localStorage.getItem(
+      "avios-membership-active"
+    );
 
     if (savedCart) {
       try {
@@ -43,14 +56,30 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
     }
 
+    if (savedMembership === "true") {
+      setIsMember(true);
+    }
+
     setLoaded(true);
   }, []);
 
   useEffect(() => {
     if (loaded) {
-      localStorage.setItem("avios-cart", JSON.stringify(items));
+      localStorage.setItem(
+        "avios-cart",
+        JSON.stringify(items)
+      );
     }
   }, [items, loaded]);
+
+  useEffect(() => {
+    if (loaded) {
+      localStorage.setItem(
+        "avios-membership-active",
+        String(isMember)
+      );
+    }
+  }, [isMember, loaded]);
 
   function addItem(item: Omit<CartItem, "quantity">) {
     setItems((currentItems) => {
@@ -61,12 +90,21 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (existingItem) {
         return currentItems.map((currentItem) =>
           currentItem.id === item.id
-            ? { ...currentItem, quantity: currentItem.quantity + 1 }
+            ? {
+                ...currentItem,
+                quantity: currentItem.quantity + 1,
+              }
             : currentItem
         );
       }
 
-      return [...currentItems, { ...item, quantity: 1 }];
+      return [
+        ...currentItems,
+        {
+          ...item,
+          quantity: 1,
+        },
+      ];
     });
   }
 
@@ -84,7 +122,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
     setItems((currentItems) =>
       currentItems.map((item) =>
-        item.id === id ? { ...item, quantity } : item
+        item.id === id
+          ? {
+              ...item,
+              quantity,
+            }
+          : item
       )
     );
   }
@@ -93,15 +136,33 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setItems([]);
   }
 
+  function activateMembership() {
+    setIsMember(true);
+  }
+
+  function deactivateMembership() {
+    setIsMember(false);
+  }
+
   const cartCount = items.reduce(
     (total, item) => total + item.quantity,
     0
   );
 
   const cartTotal = items.reduce(
-    (total, item) => total + item.price * item.quantity,
+    (total, item) =>
+      total + item.price * item.quantity,
     0
   );
+
+  const membershipDiscountRate = 0.15;
+
+  const memberDiscount = isMember
+    ? cartTotal * membershipDiscountRate
+    : 0;
+
+  const discountedCartTotal =
+    cartTotal - memberDiscount;
 
   return (
     <CartContext.Provider
@@ -111,8 +172,17 @@ export function CartProvider({ children }: { children: ReactNode }) {
         removeItem,
         updateQuantity,
         clearCart,
+
         cartCount,
         cartTotal,
+
+        isMember,
+        activateMembership,
+        deactivateMembership,
+
+        membershipDiscountRate,
+        memberDiscount,
+        discountedCartTotal,
       }}
     >
       {children}
@@ -124,7 +194,9 @@ export function useCart() {
   const context = useContext(CartContext);
 
   if (!context) {
-    throw new Error("useCart must be used inside CartProvider");
+    throw new Error(
+      "useCart must be used inside CartProvider"
+    );
   }
 
   return context;
