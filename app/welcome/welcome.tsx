@@ -119,6 +119,10 @@ export default function Welcome({ message }: { message: string }) {
               Research Compounds
             </a>
 
+            <a href="/membership" className="transition hover:text-white">
+              Membership
+            </a>
+
             <a href="#verification" className="transition hover:text-white">
               COA Verification
             </a>
