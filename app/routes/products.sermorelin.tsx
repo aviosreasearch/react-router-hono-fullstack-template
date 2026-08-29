@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
-import AddToCartButton from "../components/AddToCartButton";
+import ComingSoon from "../components/ComingSoon";
 
 const sizes = [
   {
@@ -117,14 +117,7 @@ export default function SermorelinProduct() {
               </p>
             </div>
 
-            <AddToCartButton
-              id={`sermorelin-${selectedSize.label
-                .replace(/\s+/g, "-")
-                .toLowerCase()}`}
-              name="Sermorelin"
-              strength={selectedSize.label}
-              price={selectedSize.price}
-            />
+            <ComingSoon />
 
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
@@ -189,9 +182,11 @@ export default function SermorelinProduct() {
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
                 Lot Records
               </p>
+
               <h3 className="mt-3 text-xl font-semibold">
                 Batch Traceability
               </h3>
+
               <p className="mt-3 leading-7 text-slate-400">
                 Available inventory can be associated with an Avios lot record
                 and the documentation applicable to that specific lot.
@@ -202,9 +197,11 @@ export default function SermorelinProduct() {
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
                 Laboratory Records
               </p>
+
               <h3 className="mt-3 text-xl font-semibold">
                 Documented Testing
               </h3>
+
               <p className="mt-3 leading-7 text-slate-400">
                 Supplier-provided and independently obtained laboratory records
                 are identified according to the source and type of
@@ -216,9 +213,11 @@ export default function SermorelinProduct() {
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
                 Storage
               </p>
+
               <h3 className="mt-3 text-xl font-semibold">
                 Laboratory Storage
               </h3>
+
               <p className="mt-3 leading-7 text-slate-400">
                 Product-specific laboratory storage information can be provided
                 with the applicable product and documentation records.
