@@ -19,7 +19,7 @@ export default function SS31Product() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <a href="/" className="flex items-center">
             <img
-              src="/AVIOS Research logo.png"
+              src="/AVIOS Research logo.PNG"
               alt="Avios Research"
               className="h-24 w-auto object-contain"
             />
