@@ -24,7 +24,7 @@ export default function Returns() {
           </h1>
 
           <p className="mt-4 text-sm text-slate-500">
-            Last updated: August 24, 2026
+            Last updated: August 29, 2026
           </p>
 
           <div className="mt-10 space-y-9 text-sm leading-7 text-slate-300">
@@ -84,7 +84,8 @@ export default function Returns() {
               <p className="mt-3">
                 Original shipping charges are generally non-refundable unless
                 the refund results from an error by Avios Research or another
-                circumstance where we determine reimbursement is appropriate.
+                circumstance where reimbursement is determined to be
+                appropriate.
               </p>
             </section>
 
@@ -93,9 +94,9 @@ export default function Returns() {
                 6. Research Materials
               </h2>
               <p className="mt-3">
-                All products offered by Avios Research are sold exclusively for
-                laboratory, analytical, and research purposes and are not
-                intended for human consumption or administration.
+                All products offered by Avios Research are intended exclusively
+                for laboratory, analytical, and research purposes and are not
+                intended for human consumption.
               </p>
             </section>
 
@@ -106,9 +107,12 @@ export default function Returns() {
               <p className="mt-3">
                 Questions regarding an order, replacement, or refund request
                 should be sent to{" "}
-                <span className="font-medium text-sky-400">
+                <a
+                  href="mailto:support@aviospeptides.com"
+                  className="font-medium text-sky-400 transition hover:text-sky-300"
+                >
                   support@aviospeptides.com
-                </span>
+                </a>
                 .
               </p>
             </section>
