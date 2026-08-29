@@ -15,6 +15,7 @@ export default [
   route("products/sermorelin", "routes/products.sermorelin.tsx"),
   route("products/semaglutide", "routes/products.semaglutide.tsx"),
   route("products/ss-31", "routes/products.ss-31.tsx"),
+  route("products/epithalon", "routes/products.epithalon.tsx"),
   route("research-use", "routes/research-use-policy.tsx"),
   route("contact", "routes/contact.tsx"),
   route("membership", "routes/membership.tsx"),
