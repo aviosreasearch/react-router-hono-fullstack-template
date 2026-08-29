@@ -287,14 +287,14 @@ export default function Welcome({ message }: { message: string }) {
       </header>
 
       {/* Hero */}
-      <section className="mx-auto max-w-7xl px-4 pb-12 pt-10 sm:px-6 sm:pb-16 sm:pt-14">
-        <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-2">
+      <section className="mx-auto max-w-7xl px-4 pb-10 pt-7 sm:px-6 sm:pb-16 sm:pt-14">
+        <div className="grid items-center gap-7 sm:gap-10 lg:grid-cols-2">
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-sky-400 sm:mb-5 sm:text-sm sm:tracking-[0.35em]">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-400 sm:mb-5 sm:text-sm sm:tracking-[0.35em]">
               RESEARCH PEPTIDE CATALOG
             </p>
 
-            <h1 className="max-w-5xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
+            <h1 className="max-w-5xl text-[2.65rem] font-bold leading-[1.02] tracking-tight sm:text-6xl sm:leading-[1.08] lg:text-7xl">
               Premium Research Peptides.
               <br />
               Built for Research.
@@ -302,13 +302,13 @@ export default function Welcome({ message }: { message: string }) {
               Backed by Documentation.
             </h1>
 
-            <p className="mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:mt-7 sm:text-lg sm:leading-8">
+            <p className="mt-5 max-w-2xl text-[15px] leading-6 text-slate-300 sm:mt-7 sm:text-lg sm:leading-8">
               Research compounds supported by organized product information,
               supplier-provided laboratory documentation, lot records, and
               scientific literature.
             </p>
 
-            <div className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-4">
+            <div className="mt-6 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-4">
               <a
                 href="#products"
                 className="w-full rounded-lg bg-white px-6 py-3.5 text-center font-semibold text-slate-950 transition hover:bg-slate-200 sm:w-auto sm:px-7"
@@ -325,9 +325,9 @@ export default function Welcome({ message }: { message: string }) {
             </div>
           </div>
 
-          <div className="relative min-h-[330px] overflow-hidden rounded-2xl sm:min-h-[440px] sm:rounded-3xl lg:min-h-[560px]">
+          <div className="relative min-h-[250px] overflow-hidden rounded-2xl sm:min-h-[440px] sm:rounded-3xl lg:min-h-[560px]">
             <div
-              className="absolute inset-0 bg-[length:170%] bg-[position:center_58%] bg-no-repeat sm:bg-[length:160%] lg:bg-[length:190%]"
+              className="absolute inset-0 bg-[length:135%] bg-[position:center_55%] bg-no-repeat sm:bg-[length:160%] lg:bg-[length:190%]"
               style={{
                 backgroundImage: 'url("/avios-motsc-hero-v2.png")',
               }}
@@ -525,6 +525,7 @@ export default function Welcome({ message }: { message: string }) {
           <div className="mt-8 grid gap-5 sm:mt-10 sm:gap-6 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6 sm:p-7">
               <h3 className="text-xl font-semibold">Compound Profiles</h3>
+
               <p className="mt-3 leading-7 text-slate-400">
                 Organized background information for research compounds.
               </p>
@@ -532,6 +533,7 @@ export default function Welcome({ message }: { message: string }) {
 
             <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6 sm:p-7">
               <h3 className="text-xl font-semibold">Published Literature</h3>
+
               <p className="mt-3 leading-7 text-slate-400">
                 References to published scientific studies and research
                 literature.
@@ -542,6 +544,7 @@ export default function Welcome({ message }: { message: string }) {
               <h3 className="text-xl font-semibold">
                 Research Documentation
               </h3>
+
               <p className="mt-3 leading-7 text-slate-400">
                 Organized product, lot, and laboratory documentation where
                 available.
