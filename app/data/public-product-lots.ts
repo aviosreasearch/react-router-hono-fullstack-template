@@ -22,20 +22,21 @@ export const publicProductLots = {
   "dsip": [] as PublicProductLot[],
   "trzp": [] as PublicProductLot[],
   "tesamorelin": [] as PublicProductLot[],
- "glow": [
-  {
-    lotNumber: "41216",
-    strength: "70 mg",
-    documents: [
-      {
-        label: "Freedom Diagnostics Independent Lab Report",
-        kind: "Independent Lab Report",
-        url: "/coas/GLOW-coa-image.jpg",
-        laboratory: "Freedom Diagnostics",
-      },
-    ],
-  },
-] as PublicProductLot[],
+
+  "glow": [
+    {
+      lotNumber: "41216",
+      strength: "70 mg",
+      documents: [
+        {
+          label: "Freedom Diagnostics Independent Lab Report",
+          kind: "Independent Lab Report",
+          url: "/coas/GLOW-coa-image.jpg",
+          laboratory: "Freedom Diagnostics",
+        },
+      ],
+    },
+  ] as PublicProductLot[],
 
   "ipamorelin": [
     {
@@ -87,7 +88,20 @@ export const publicProductLots = {
     },
   ] as PublicProductLot[],
 
-  "ghk-cu": [] as PublicProductLot[],
+  "ghk-cu": [
+    {
+      lotNumber: "SD-260728-1",
+      strength: "100 mg",
+      documents: [
+        {
+          label: "Optiq Health Labs Independent Lab Report",
+          kind: "Independent Lab Report",
+          url: "/coas/CU100.pdf",
+          laboratory: "Optiq Health Labs",
+        },
+      ],
+    },
+  ] as PublicProductLot[],
 };
 
 export type ProductSlug = keyof typeof publicProductLots;
