@@ -147,7 +147,7 @@ export default function Welcome({ message }: { message: string }) {
       amount: "10 mg",
       category: "Mitochondrial Research",
       sizes: [{ label: "10 mg", price: 44.99 }],
-      image: "/avios-ss31-product.PNG",
+      image: "/avios-ss-31-product.PNG",
       href: "/products/ss-31",
       description:
         "Research peptide with organized product documentation and available laboratory records.",
