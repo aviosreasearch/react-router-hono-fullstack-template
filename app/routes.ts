@@ -13,6 +13,7 @@ export default [
   route("products/glow", "routes/products.glow.tsx"),
   route("products/ipamorelin", "routes/products.ipamorelin.tsx"),
   route("products/sermorelin", "routes/products.sermorelin.tsx"),
+  route("products/semaglutide", "routes/products.semaglutide.tsx"),
   route("research-use", "routes/research-use-policy.tsx"),
   route("contact", "routes/contact.tsx"),
   route("membership", "routes/membership.tsx"),
