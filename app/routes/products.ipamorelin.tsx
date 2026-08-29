@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
-import AddToCartButton from "../components/AddToCartButton";
+import ComingSoon from "../components/ComingSoon";
 
 const sizes = [
   {
@@ -117,14 +117,7 @@ export default function IpamorelinProduct() {
               </p>
             </div>
 
-            <AddToCartButton
-              id={`ipamorelin-${selectedSize.label
-                .replace(/\s+/g, "-")
-                .toLowerCase()}`}
-              name="Ipamorelin"
-              strength={selectedSize.label}
-              price={selectedSize.price}
-            />
+            <ComingSoon />
 
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
