@@ -23,6 +23,7 @@ export const publicProductLots = {
   "trzp": [] as PublicProductLot[],
   "tesamorelin": [] as PublicProductLot[],
   "glow": [] as PublicProductLot[],
+  "ipamorelin": [] as PublicProductLot[],
 
   "glp3-r": [
     {
