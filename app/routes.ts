@@ -11,6 +11,7 @@ export default [
   route("products/nad-plus", "routes/products.nad-plus.tsx"),
   route("products/ghk-cu", "routes/products.ghk-cu.tsx"),
   route("products/glow", "routes/products.glow.tsx"),
+  route("products/ipamorelin", "routes/products.ipamorelin.tsx"),
   route("research-use", "routes/research-use-policy.tsx"),
   route("contact", "routes/contact.tsx"),
   route("membership", "routes/membership.tsx"),
