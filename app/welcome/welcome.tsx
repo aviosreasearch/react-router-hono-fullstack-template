@@ -308,20 +308,24 @@ export default function Welcome({ message }: { message: string }) {
               scientific literature.
             </p>
 
-            <div className="mt-6 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-4">
-              <a
-                href="#products"
-                className="w-full rounded-lg bg-white px-6 py-3.5 text-center font-semibold text-slate-950 transition hover:bg-slate-200 sm:w-auto sm:px-7"
-              >
-                Browse Research Compounds
-              </a>
+            {/* About Avios */}
+            <div
+              id="about"
+              className="mt-7 max-w-2xl border-t border-slate-800 pt-6 sm:mt-10 sm:pt-8"
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-400 sm:text-sm sm:tracking-[0.3em]">
+                About Avios
+              </p>
 
-              <a
-                href="#verification"
-                className="w-full rounded-lg border border-slate-700 px-6 py-3.5 text-center font-semibold text-white transition hover:border-slate-500 sm:w-auto sm:px-7"
-              >
-                Verify a COA
-              </a>
+              <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
+                Documentation-first research products.
+              </h2>
+
+              <p className="mt-4 leading-7 text-slate-400 sm:leading-8">
+                Avios Research is designed around clear product identification,
+                accessible documentation, laboratory report verification, and
+                responsible presentation of scientific information.
+              </p>
             </div>
           </div>
 
@@ -551,28 +555,6 @@ export default function Welcome({ message }: { message: string }) {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* About */}
-      <section
-        id="about"
-        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20"
-      >
-        <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-400 sm:text-sm sm:tracking-[0.3em]">
-            About Avios
-          </p>
-
-          <h2 className="mt-3 text-3xl font-bold">
-            Documentation-first research products.
-          </h2>
-
-          <p className="mt-5 leading-7 text-slate-400 sm:leading-8">
-            Avios Research is designed around clear product identification,
-            accessible documentation, laboratory report verification, and
-            responsible presentation of scientific information.
-          </p>
         </div>
       </section>
 
