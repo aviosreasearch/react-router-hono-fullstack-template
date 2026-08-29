@@ -22,7 +22,20 @@ export const publicProductLots = {
   "dsip": [] as PublicProductLot[],
   "trzp": [] as PublicProductLot[],
   "tesamorelin": [] as PublicProductLot[],
-  "glow": [] as PublicProductLot[],
+ "glow": [
+  {
+    lotNumber: "41216",
+    strength: "70 mg",
+    documents: [
+      {
+        label: "Freedom Diagnostics Independent Lab Report",
+        kind: "Independent Lab Report",
+        url: "/coas/GLOW-coa-image.jpg",
+        laboratory: "Freedom Diagnostics",
+      },
+    ],
+  },
+] as PublicProductLot[],
 
   "ipamorelin": [
     {
