@@ -40,9 +40,12 @@ export default function Contact() {
 
               <p className="mt-5 text-sm text-slate-300">
                 Email:
-                <span className="ml-2 font-medium text-sky-400">
+                <a
+                  href="mailto:support@aviospeptides.com"
+                  className="ml-2 font-medium text-sky-400 transition hover:text-sky-300"
+                >
                   support@aviospeptides.com
-                </span>
+                </a>
               </p>
             </div>
 
@@ -67,9 +70,9 @@ export default function Contact() {
             </h2>
 
             <p className="mt-3 text-sm leading-6 text-slate-300">
-              Avios Research products are sold exclusively for laboratory,
-              analytical, and research purposes. Products are not intended for
-              human consumption or use.
+              Avios Research products are intended exclusively for laboratory,
+              analytical, and research purposes. They are not intended for human
+              consumption.
             </p>
 
             <Link
