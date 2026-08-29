@@ -24,7 +24,7 @@ export default function Shipping() {
           </h1>
 
           <p className="mt-4 text-sm text-slate-500">
-            Last updated: August 24, 2026
+            Last updated: August 29, 2026
           </p>
 
           <div className="mt-10 space-y-9 text-sm leading-7 text-slate-300">
@@ -46,10 +46,9 @@ export default function Shipping() {
                 2. Shipping Methods
               </h2>
               <p className="mt-3">
-                Available shipping methods and any applicable shipping charges
-                will be displayed during checkout when available. Shipping
-                carriers may include USPS, FedEx, UPS, or other qualified
-                carriers selected by Avios Research.
+                Available shipping methods and applicable shipping charges will
+                be displayed during checkout. Carriers may include USPS, FedEx,
+                UPS, or another carrier selected by Avios Research.
               </p>
             </section>
 
@@ -69,7 +68,7 @@ export default function Shipping() {
                 4. Delivery Estimates
               </h2>
               <p className="mt-3">
-                Delivery dates and transit times are estimates only and are not
+                Delivery dates and transit times are estimates and are not
                 guaranteed. Carrier delays, weather events, holidays, service
                 interruptions, transportation issues, and other circumstances
                 outside our reasonable control may affect delivery.
@@ -95,9 +94,9 @@ export default function Shipping() {
               <p className="mt-3">
                 If a shipment appears lost or significantly delayed, please
                 contact us with your order number and tracking information.
-                We may assist with carrier inquiries when appropriate, but
-                carrier investigations and delivery determinations may require
-                additional time.
+                Avios Research may assist with carrier inquiries when
+                appropriate, although carrier investigations and delivery
+                determinations may require additional time.
               </p>
             </section>
 
@@ -120,7 +119,7 @@ export default function Shipping() {
               </h2>
               <p className="mt-3">
                 Packages returned because of an incorrect address, refusal,
-                failure to retrieve the shipment, or other delivery issue may
+                failure to retrieve the shipment, or another delivery issue may
                 require additional shipping charges before reshipment.
               </p>
             </section>
@@ -142,10 +141,11 @@ export default function Shipping() {
                 10. Research Materials
               </h2>
               <p className="mt-3">
-                All products are sold for laboratory, analytical, and research
-                purposes only. Customers are responsible for ensuring that
-                receipt, possession, storage, and use of ordered materials are
-                permitted under applicable requirements.
+                All products are intended exclusively for laboratory,
+                analytical, and research purposes and are not intended for human
+                consumption. Customers are responsible for ensuring that
+                receipt, possession, storage, and use of ordered materials
+                comply with applicable requirements.
               </p>
             </section>
 
@@ -155,9 +155,12 @@ export default function Shipping() {
               </h2>
               <p className="mt-3">
                 For shipping questions or concerns, contact{" "}
-                <span className="font-medium text-sky-400">
+                <a
+                  href="mailto:support@aviospeptides.com"
+                  className="font-medium text-sky-400 transition hover:text-sky-300"
+                >
                   support@aviospeptides.com
-                </span>
+                </a>
                 .
               </p>
             </section>
