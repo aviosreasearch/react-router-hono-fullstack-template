@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
-import AddToCartButton from "../components/AddToCartButton";
+import ComingSoon from "../components/ComingSoon";
 
 const sizes = [
   {
@@ -117,14 +117,7 @@ export default function GlowProduct() {
               </p>
             </div>
 
-            <AddToCartButton
-              id={`glow-${selectedSize.label
-                .replace(/\s+/g, "-")
-                .toLowerCase()}`}
-              name="GLOW"
-              strength={selectedSize.label}
-              price={selectedSize.price}
-            />
+            <ComingSoon />
 
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
