@@ -1,5 +1,5 @@
 
-S import { useState } from "react";
+import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
 
