@@ -14,12 +14,12 @@ export default function Welcome({ message }: { message: string }) {
       amount: "Research Compound",
       category: "Metabolic Research",
       sizes: [
-        { label: "10 mg", price: 50.0 },
-        { label: "15 mg", price: 70.0 },
-        { label: "20 mg", price: 90.0 },
-        { label: "30 mg", price: 120.0 },
-        { label: "40 mg", price: 160.0 },
-        { label: "50 mg", price: 190.0 },
+        { label: "10 mg", price: 49.99 },
+        { label: "15 mg", price: 69.99 },
+        { label: "20 mg", price: 89.99 },
+        { label: "30 mg", price: 119.99 },
+        { label: "40 mg", price: 159.99 },
+        { label: "50 mg", price: 189.99 },
       ],
       image: "/avios-glp3r-product.png",
       href: "/products/glp3-r",
@@ -30,7 +30,7 @@ export default function Welcome({ message }: { message: string }) {
       name: "MOTS-C",
       amount: "Research Compound",
       category: "Metabolic / Mitochondrial Research",
-      sizes: [{ label: "20 mg", price: 55.0 }],
+      sizes: [{ label: "20 mg", price: 54.99 }],
       image: "/avios-motsc-product.png",
       href: "/products/mots-c",
       description:
@@ -40,7 +40,7 @@ export default function Welcome({ message }: { message: string }) {
       name: "Semax",
       amount: "10 mg",
       category: "Cognitive Research",
-      sizes: [{ label: "10 mg", price: 40.0 }],
+      sizes: [{ label: "10 mg", price: 39.99 }],
       image: "/avios-semax-product.PNG",
       href: "/products/semax",
       description:
@@ -50,7 +50,7 @@ export default function Welcome({ message }: { message: string }) {
       name: "DSIP",
       amount: "10 mg",
       category: "Sleep & Circadian Research",
-      sizes: [{ label: "10 mg", price: 40.0 }],
+      sizes: [{ label: "10 mg", price: 39.99 }],
       image: "/avios-dsip-product.PNG",
       href: "/products/dsip",
       description:
@@ -61,8 +61,8 @@ export default function Welcome({ message }: { message: string }) {
       amount: "Research Compound",
       category: "Metabolic Research",
       sizes: [
-        { label: "10 mg", price: 55.0 },
-        { label: "20 mg", price: 80.0 },
+        { label: "10 mg", price: 54.99 },
+        { label: "20 mg", price: 79.99 },
       ],
       image: "/avios-trzp-product.PNG",
       href: "/products/trzp",
@@ -73,7 +73,7 @@ export default function Welcome({ message }: { message: string }) {
       name: "Tesamorelin",
       amount: "5 mg",
       category: "Growth Hormone Research",
-      sizes: [{ label: "5 mg", price: 45.0 }],
+      sizes: [{ label: "5 mg", price: 44.99 }],
       image: "/avios-tesamorelin-product.PNG",
       href: "/products/tesamorelin",
       description:
@@ -84,8 +84,8 @@ export default function Welcome({ message }: { message: string }) {
       amount: "Research Material",
       category: "Metabolic / Cellular Research",
       sizes: [
-        { label: "500 mg", price: 55.0 },
-        { label: "1000 mg", price: 90.0 },
+        { label: "500 mg", price: 54.99 },
+        { label: "1000 mg", price: 89.99 },
       ],
       image: "/avios-nad-product.PNG",
       href: "/products/nad-plus",
@@ -101,6 +101,66 @@ export default function Welcome({ message }: { message: string }) {
       href: "/products/ghk-cu",
       description:
         "Research peptide with associated product information and laboratory documentation.",
+    },
+    {
+      name: "GLOW",
+      amount: "70 mg",
+      category: "Peptide Blend Research",
+      sizes: [{ label: "70 mg", price: 79.99 }],
+      image: "/avios-glow-product.PNG",
+      href: "/products/glow",
+      description:
+        "Research peptide blend with organized product documentation and available laboratory records.",
+    },
+    {
+      name: "Ipamorelin",
+      amount: "10 mg",
+      category: "Growth Hormone Research",
+      sizes: [{ label: "10 mg", price: 39.99 }],
+      image: "/avios-ipamorelin-product.PNG",
+      href: "/products/ipamorelin",
+      description:
+        "Research peptide with organized product documentation and available laboratory records.",
+    },
+    {
+      name: "Sermorelin",
+      amount: "10 mg",
+      category: "Growth Hormone Research",
+      sizes: [{ label: "10 mg", price: 44.99 }],
+      image: "/avios-sermorelin-product.PNG",
+      href: "/products/sermorelin",
+      description:
+        "Research peptide with organized product documentation and available laboratory records.",
+    },
+    {
+      name: "Semaglutide",
+      amount: "20 mg",
+      category: "Metabolic Research",
+      sizes: [{ label: "20 mg", price: 69.99 }],
+      image: "/avios-semaglutide-product.PNG",
+      href: "/products/semaglutide",
+      description:
+        "Research compound with organized product documentation and available laboratory records.",
+    },
+    {
+      name: "SS-31",
+      amount: "10 mg",
+      category: "Mitochondrial Research",
+      sizes: [{ label: "10 mg", price: 44.99 }],
+      image: "/avios-ss31-product.PNG",
+      href: "/products/ss-31",
+      description:
+        "Research peptide with organized product documentation and available laboratory records.",
+    },
+    {
+      name: "Epithalon",
+      amount: "10 mg",
+      category: "Cellular Aging Research",
+      sizes: [{ label: "10 mg", price: 44.99 }],
+      image: "/avios-epithalon-product.PNG",
+      href: "/products/epithalon",
+      description:
+        "Research peptide with organized product documentation and available laboratory records.",
     },
   ];
 
