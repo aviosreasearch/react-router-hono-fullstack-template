@@ -25,6 +25,7 @@ export const publicProductLots = {
   "glow": [] as PublicProductLot[],
   "ipamorelin": [] as PublicProductLot[],
   "sermorelin": [] as PublicProductLot[],
+  "semaglutide": [] as PublicProductLot[],
 
   "glp3-r": [
     {
