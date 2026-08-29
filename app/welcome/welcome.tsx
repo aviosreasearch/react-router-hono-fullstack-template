@@ -191,7 +191,7 @@ export default function Welcome({ message }: { message: string }) {
             </div>
           </div>
 
-          <div className="relative hidden min-h-[560px] overflow-hidden rounded-3xl lg:block">
+          <div className="relative min-h-[360px] overflow-hidden rounded-3xl sm:min-h-[440px] lg:min-h-[560px]">
             <div
               className="absolute inset-0 bg-[length:190%] bg-[position:center_58%] bg-no-repeat"
               style={{
