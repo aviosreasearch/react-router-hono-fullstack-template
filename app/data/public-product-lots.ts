@@ -1,107 +1,133 @@
-
 export type PublicLotDocument = {
-  label: string;
-  kind:
-    | "Supplier COA"
-    | "Independent Lab Report"
-    | "Other Documentation";
-  url: string;
-  verificationUrl?: string;
-  laboratory?: string;
+label: string;
+kind:
+| "Supplier COA"
+| "Independent Lab Report"
+| "Other Documentation";
+url: string;
+verificationUrl?: string;
+laboratory?: string;
 };
 
 export type PublicProductLot = {
-  lotNumber: string;
-  strength: string;
-  documents: PublicLotDocument[];
+lotNumber: string;
+strength: string;
+documents: PublicLotDocument[];
 };
 
 export const publicProductLots = {
-  "mots-c": [] as PublicProductLot[],
-  "semax": [] as PublicProductLot[],
-  "dsip": [] as PublicProductLot[],
-  "trzp": [] as PublicProductLot[],
-  "tesamorelin": [] as PublicProductLot[],
+"mots-c": [] as PublicProductLot[],
+"semax": [] as PublicProductLot[],
+"dsip": [] as PublicProductLot[],
 
-  "glow": [
-    {
-      lotNumber: "41216",
-      strength: "70 mg",
-      documents: [
-        {
-          label: "Freedom Diagnostics Independent Lab Report",
-          kind: "Independent Lab Report",
-          url: "/coas/GLOW-coa-image.jpg",
-          laboratory: "Freedom Diagnostics",
-        },
-      ],
-    },
-  ] as PublicProductLot[],
+"trzp": [
+{
+lotNumber: "TR20010A",
+strength: "20 mg",
+documents: [
+{
+label: "Freedom Diagnostics Independent Lab Report — 20 mg",
+kind: "Independent Lab Report",
+url: "/coas/TR20.pdf",
+laboratory: "Freedom Diagnostics",
+},
+],
+},
+{
+lotNumber: "TR30010A",
+strength: "30 mg",
+documents: [
+{
+label: "Freedom Diagnostics Independent Lab Report — 30 mg",
+kind: "Independent Lab Report",
+url: "/coas/TR30.pdf",
+laboratory: "Freedom Diagnostics",
+},
+],
+},
+] as PublicProductLot[],
 
-  "ipamorelin": [
-    {
-      lotNumber: "41216",
-      strength: "10 mg",
-      documents: [
-        {
-          label: "Freedom Diagnostics Independent Lab Report",
-          kind: "Independent Lab Report",
-          url: "/coas/ipamorelin-coa-image.jpg",
-          laboratory: "Freedom Diagnostics",
-        },
-      ],
-    },
-  ] as PublicProductLot[],
+"tesamorelin": [] as PublicProductLot[],
 
-  "sermorelin": [] as PublicProductLot[],
-  "semaglutide": [] as PublicProductLot[],
-  "epithalon": [] as PublicProductLot[],
-  "ss-31": [] as PublicProductLot[],
+"glow": [
+{
+lotNumber: "41216",
+strength: "70 mg",
+documents: [
+{
+label: "Freedom Diagnostics Independent Lab Report",
+kind: "Independent Lab Report",
+url: "/coas/GLOW-coa-image.jpg",
+laboratory: "Freedom Diagnostics",
+},
+],
+},
+] as PublicProductLot[],
 
-  "glp3-r": [
-    {
-      lotNumber: "20260505101",
-      strength: "10 mg",
-      documents: [
-        {
-          label: "Janoshik Independent Lab Report — Task #165661",
-          kind: "Independent Lab Report",
-          url: "/coas/glp3-r-10mg-janoshik.pdf",
-          laboratory: "Janoshik",
-        },
-      ],
-    },
-  ] as PublicProductLot[],
+"ipamorelin": [
+{
+lotNumber: "41216",
+strength: "10 mg",
+documents: [
+{
+label: "Freedom Diagnostics Independent Lab Report",
+kind: "Independent Lab Report",
+url: "/coas/ipamorelin-coa-image.jpg",
+laboratory: "Freedom Diagnostics",
+},
+],
+},
+] as PublicProductLot[],
 
-  "nad-plus": [
-    {
-      lotNumber: "20260503",
-      strength: "500 mg",
-      documents: [
-        {
-          label: "Nexus Scientific COA — Task #100710",
-          kind: "Independent Lab Report",
-          url: "/coas/NAD+-500mg-Nexus.pdf",
-          laboratory: "Nexus Scientific",
-        },
-      ],
-    },
-  ] as PublicProductLot[],
+"sermorelin": [] as PublicProductLot[],
+"semaglutide": [] as PublicProductLot[],
+"epithalon": [] as PublicProductLot[],
+"ss-31": [] as PublicProductLot[],
 
-  "ghk-cu": [
-    {
-      lotNumber: "SD-260728-1",
-      strength: "100 mg",
-      documents: [
-        {
-          label: "Optiq Health Labs Independent Lab Report",
-          kind: "Independent Lab Report",
-          url: "/coas/CU100.pdf",
-          laboratory: "Optiq Health Labs",
-        },
-      ],
-    },
-  ] as PublicProductLot[],
+"glp3-r": [
+{
+lotNumber: "20260505101",
+strength: "10 mg",
+documents: [
+{
+label: "Janoshik Independent Lab Report — Task #165661",
+kind: "Independent Lab Report",
+url: "/coas/glp3-r-10mg-janoshik.pdf",
+laboratory: "Janoshik",
+},
+],
+},
+] as PublicProductLot[],
+
+"nad-plus": [
+{
+lotNumber: "20260503",
+strength: "500 mg",
+documents: [
+{
+label: "Nexus Scientific COA — Task #100710",
+kind: "Independent Lab Report",
+url: "/coas/NAD+-500mg-Nexus.pdf",
+laboratory: "Nexus Scientific",
+},
+],
+},
+] as PublicProductLot[],
+
+"ghk-cu": [
+{
+lotNumber: "SD-260728-1",
+strength: "100 mg",
+documents: [
+{
+label: "Optiq Health Labs Independent Lab Report",
+kind: "Independent Lab Report",
+url: "/coas/CU100.pdf",
+laboratory: "Optiq Health Labs",
+},
+],
+},
+] as PublicProductLot[],
 };
 
 export type ProductSlug = keyof typeof publicProductLots;
