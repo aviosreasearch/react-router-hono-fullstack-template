@@ -23,6 +23,7 @@ export default [
   route("privacy", "routes/privacy.tsx"),
   route("shipping", "routes/shipping.tsx"),
   route("returns", "routes/returns.tsx"),
+  S route("api/friends-family", "routes/api.friends-family.ts"),
   route("checkout", "routes/checkout.tsx"),
   route("cart", "routes/cart.tsx"),
 ] satisfies RouteConfig;
