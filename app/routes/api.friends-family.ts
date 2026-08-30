@@ -1,7 +1,7 @@
-
+import { env } from "cloudflare:workers";
 import type { Route } from "./+types/api.friends-family";
 
-export async function action({ request, context }: Route.ActionArgs) {
+export async function action({ request }: Route.ActionArgs) {
   if (request.method !== "POST") {
     return Response.json(
       { valid: false, error: "Method not allowed" },
@@ -23,13 +23,22 @@ export async function action({ request, context }: Route.ActionArgs) {
     );
   }
 
-  const validCode = context.cloudflare.env.FRIENDS_FAMILY_CODE;
+  const validCode = env.FRIENDS_FAMILY_CODE;
 
-  if (!validCode) {
-    console.error("FRIENDS_FAMILY_CODE secret is not configured.");
+  if (
+    typeof validCode !== "string" ||
+    validCode.length === 0
+  ) {
+    console.error(
+      "FRIENDS_FAMILY_CODE secret is not configured.",
+    );
 
     return Response.json(
-      { valid: false, discountRate: 0 },
+      {
+        valid: false,
+        discountRate: 0,
+        error: "Discount service is not configured",
+      },
       { status: 500 },
     );
   }
