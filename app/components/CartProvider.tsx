@@ -25,28 +25,16 @@ type CartContextType = {
 
   cartCount: number;
   cartTotal: number;
-
-  isMember: boolean;
-  activateMembership: () => void;
-  deactivateMembership: () => void;
-
-  membershipDiscountRate: number;
-  memberDiscount: number;
-  discountedCartTotal: number;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
-  const [isMember, setIsMember] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const savedCart = localStorage.getItem("avios-cart");
-    const savedMembership = localStorage.getItem(
-      "avios-membership-active"
-    );
 
     if (savedCart) {
       try {
@@ -56,9 +44,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
     }
 
-    if (savedMembership === "true") {
-      setIsMember(true);
-    }
+    /*
+      Remove any membership state created by the old test system.
+      Membership status will eventually come from verified server-side
+      subscription data instead of localStorage.
+    */
+    localStorage.removeItem("avios-membership-active");
 
     setLoaded(true);
   }, []);
@@ -67,24 +58,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
     if (loaded) {
       localStorage.setItem(
         "avios-cart",
-        JSON.stringify(items)
+        JSON.stringify(items),
       );
     }
   }, [items, loaded]);
 
-  useEffect(() => {
-    if (loaded) {
-      localStorage.setItem(
-        "avios-membership-active",
-        String(isMember)
-      );
-    }
-  }, [isMember, loaded]);
-
   function addItem(item: Omit<CartItem, "quantity">) {
     setItems((currentItems) => {
       const existingItem = currentItems.find(
-        (currentItem) => currentItem.id === item.id
+        (currentItem) => currentItem.id === item.id,
       );
 
       if (existingItem) {
@@ -94,7 +76,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
                 ...currentItem,
                 quantity: currentItem.quantity + 1,
               }
-            : currentItem
+            : currentItem,
         );
       }
 
@@ -110,7 +92,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   function removeItem(id: string) {
     setItems((currentItems) =>
-      currentItems.filter((item) => item.id !== id)
+      currentItems.filter((item) => item.id !== id),
     );
   }
 
@@ -127,8 +109,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
               ...item,
               quantity,
             }
-          : item
-      )
+          : item,
+      ),
     );
   }
 
@@ -136,33 +118,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setItems([]);
   }
 
-  function activateMembership() {
-    setIsMember(true);
-  }
-
-  function deactivateMembership() {
-    setIsMember(false);
-  }
-
   const cartCount = items.reduce(
     (total, item) => total + item.quantity,
-    0
+    0,
   );
 
   const cartTotal = items.reduce(
-    (total, item) =>
-      total + item.price * item.quantity,
-    0
+    (total, item) => total + item.price * item.quantity,
+    0,
   );
-
-  const membershipDiscountRate = 0.15;
-
-  const memberDiscount = isMember
-    ? cartTotal * membershipDiscountRate
-    : 0;
-
-  const discountedCartTotal =
-    cartTotal - memberDiscount;
 
   return (
     <CartContext.Provider
@@ -172,17 +136,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         removeItem,
         updateQuantity,
         clearCart,
-
         cartCount,
         cartTotal,
-
-        isMember,
-        activateMembership,
-        deactivateMembership,
-
-        membershipDiscountRate,
-        memberDiscount,
-        discountedCartTotal,
       }}
     >
       {children}
@@ -195,7 +150,7 @@ export function useCart() {
 
   if (!context) {
     throw new Error(
-      "useCart must be used inside CartProvider"
+      "useCart must be used inside CartProvider",
     );
   }
 
