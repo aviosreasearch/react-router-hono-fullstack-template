@@ -626,13 +626,16 @@ Research Library
 </h2>
 
 <div className="mt-8 grid gap-5 sm:mt-10 sm:gap-6 md:grid-cols-3">
-<div className="rounded-2xl border border-slate-800 bg-slate-950 p-6 sm:p-7">
+<a
+href="#products"
+className="block rounded-2xl border border-slate-800 bg-slate-950 p-6 transition hover:border-sky-500/50 hover:bg-slate-900 sm:p-7"
+
 <h3 className="text-xl font-semibold">Compound Profiles</h3>
 
 <p className="mt-3 leading-7 text-slate-400">
 Organized background information for research compounds.
 </p>
-</div>
+</a>
 
 <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6 sm:p-7">
 <h3 className="text-xl font-semibold">Published Literature</h3>
