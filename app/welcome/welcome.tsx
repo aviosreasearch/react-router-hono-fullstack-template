@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useCart } from "../components/CartProvider";
 
@@ -367,141 +366,264 @@ export default function Welcome({ message }: { message: string }) {
 
       {/* Hero */}
       <section className="relative mx-auto max-w-7xl overflow-hidden px-4 pb-10 pt-7 sm:px-6 sm:pb-16 sm:pt-14">
+        {/* Soft blue atmosphere around the vial */}
         <div
-  aria-hidden="true"
-  className="pointer-events-none absolute inset-0"
-  style={{
-    background:
-      "radial-gradient(circle at 78% 48%, rgba(14,165,233,0.18) 0%, rgba(14,165,233,0.08) 24%, rgba(2,6,23,0) 58%)",
-  }}
-/>
-<svg
-  aria-hidden="true"
-  className="pointer-events-none absolute inset-0 hidden h-full w-full sm:block"
-  viewBox="0 0 1200 620"
-  preserveAspectRatio="none"
->
-  <defs>
-    <pattern
-      id="aviosMolecularMesh"
-      width="150"
-      height="130"
-      patternUnits="userSpaceOnUse"
-    >
-      <g
-        fill="none"
-        stroke="#38bdf8"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M25 32 L62 12 L100 32 L100 72 L62 94 L25 72 Z" />
-        <path d="M100 32 L137 12" />
-        <path d="M100 72 L137 94" />
-        <path d="M25 72 L0 94" />
-        <path d="M62 94 L62 130" />
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(circle at 79% 45%, rgba(14,165,233,0.20) 0%, rgba(37,99,235,0.10) 27%, rgba(2,6,23,0) 58%)",
+          }}
+        />
 
-        <path d="M137 12 L150 20" />
-        <path d="M137 94 L150 105" />
-      </g>
+        {/* Dense molecular background - desktop/tablet */}
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 hidden h-full w-full sm:block"
+          viewBox="0 0 1200 620"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <pattern
+              id="aviosMolecularMesh"
+              width="108"
+              height="92"
+              patternUnits="userSpaceOnUse"
+            >
+              <g
+                fill="none"
+                stroke="#38bdf8"
+                strokeWidth="1.05"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                opacity="0.78"
+              >
+                <path d="M8 24 L28 10 L51 19 L57 43 L38 59 L15 50 Z" />
+                <path d="M57 43 L78 31 L98 42 L102 64 L83 78 L61 67 Z" />
 
-      <g fill="#7dd3fc">
-        <circle cx="25" cy="32" r="3" />
-        <circle cx="62" cy="12" r="3.5" />
-        <circle cx="100" cy="32" r="3" />
-        <circle cx="100" cy="72" r="3.5" />
-        <circle cx="62" cy="94" r="3" />
-        <circle cx="25" cy="72" r="3.5" />
-        <circle cx="137" cy="12" r="2.5" />
-        <circle cx="137" cy="94" r="2.5" />
-      </g>
-    </pattern>
+                <path d="M28 10 L30 0" />
+                <path d="M51 19 L69 7" />
+                <path d="M78 31 L84 9" />
+                <path d="M98 42 L108 35" />
 
-    <linearGradient
-      id="aviosMeshFade"
-      x1="0%"
-      y1="0%"
-      x2="100%"
-      y2="0%"
-    >
-      <stop offset="0%" stopColor="white" stopOpacity="0.04" />
-      <stop offset="18%" stopColor="white" stopOpacity="0.1" />
-      <stop offset="35%" stopColor="white" stopOpacity="0.28" />
-      <stop offset="55%" stopColor="white" stopOpacity="0.55" />
-      <stop offset="75%" stopColor="white" stopOpacity="0.82" />
-      <stop offset="100%" stopColor="white" stopOpacity="1" />
-    </linearGradient>
+                <path d="M15 50 L0 63" />
+                <path d="M38 59 L35 82" />
+                <path d="M61 67 L52 92" />
+                <path d="M83 78 L91 92" />
+              </g>
 
-    <mask id="aviosMeshMask">
-      <rect
-        x="0"
-        y="0"
-        width="1200"
-        height="620"
-        fill="url(#aviosMeshFade)"
-      />
-    </mask>
+              <g fill="#7dd3fc" opacity="0.72">
+                <circle cx="8" cy="24" r="1.7" />
+                <circle cx="28" cy="10" r="2" />
+                <circle cx="51" cy="19" r="1.7" />
+                <circle cx="57" cy="43" r="2.1" />
+                <circle cx="38" cy="59" r="1.8" />
+                <circle cx="15" cy="50" r="1.6" />
 
-    <filter id="aviosMeshGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
+                <circle cx="78" cy="31" r="1.8" />
+                <circle cx="98" cy="42" r="2" />
+                <circle cx="102" cy="64" r="1.6" />
+                <circle cx="83" cy="78" r="2" />
+                <circle cx="61" cy="67" r="1.7" />
+              </g>
 
-    <radialGradient id="aviosRightGlow">
-      <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.28" />
-      <stop offset="45%" stopColor="#0ea5e9" stopOpacity="0.12" />
-      <stop offset="100%" stopColor="#020617" stopOpacity="0" />
-    </radialGradient>
-  </defs>
+              <g fill="#bae6fd" opacity="0.32">
+                <circle cx="20" cy="75" r="1.1" />
+                <circle cx="46" cy="5" r="1" />
+                <circle cx="69" cy="56" r="1.2" />
+                <circle cx="94" cy="18" r="1" />
+              </g>
+            </pattern>
 
-  <ellipse
-    cx="930"
-    cy="315"
-    rx="420"
-    ry="330"
-    fill="url(#aviosRightGlow)"
-  />
+            {/* Fade molecules toward the left/text side */}
+            <linearGradient
+              id="aviosMeshFade"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
+              <stop offset="0%" stopColor="white" stopOpacity="0.03" />
+              <stop offset="16%" stopColor="white" stopOpacity="0.07" />
+              <stop offset="31%" stopColor="white" stopOpacity="0.15" />
+              <stop offset="46%" stopColor="white" stopOpacity="0.34" />
+              <stop offset="62%" stopColor="white" stopOpacity="0.62" />
+              <stop offset="78%" stopColor="white" stopOpacity="0.84" />
+              <stop offset="100%" stopColor="white" stopOpacity="0.98" />
+            </linearGradient>
 
-  <rect
-    x="0"
-    y="0"
-    width="1200"
-    height="620"
-    fill="url(#aviosMolecularMesh)"
-    mask="url(#aviosMeshMask)"
-    opacity="0.9"
-    filter="url(#aviosMeshGlow)"
-  />
+            <mask id="aviosMeshMask">
+              <rect
+                x="0"
+                y="0"
+                width="1200"
+                height="620"
+                fill="url(#aviosMeshFade)"
+              />
+            </mask>
 
-  <g
-    fill="#bae6fd"
-    opacity="0.65"
-    filter="url(#aviosMeshGlow)"
-    mask="url(#aviosMeshMask)"
-  >
-    <circle cx="580" cy="100" r="3" />
-    <circle cx="650" cy="180" r="2.5" />
-    <circle cx="715" cy="80" r="3.5" />
-    <circle cx="790" cy="240" r="3" />
-    <circle cx="850" cy="120" r="2.5" />
-    <circle cx="920" cy="210" r="4" />
-    <circle cx="990" cy="95" r="3" />
-    <circle cx="1065" cy="185" r="4" />
-    <circle cx="1125" cy="290" r="3.5" />
+            <filter
+              id="aviosMeshGlow"
+              x="-25%"
+              y="-25%"
+              width="150%"
+              height="150%"
+            >
+              <feGaussianBlur stdDeviation="1.4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
 
-    <circle cx="610" cy="420" r="3" />
-    <circle cx="690" cy="515" r="2.5" />
-    <circle cx="770" cy="390" r="4" />
-    <circle cx="845" cy="500" r="3" />
-    <circle cx="930" cy="425" r="4" />
-    <circle cx="1010" cy="530" r="3" />
-    <circle cx="1090" cy="430" r="4" />
-  </g>
-</svg>
-        <div className="grid items-center gap-7 sm:gap-10 lg:grid-cols-2">
+            <radialGradient id="aviosNodeGlow">
+              <stop offset="0%" stopColor="#e0f2fe" stopOpacity="0.9" />
+              <stop offset="35%" stopColor="#38bdf8" stopOpacity="0.55" />
+              <stop offset="100%" stopColor="#0284c7" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+
+          {/* Main fine molecular web */}
+          <rect
+            x="0"
+            y="0"
+            width="1200"
+            height="620"
+            fill="url(#aviosMolecularMesh)"
+            mask="url(#aviosMeshMask)"
+            opacity="0.68"
+            filter="url(#aviosMeshGlow)"
+          />
+
+          {/* Irregular connecting branches to prevent wallpaper look */}
+          <g
+            fill="none"
+            stroke="#38bdf8"
+            strokeWidth="1"
+            opacity="0.28"
+            mask="url(#aviosMeshMask)"
+          >
+            <path d="M420 92 L465 68 L502 91 L540 58 L578 83" />
+            <path d="M535 190 L574 166 L615 188 L650 154 L692 176" />
+            <path d="M625 285 L668 258 L707 282 L748 247 L792 271" />
+            <path d="M713 396 L754 372 L796 394 L837 360 L880 382" />
+            <path d="M820 500 L857 476 L901 500 L940 466 L982 489" />
+
+            <path d="M466 68 L466 38" />
+            <path d="M615 188 L621 220" />
+            <path d="M707 282 L699 316" />
+            <path d="M837 360 L846 329" />
+            <path d="M940 466 L948 430" />
+          </g>
+
+          {/* Scattered bright nodes */}
+          <g mask="url(#aviosMeshMask)">
+            <circle
+              cx="555"
+              cy="110"
+              r="9"
+              fill="url(#aviosNodeGlow)"
+              opacity="0.45"
+            />
+            <circle
+              cx="650"
+              cy="205"
+              r="8"
+              fill="url(#aviosNodeGlow)"
+              opacity="0.5"
+            />
+            <circle
+              cx="735"
+              cy="95"
+              r="10"
+              fill="url(#aviosNodeGlow)"
+              opacity="0.55"
+            />
+            <circle
+              cx="815"
+              cy="245"
+              r="8"
+              fill="url(#aviosNodeGlow)"
+              opacity="0.55"
+            />
+            <circle
+              cx="900"
+              cy="125"
+              r="11"
+              fill="url(#aviosNodeGlow)"
+              opacity="0.65"
+            />
+            <circle
+              cx="990"
+              cy="225"
+              r="10"
+              fill="url(#aviosNodeGlow)"
+              opacity="0.7"
+            />
+            <circle
+              cx="1080"
+              cy="115"
+              r="9"
+              fill="url(#aviosNodeGlow)"
+              opacity="0.75"
+            />
+
+            <circle
+              cx="590"
+              cy="430"
+              r="8"
+              fill="url(#aviosNodeGlow)"
+              opacity="0.45"
+            />
+            <circle
+              cx="690"
+              cy="520"
+              r="9"
+              fill="url(#aviosNodeGlow)"
+              opacity="0.5"
+            />
+            <circle
+              cx="790"
+              cy="410"
+              r="10"
+              fill="url(#aviosNodeGlow)"
+              opacity="0.55"
+            />
+            <circle
+              cx="890"
+              cy="525"
+              r="9"
+              fill="url(#aviosNodeGlow)"
+              opacity="0.6"
+            />
+            <circle
+              cx="995"
+              cy="420"
+              r="11"
+              fill="url(#aviosNodeGlow)"
+              opacity="0.68"
+            />
+            <circle
+              cx="1090"
+              cy="510"
+              r="10"
+              fill="url(#aviosNodeGlow)"
+              opacity="0.72"
+            />
+          </g>
+        </svg>
+
+        {/* Dark protection behind headline */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 hidden sm:block"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(2,6,23,0.58) 0%, rgba(2,6,23,0.30) 30%, rgba(2,6,23,0.06) 54%, rgba(2,6,23,0) 72%)",
+          }}
+        />
+
+        <div className="relative z-10 grid items-center gap-7 sm:gap-10 lg:grid-cols-2">
           <div>
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-400 sm:mb-5 sm:text-sm sm:tracking-[0.35em]">
               RESEARCH PEPTIDE CATALOG
