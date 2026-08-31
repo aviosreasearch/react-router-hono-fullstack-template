@@ -367,6 +367,14 @@ export default function Welcome({ message }: { message: string }) {
 
       {/* Hero */}
       <section className="relative mx-auto max-w-7xl overflow-hidden px-4 pb-10 pt-7 sm:px-6 sm:pb-16 sm:pt-14">
+        <div
+  aria-hidden="true"
+  className="pointer-events-none absolute inset-0"
+  style={{
+    background:
+      "radial-gradient(circle at 78% 48%, rgba(14,165,233,0.18) 0%, rgba(14,165,233,0.08) 24%, rgba(2,6,23,0) 58%)",
+  }}
+/>
         <div className="grid items-center gap-7 sm:gap-10 lg:grid-cols-2">
           <div>
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-400 sm:mb-5 sm:text-sm sm:tracking-[0.35em]">
