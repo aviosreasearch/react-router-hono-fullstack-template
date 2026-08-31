@@ -377,259 +377,63 @@ export default function Welcome({ message }: { message: string }) {
         />
 
         {/* Dense molecular background - desktop/tablet */}
-      <svg
-  aria-hidden="true"
-  className="pointer-events-none absolute inset-0 hidden h-full w-full sm:block"
-  viewBox="0 0 1200 620"
-  preserveAspectRatio="none"
->
-  <defs>
-    <linearGradient
-      id="moleculeFade"
-      x1="0%"
-      y1="0%"
-      x2="100%"
-      y2="0%"
-    >
-      <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.02" />
-      <stop offset="22%" stopColor="#38bdf8" stopOpacity="0.06" />
-      <stop offset="42%" stopColor="#38bdf8" stopOpacity="0.18" />
-      <stop offset="60%" stopColor="#38bdf8" stopOpacity="0.38" />
-      <stop offset="78%" stopColor="#60a5fa" stopOpacity="0.62" />
-      <stop offset="100%" stopColor="#93c5fd" stopOpacity="0.82" />
-    </linearGradient>
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 hidden h-full w-full sm:block"
+          viewBox="0 0 1200 620"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <pattern
+              id="aviosMolecularMesh"
+              width="108"
+              height="92"
+              patternUnits="userSpaceOnUse"
+            >
+              <g
+                fill="none"
+                stroke="#38bdf8"
+                strokeWidth="1.05"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                opacity="0.78"
+              >
+                <path d="M8 24 L28 10 L51 19 L57 43 L38 59 L15 50 Z" />
+                <path d="M57 43 L78 31 L98 42 L102 64 L83 78 L61 67 Z" />
 
-    <linearGradient
-      id="moleculeMaskFade"
-      x1="0%"
-      y1="0%"
-      x2="100%"
-      y2="0%"
-    >
-      <stop offset="0%" stopColor="white" stopOpacity="0" />
-      <stop offset="20%" stopColor="white" stopOpacity="0.05" />
-      <stop offset="38%" stopColor="white" stopOpacity="0.18" />
-      <stop offset="55%" stopColor="white" stopOpacity="0.45" />
-      <stop offset="72%" stopColor="white" stopOpacity="0.78" />
-      <stop offset="100%" stopColor="white" stopOpacity="1" />
-    </linearGradient>
+                <path d="M28 10 L30 0" />
+                <path d="M51 19 L69 7" />
+                <path d="M78 31 L84 9" />
+                <path d="M98 42 L108 35" />
 
-    <mask id="moleculeMask">
-      <rect
-        x="0"
-        y="0"
-        width="1200"
-        height="620"
-        fill="url(#moleculeMaskFade)"
-      />
-    </mask>
+                <path d="M15 50 L0 63" />
+                <path d="M38 59 L35 82" />
+                <path d="M61 67 L52 92" />
+                <path d="M83 78 L91 92" />
+              </g>
 
-    <filter
-      id="softMoleculeGlow"
-      x="-30%"
-      y="-30%"
-      width="160%"
-      height="160%"
-    >
-      <feGaussianBlur stdDeviation="2.4" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
+              <g fill="#7dd3fc" opacity="0.72">
+                <circle cx="8" cy="24" r="1.7" />
+                <circle cx="28" cy="10" r="2" />
+                <circle cx="51" cy="19" r="1.7" />
+                <circle cx="57" cy="43" r="2.1" />
+                <circle cx="38" cy="59" r="1.8" />
+                <circle cx="15" cy="50" r="1.6" />
 
-    <radialGradient id="darkCenterNode">
-      <stop offset="0%" stopColor="#020617" stopOpacity="1" />
-      <stop offset="28%" stopColor="#0f172a" stopOpacity="0.95" />
-      <stop offset="48%" stopColor="#7dd3fc" stopOpacity="0.95" />
-      <stop offset="75%" stopColor="#38bdf8" stopOpacity="0.5" />
-      <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0" />
-    </radialGradient>
+                <circle cx="78" cy="31" r="1.8" />
+                <circle cx="98" cy="42" r="2" />
+                <circle cx="102" cy="64" r="1.6" />
+                <circle cx="83" cy="78" r="2" />
+                <circle cx="61" cy="67" r="1.7" />
+              </g>
 
-    <radialGradient id="particleGlow">
-      <stop offset="0%" stopColor="#dbeafe" stopOpacity="0.8" />
-      <stop offset="30%" stopColor="#60a5fa" stopOpacity="0.45" />
-      <stop offset="100%" stopColor="#2563eb" stopOpacity="0" />
-    </radialGradient>
-  </defs>
-
-  {/* soft molecular chains */}
-  <g
-    mask="url(#moleculeMask)"
-    fill="none"
-    stroke="url(#moleculeFade)"
-    strokeWidth="4.2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    filter="url(#softMoleculeGlow)"
-  >
-    <path d="M410 155 L470 120 L535 155 L535 225 L475 260 L410 225 Z" />
-    <path d="M535 155 L600 120 L665 155 L665 225 L605 260 L535 225" />
-    <path d="M665 155 L730 120 L795 155 L795 225 L735 260 L665 225" />
-
-    <path d="M475 260 L475 330" />
-    <path d="M605 260 L605 330" />
-    <path d="M735 260 L735 330" />
-
-    <path d="M410 395 L470 360 L535 395 L535 465 L475 500 L410 465 Z" />
-    <path d="M535 395 L600 360 L665 395 L665 465 L605 500 L535 465" />
-    <path d="M665 395 L730 360 L795 395 L795 465 L735 500 L665 465" />
-
-    <path d="M795 155 L860 120 L925 155 L925 225 L865 260 L795 225" />
-    <path d="M925 155 L990 120 L1055 155 L1055 225 L995 260 L925 225" />
-
-    <path d="M795 395 L860 360 L925 395 L925 465 L865 500 L795 465" />
-    <path d="M925 395 L990 360 L1055 395 L1055 465 L995 500 L925 465" />
-
-    <path d="M470 120 L448 78" />
-    <path d="M600 120 L615 72" />
-    <path d="M730 120 L756 80" />
-    <path d="M860 120 L882 78" />
-    <path d="M990 120 L1015 80" />
-
-    <path d="M475 500 L452 545" />
-    <path d="M605 500 L620 550" />
-    <path d="M735 500 L758 545" />
-    <path d="M865 500 L885 545" />
-    <path d="M995 500 L1018 545" />
-
-    <path d="M1055 155 L1112 125 L1162 155" />
-    <path d="M1055 395 L1115 365 L1170 395" />
-  </g>
-
-  {/* dark-centered glowing nodes like your reference */}
-  <g mask="url(#moleculeMask)">
-    {[
-      [410, 155, 15],
-      [470, 120, 15],
-      [535, 155, 16],
-      [535, 225, 16],
-      [475, 260, 15],
-      [410, 225, 15],
-
-      [600, 120, 15],
-      [665, 155, 16],
-      [665, 225, 16],
-      [605, 260, 15],
-
-      [730, 120, 15],
-      [795, 155, 17],
-      [795, 225, 16],
-      [735, 260, 15],
-
-      [860, 120, 16],
-      [925, 155, 17],
-      [925, 225, 16],
-      [865, 260, 15],
-
-      [990, 120, 16],
-      [1055, 155, 18],
-      [1055, 225, 16],
-      [995, 260, 16],
-
-      [410, 395, 15],
-      [470, 360, 15],
-      [535, 395, 16],
-      [535, 465, 16],
-      [475, 500, 15],
-
-      [600, 360, 15],
-      [665, 395, 17],
-      [665, 465, 16],
-      [605, 500, 15],
-
-      [730, 360, 16],
-      [795, 395, 17],
-      [795, 465, 16],
-      [735, 500, 16],
-
-      [860, 360, 16],
-      [925, 395, 18],
-      [925, 465, 16],
-      [865, 500, 16],
-
-      [990, 360, 16],
-      [1055, 395, 18],
-      [1055, 465, 16],
-      [995, 500, 16],
-    ].map(([cx, cy, r], index) => (
-      <circle
-        key={index}
-        cx={cx}
-        cy={cy}
-        r={r}
-        fill="url(#darkCenterNode)"
-      />
-    ))}
-  </g>
-
-  {/* blue haze particles */}
-  <g mask="url(#moleculeMask)">
-    {[
-      [430, 90, 10],
-      [500, 70, 6],
-      [555, 305, 8],
-      [610, 95, 7],
-      [680, 72, 9],
-      [742, 305, 6],
-      [815, 92, 8],
-      [880, 75, 6],
-      [948, 290, 9],
-      [1012, 80, 7],
-      [1085, 105, 8],
-      [1140, 235, 10],
-
-      [440, 430, 7],
-      [510, 550, 9],
-      [575, 420, 7],
-      [645, 545, 8],
-      [710, 430, 7],
-      [780, 548, 9],
-      [840, 420, 6],
-      [905, 545, 8],
-      [970, 420, 7],
-      [1035, 545, 9],
-      [1100, 430, 8],
-    ].map(([cx, cy, r], index) => (
-      <circle
-        key={index}
-        cx={cx}
-        cy={cy}
-        r={r}
-        fill="url(#particleGlow)"
-        opacity="0.7"
-      />
-    ))}
-  </g>
-
-  {/* tiny soft speckles */}
-  <g fill="#60a5fa" opacity="0.28" mask="url(#moleculeMask)">
-    <circle cx="455" cy="180" r="2" />
-    <circle cx="505" cy="295" r="2.5" />
-    <circle cx="555" cy="110" r="2" />
-    <circle cx="620" cy="300" r="2.5" />
-    <circle cx="685" cy="185" r="2" />
-    <circle cx="745" cy="285" r="3" />
-    <circle cx="810" cy="110" r="2.5" />
-    <circle cx="870" cy="300" r="2" />
-    <circle cx="930" cy="185" r="3" />
-    <circle cx="990" cy="290" r="2" />
-    <circle cx="1050" cy="105" r="2.5" />
-    <circle cx="1110" cy="280" r="3" />
-
-    <circle cx="470" cy="415" r="2" />
-    <circle cx="530" cy="530" r="2.5" />
-    <circle cx="590" cy="435" r="3" />
-    <circle cx="650" cy="530" r="2" />
-    <circle cx="715" cy="415" r="2.5" />
-    <circle cx="780" cy="535" r="3" />
-    <circle cx="845" cy="435" r="2" />
-    <circle cx="910" cy="525" r="2.5" />
-    <circle cx="975" cy="420" r="3" />
-    <circle cx="1040" cy="530" r="2" />
-    <circle cx="1105" cy="420" r="2.5" />
-  </g>
-</svg>
+              <g fill="#bae6fd" opacity="0.32">
+                <circle cx="20" cy="75" r="1.1" />
+                <circle cx="46" cy="5" r="1" />
+                <circle cx="69" cy="56" r="1.2" />
+                <circle cx="94" cy="18" r="1" />
+              </g>
+            </pattern>
 
             {/* Fade molecules toward the left/text side */}
             <linearGradient
