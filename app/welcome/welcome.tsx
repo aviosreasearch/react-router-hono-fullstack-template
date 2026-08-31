@@ -384,17 +384,17 @@ export default function Welcome({ message }: { message: string }) {
   <defs>
     <linearGradient id="aviosMoleculeFade" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0" />
-      <stop offset="28%" stopColor="#0ea5e9" stopOpacity="0.06" />
-      <stop offset="52%" stopColor="#38bdf8" stopOpacity="0.18" />
-      <stop offset="75%" stopColor="#38bdf8" stopOpacity="0.38" />
-      <stop offset="100%" stopColor="#60a5fa" stopOpacity="0.62" />
+      <stop offset="28%" stopColor="#0ea5e9" stopOpacity="0.15" />
+<stop offset="52%" stopColor="#38bdf8" stopOpacity="0.45" />
+<stop offset="75%" stopColor="#38bdf8" stopOpacity="0.75" />
+<stop offset="100%" stopColor="#60a5fa" stopOpacity="0.95" />
     </linearGradient>
   </defs>
 
   <g
     fill="none"
     stroke="url(#aviosMoleculeFade)"
-    strokeWidth="2"
+    strokeWidth="3"
   >
     <path d="M250 150 L340 105 L430 155 L520 110 L610 160 L700 115 L790 165 L880 120 L970 170 L1060 125" />
     <path d="M340 105 L340 210" />
