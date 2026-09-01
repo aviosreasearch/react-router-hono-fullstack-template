@@ -11,8 +11,10 @@ export default function Checkout() {
   } = useCart();
 
   const [agreementAccepted, setAgreementAccepted] = useState(false);
-const [startingPayment, setStartingPayment] = useState(false);
-const [paymentError, setPaymentError] = useState("");
+
+  // Stripe payment state
+  const [startingPayment, setStartingPayment] = useState(false);
+  const [paymentError, setPaymentError] = useState("");
 
   const [friendsFamilyCode, setFriendsFamilyCode] = useState("");
   const [friendsFamilyApplied, setFriendsFamilyApplied] = useState(false);
@@ -96,16 +98,85 @@ const [paymentError, setPaymentError] = useState("");
     }
   }
 
-  function handleSubmit(
+  async function handleSubmit(
     event: FormEvent<HTMLFormElement>,
   ) {
     event.preventDefault();
 
-    if (!agreementAccepted || items.length === 0) {
+    if (
+      !agreementAccepted ||
+      items.length === 0 ||
+      startingPayment
+    ) {
       return;
     }
 
-    setSubmitted(true);
+    const formData = new FormData(
+      event.currentTarget,
+    );
+
+    const email = String(
+      formData.get("email") ?? "",
+    ).trim();
+
+    setStartingPayment(true);
+    setPaymentError("");
+
+    try {
+      const response = await fetch(
+        "/api/create-checkout-session",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            items: items.map((item) => ({
+              name: item.name,
+              strength: item.strength,
+              quantity: item.quantity,
+            })),
+            email,
+            friendsFamilyCode:
+              friendsFamilyApplied
+                ? friendsFamilyCode.trim()
+                : "",
+            researchUseAcknowledged:
+              agreementAccepted,
+          }),
+        },
+      );
+
+      const data = await response
+        .json()
+        .catch(() => null);
+
+      if (!response.ok) {
+        throw new Error(
+          data?.error ??
+            "Unable to start payment.",
+        );
+      }
+
+      if (
+        !data?.url ||
+        typeof data.url !== "string"
+      ) {
+        throw new Error(
+          "Payment provider did not return a checkout URL.",
+        );
+      }
+
+      window.location.assign(data.url);
+    } catch (error) {
+      setPaymentError(
+        error instanceof Error
+          ? error.message
+          : "Unable to start payment. Please try again.",
+      );
+
+      setStartingPayment(false);
+    }
   }
 
   return (
@@ -499,16 +570,14 @@ const [paymentError, setPaymentError] = useState("");
                 </label>
               </section>
 
-              {submitted ? (
-                <div className="rounded-xl border border-sky-500/30 bg-sky-500/10 p-5">
-                  <p className="font-semibold text-sky-300">
-                    Checkout information accepted.
+              {paymentError ? (
+                <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-5">
+                  <p className="font-semibold text-red-300">
+                    Unable to start payment.
                   </p>
 
                   <p className="mt-2 text-sm leading-6 text-slate-400">
-                    The checkout page is working. Secure payment
-                    processing and verified membership pricing will
-                    be connected before launch.
+                    {paymentError}
                   </p>
                 </div>
               ) : null}
@@ -671,11 +740,14 @@ const [paymentError, setPaymentError] = useState("");
                 type="submit"
                 disabled={
                   !agreementAccepted ||
-                  items.length === 0
+                  items.length === 0 ||
+                  startingPayment
                 }
                 className="mt-7 w-full rounded-lg bg-white px-6 py-3.5 font-semibold text-slate-950 transition hover:bg-slate-200 disabled:cursor-not-allowed disabled:bg-slate-700 disabled:text-slate-500"
               >
-                Continue to Payment
+                {startingPayment
+                  ? "Starting Secure Payment..."
+                  : "Continue to Payment"}
               </button>
 
               {!agreementAccepted ? (
