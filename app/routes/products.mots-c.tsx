@@ -5,7 +5,7 @@ import AddToCartButton from "../components/AddToCartButton";
 const sizes = [
   {
     label: "20 mg",
-    price: 55.00,
+    price: 54.99,
   },
 ];
 
