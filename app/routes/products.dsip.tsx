@@ -4,7 +4,7 @@ import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
 
 const sizes = [
-  { label: "10 mg", price: 40.00 },
+  { label: "10 mg", price: 39.99 },
 ];
 
 export default function DsipProduct() {
