@@ -4,8 +4,8 @@ import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
 
 const sizes = [
-  { label: "500 mg", price: 55.0 },
-  { label: "1000 mg", price: 90.0 },
+  { label: "500 mg", price: 54.99 },
+  { label: "1000 mg", price: 89.99 },
 ];
 
 export default function NadPlusProduct() {
