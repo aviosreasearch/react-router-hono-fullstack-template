@@ -4,7 +4,7 @@ import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
 
 const sizes = [
-  { label: "5 mg", price: 45.0 },
+  { label: "5 mg", price: 44.99 },
 ];
 
 export default function TesamorelinProduct() {
