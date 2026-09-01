@@ -376,243 +376,232 @@ export default function Welcome({ message }: { message: string }) {
           }}
         />
 
-        {/* Dense molecular background - desktop/tablet */}
-        <svg
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 hidden h-full w-full sm:block"
-          viewBox="0 0 1200 620"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <pattern
-              id="aviosMolecularMesh"
-              width="108"
-              height="92"
-              patternUnits="userSpaceOnUse"
-            >
-              <g
-                fill="none"
-                stroke="#38bdf8"
-                strokeWidth="1.05"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                opacity="0.78"
-              >
-                <path d="M8 24 L28 10 L51 19 L57 43 L38 59 L15 50 Z" />
-                <path d="M57 43 L78 31 L98 42 L102 64 L83 78 L61 67 Z" />
+       {/* Dense molecular background - desktop/tablet */}
+<svg
+  aria-hidden="true"
+  className="pointer-events-none absolute inset-0 hidden h-full w-full sm:block"
+  viewBox="0 0 1200 620"
+  preserveAspectRatio="none"
+>
+  <defs>
+    <linearGradient id="aviosMoleculeStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.08" />
+      <stop offset="18%" stopColor="#38bdf8" stopOpacity="0.16" />
+      <stop offset="48%" stopColor="#60a5fa" stopOpacity="0.34" />
+      <stop offset="78%" stopColor="#93c5fd" stopOpacity="0.58" />
+      <stop offset="100%" stopColor="#dbeafe" stopOpacity="0.82" />
+    </linearGradient>
 
-                <path d="M28 10 L30 0" />
-                <path d="M51 19 L69 7" />
-                <path d="M78 31 L84 9" />
-                <path d="M98 42 L108 35" />
+    <radialGradient id="aviosBlueBloom" cx="78%" cy="40%" r="52%">
+      <stop offset="0%" stopColor="#2563eb" stopOpacity="0.34" />
+      <stop offset="28%" stopColor="#1d4ed8" stopOpacity="0.20" />
+      <stop offset="60%" stopColor="#0f172a" stopOpacity="0.04" />
+      <stop offset="100%" stopColor="#020617" stopOpacity="0" />
+    </radialGradient>
 
-                <path d="M15 50 L0 63" />
-                <path d="M38 59 L35 82" />
-                <path d="M61 67 L52 92" />
-                <path d="M83 78 L91 92" />
-              </g>
+    <radialGradient id="aviosNodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
+      <stop offset="35%" stopColor="#bfdbfe" stopOpacity="0.8" />
+      <stop offset="100%" stopColor="#60a5fa" stopOpacity="0" />
+    </radialGradient>
 
-              <g fill="#7dd3fc" opacity="0.72">
-                <circle cx="8" cy="24" r="1.7" />
-                <circle cx="28" cy="10" r="2" />
-                <circle cx="51" cy="19" r="1.7" />
-                <circle cx="57" cy="43" r="2.1" />
-                <circle cx="38" cy="59" r="1.8" />
-                <circle cx="15" cy="50" r="1.6" />
+    <filter id="aviosBlurSoft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" />
+    </filter>
 
-                <circle cx="78" cy="31" r="1.8" />
-                <circle cx="98" cy="42" r="2" />
-                <circle cx="102" cy="64" r="1.6" />
-                <circle cx="83" cy="78" r="2" />
-                <circle cx="61" cy="67" r="1.7" />
-              </g>
+    <filter id="aviosBlurStrong" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18" />
+    </filter>
+  </defs>
 
-              <g fill="#bae6fd" opacity="0.32">
-                <circle cx="20" cy="75" r="1.1" />
-                <circle cx="46" cy="5" r="1" />
-                <circle cx="69" cy="56" r="1.2" />
-                <circle cx="94" cy="18" r="1" />
-              </g>
-            </pattern>
+  <rect width="1200" height="620" fill="url(#aviosBlueBloom)" />
 
-            {/* Fade molecules toward the left/text side */}
-            <linearGradient
-              id="aviosMeshFade"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="0%"
-            >
-              <stop offset="0%" stopColor="white" stopOpacity="0.03" />
-              <stop offset="16%" stopColor="white" stopOpacity="0.07" />
-              <stop offset="31%" stopColor="white" stopOpacity="0.15" />
-              <stop offset="46%" stopColor="white" stopOpacity="0.34" />
-              <stop offset="62%" stopColor="white" stopOpacity="0.62" />
-              <stop offset="78%" stopColor="white" stopOpacity="0.84" />
-              <stop offset="100%" stopColor="white" stopOpacity="0.98" />
-            </linearGradient>
+  {/* small floating particles */}
+  <g fill="#93c5fd" opacity="0.22">
+    <circle cx="90" cy="110" r="2.2" />
+    <circle cx="130" cy="180" r="1.8" />
+    <circle cx="170" cy="90" r="1.6" />
+    <circle cx="210" cy="150" r="2.3" />
+    <circle cx="260" cy="120" r="1.7" />
+    <circle cx="300" cy="210" r="2.0" />
+    <circle cx="340" cy="100" r="1.8" />
+    <circle cx="390" cy="165" r="2.5" />
+    <circle cx="430" cy="120" r="1.7" />
+    <circle cx="470" cy="200" r="2.2" />
+    <circle cx="520" cy="135" r="1.9" />
+    <circle cx="560" cy="230" r="2.4" />
+    <circle cx="610" cy="160" r="1.8" />
+    <circle cx="650" cy="260" r="2.1" />
+    <circle cx="700" cy="145" r="1.7" />
+    <circle cx="740" cy="230" r="2.2" />
+    <circle cx="790" cy="185" r="1.9" />
+    <circle cx="830" cy="110" r="2.4" />
+    <circle cx="880" cy="160" r="1.6" />
+    <circle cx="930" cy="230" r="2.2" />
+    <circle cx="980" cy="130" r="1.8" />
+    <circle cx="1040" cy="190" r="2.0" />
+    <circle cx="1100" cy="150" r="1.7" />
+    <circle cx="170" cy="300" r="2.0" />
+    <circle cx="250" cy="280" r="1.7" />
+    <circle cx="330" cy="350" r="2.4" />
+    <circle cx="410" cy="300" r="2.0" />
+    <circle cx="490" cy="360" r="1.9" />
+    <circle cx="580" cy="315" r="2.1" />
+    <circle cx="680" cy="370" r="2.4" />
+    <circle cx="790" cy="320" r="2.0" />
+    <circle cx="890" cy="370" r="1.9" />
+    <circle cx="980" cy="310" r="2.1" />
+    <circle cx="1080" cy="355" r="2.4" />
+    <circle cx="140" cy="450" r="2.0" />
+    <circle cx="240" cy="500" r="1.8" />
+    <circle cx="345" cy="445" r="2.2" />
+    <circle cx="455" cy="500" r="1.7" />
+    <circle cx="565" cy="455" r="2.4" />
+    <circle cx="690" cy="520" r="2.0" />
+    <circle cx="820" cy="470" r="1.8" />
+    <circle cx="930" cy="525" r="2.2" />
+    <circle cx="1060" cy="470" r="1.9" />
+  </g>
 
-            <mask id="aviosMeshMask">
-              <rect
-                x="0"
-                y="0"
-                width="1200"
-                height="620"
-                fill="url(#aviosMeshFade)"
-              />
-            </mask>
+  {/* blurred glow behind the molecular mesh */}
+  <g
+    fill="none"
+    stroke="url(#aviosMoleculeStroke)"
+    strokeWidth="8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    opacity="0.28"
+    filter="url(#aviosBlurSoft)"
+  >
+    <path d="M70 185 L140 145 L210 185 L210 265 L140 305 L70 265 Z" />
+    <path d="M210 185 L280 145 L350 185 L350 265 L280 305 L210 265 Z" />
+    <path d="M350 185 L420 145 L490 185 L490 265 L420 305 L350 265 Z" />
+    <path d="M490 185 L560 145 L630 185 L630 265 L560 305 L490 265 Z" />
+    <path d="M140 305 L210 265 L280 305 L280 385 L210 425 L140 385 Z" />
+    <path d="M280 305 L350 265 L420 305 L420 385 L350 425 L280 385 Z" />
+    <path d="M420 305 L490 265 L560 305 L560 385 L490 425 L420 385 Z" />
+    <path d="M560 305 L630 265 L700 305 L700 385 L630 425 L560 385 Z" />
+    <path d="M210 425 L280 385 L350 425 L350 505 L280 545 L210 505 Z" />
+    <path d="M350 425 L420 385 L490 425 L490 505 L420 545 L350 505 Z" />
+    <path d="M490 425 L560 385 L630 425 L630 505 L560 545 L490 505 Z" />
+  </g>
 
-            <filter
-              id="aviosMeshGlow"
-              x="-25%"
-              y="-25%"
-              width="150%"
-              height="150%"
-            >
-              <feGaussianBlur stdDeviation="1.4" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
+  {/* crisp molecular mesh */}
+  <g
+    fill="none"
+    stroke="url(#aviosMoleculeStroke)"
+    strokeWidth="2.4"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    opacity="0.88"
+  >
+    <path d="M70 185 L140 145 L210 185 L210 265 L140 305 L70 265 Z" />
+    <path d="M210 185 L280 145 L350 185 L350 265 L280 305 L210 265 Z" />
+    <path d="M350 185 L420 145 L490 185 L490 265 L420 305 L350 265 Z" />
+    <path d="M490 185 L560 145 L630 185 L630 265 L560 305 L490 265 Z" />
+    <path d="M140 305 L210 265 L280 305 L280 385 L210 425 L140 385 Z" />
+    <path d="M280 305 L350 265 L420 305 L420 385 L350 425 L280 385 Z" />
+    <path d="M420 305 L490 265 L560 305 L560 385 L490 425 L420 385 Z" />
+    <path d="M560 305 L630 265 L700 305 L700 385 L630 425 L560 385 Z" />
+    <path d="M210 425 L280 385 L350 425 L350 505 L280 545 L210 505 Z" />
+    <path d="M350 425 L420 385 L490 425 L490 505 L420 545 L350 505 Z" />
+    <path d="M490 425 L560 385 L630 425 L630 505 L560 545 L490 505 Z" />
+  </g>
 
-            <radialGradient id="aviosNodeGlow">
-              <stop offset="0%" stopColor="#e0f2fe" stopOpacity="0.9" />
-              <stop offset="35%" stopColor="#38bdf8" stopOpacity="0.55" />
-              <stop offset="100%" stopColor="#0284c7" stopOpacity="0" />
-            </radialGradient>
-          </defs>
+  {/* strong glow spots */}
+  <g fill="#60a5fa" opacity="0.26" filter="url(#aviosBlurStrong)">
+    <circle cx="140" cy="305" r="28" />
+    <circle cx="280" cy="305" r="22" />
+    <circle cx="420" cy="305" r="24" />
+    <circle cx="560" cy="305" r="28" />
+    <circle cx="350" cy="425" r="24" />
+    <circle cx="490" cy="425" r="28" />
+    <circle cx="700" cy="385" r="22" />
+  </g>
 
-          {/* Main fine molecular web */}
-          <rect
-            x="0"
-            y="0"
-            width="1200"
-            height="620"
-            fill="url(#aviosMolecularMesh)"
-            mask="url(#aviosMeshMask)"
-            opacity="0.68"
-            filter="url(#aviosMeshGlow)"
-          />
+  {/* molecular nodes */}
+  <g>
+    <circle cx="70" cy="185" r="10" fill="url(#aviosNodeGlow)" />
+    <circle cx="140" cy="145" r="12" fill="url(#aviosNodeGlow)" />
+    <circle cx="210" cy="185" r="10" fill="url(#aviosNodeGlow)" />
+    <circle cx="210" cy="265" r="12" fill="url(#aviosNodeGlow)" />
+    <circle cx="140" cy="305" r="14" fill="url(#aviosNodeGlow)" />
+    <circle cx="70" cy="265" r="10" fill="url(#aviosNodeGlow)" />
 
-          {/* Irregular connecting branches to prevent wallpaper look */}
-          <g
-            fill="none"
-            stroke="#38bdf8"
-            strokeWidth="1"
-            opacity="0.28"
-            mask="url(#aviosMeshMask)"
-          >
-            <path d="M420 92 L465 68 L502 91 L540 58 L578 83" />
-            <path d="M535 190 L574 166 L615 188 L650 154 L692 176" />
-            <path d="M625 285 L668 258 L707 282 L748 247 L792 271" />
-            <path d="M713 396 L754 372 L796 394 L837 360 L880 382" />
-            <path d="M820 500 L857 476 L901 500 L940 466 L982 489" />
+    <circle cx="280" cy="145" r="10" fill="url(#aviosNodeGlow)" />
+    <circle cx="350" cy="185" r="12" fill="url(#aviosNodeGlow)" />
+    <circle cx="350" cy="265" r="10" fill="url(#aviosNodeGlow)" />
+    <circle cx="280" cy="305" r="12" fill="url(#aviosNodeGlow)" />
 
-            <path d="M466 68 L466 38" />
-            <path d="M615 188 L621 220" />
-            <path d="M707 282 L699 316" />
-            <path d="M837 360 L846 329" />
-            <path d="M940 466 L948 430" />
-          </g>
+    <circle cx="420" cy="145" r="12" fill="url(#aviosNodeGlow)" />
+    <circle cx="490" cy="185" r="10" fill="url(#aviosNodeGlow)" />
+    <circle cx="490" cy="265" r="13" fill="url(#aviosNodeGlow)" />
+    <circle cx="420" cy="305" r="11" fill="url(#aviosNodeGlow)" />
 
-          {/* Scattered bright nodes */}
-          <g mask="url(#aviosMeshMask)">
-            <circle
-              cx="555"
-              cy="110"
-              r="9"
-              fill="url(#aviosNodeGlow)"
-              opacity="0.45"
-            />
-            <circle
-              cx="650"
-              cy="205"
-              r="8"
-              fill="url(#aviosNodeGlow)"
-              opacity="0.5"
-            />
-            <circle
-              cx="735"
-              cy="95"
-              r="10"
-              fill="url(#aviosNodeGlow)"
-              opacity="0.55"
-            />
-            <circle
-              cx="815"
-              cy="245"
-              r="8"
-              fill="url(#aviosNodeGlow)"
-              opacity="0.55"
-            />
-            <circle
-              cx="900"
-              cy="125"
-              r="11"
-              fill="url(#aviosNodeGlow)"
-              opacity="0.65"
-            />
-            <circle
-              cx="990"
-              cy="225"
-              r="10"
-              fill="url(#aviosNodeGlow)"
-              opacity="0.7"
-            />
-            <circle
-              cx="1080"
-              cy="115"
-              r="9"
-              fill="url(#aviosNodeGlow)"
-              opacity="0.75"
-            />
+    <circle cx="560" cy="145" r="10" fill="url(#aviosNodeGlow)" />
+    <circle cx="630" cy="185" r="12" fill="url(#aviosNodeGlow)" />
+    <circle cx="630" cy="265" r="10" fill="url(#aviosNodeGlow)" />
+    <circle cx="560" cy="305" r="14" fill="url(#aviosNodeGlow)" />
 
-            <circle
-              cx="590"
-              cy="430"
-              r="8"
-              fill="url(#aviosNodeGlow)"
-              opacity="0.45"
-            />
-            <circle
-              cx="690"
-              cy="520"
-              r="9"
-              fill="url(#aviosNodeGlow)"
-              opacity="0.5"
-            />
-            <circle
-              cx="790"
-              cy="410"
-              r="10"
-              fill="url(#aviosNodeGlow)"
-              opacity="0.55"
-            />
-            <circle
-              cx="890"
-              cy="525"
-              r="9"
-              fill="url(#aviosNodeGlow)"
-              opacity="0.6"
-            />
-            <circle
-              cx="995"
-              cy="420"
-              r="11"
-              fill="url(#aviosNodeGlow)"
-              opacity="0.68"
-            />
-            <circle
-              cx="1090"
-              cy="510"
-              r="10"
-              fill="url(#aviosNodeGlow)"
-              opacity="0.72"
-            />
-          </g>
-        </svg>
+    <circle cx="210" cy="425" r="12" fill="url(#aviosNodeGlow)" />
+    <circle cx="280" cy="385" r="10" fill="url(#aviosNodeGlow)" />
+    <circle cx="350" cy="425" r="13" fill="url(#aviosNodeGlow)" />
+    <circle cx="350" cy="505" r="10" fill="url(#aviosNodeGlow)" />
+    <circle cx="280" cy="545" r="12" fill="url(#aviosNodeGlow)" />
+    <circle cx="210" cy="505" r="10" fill="url(#aviosNodeGlow)" />
 
+    <circle cx="420" cy="385" r="10" fill="url(#aviosNodeGlow)" />
+    <circle cx="490" cy="425" r="14" fill="url(#aviosNodeGlow)" />
+    <circle cx="490" cy="505" r="10" fill="url(#aviosNodeGlow)" />
+    <circle cx="420" cy="545" r="12" fill="url(#aviosNodeGlow)" />
+
+    <circle cx="560" cy="385" r="10" fill="url(#aviosNodeGlow)" />
+    <circle cx="630" cy="425" r="12" fill="url(#aviosNodeGlow)" />
+    <circle cx="630" cy="505" r="10" fill="url(#aviosNodeGlow)" />
+    <circle cx="560" cy="545" r="12" fill="url(#aviosNodeGlow)" />
+
+    <circle cx="700" cy="305" r="10" fill="url(#aviosNodeGlow)" />
+    <circle cx="700" cy="385" r="12" fill="url(#aviosNodeGlow)" />
+  </g>
+
+  {/* darker centers for the nodes */}
+  <g fill="#0f172a" opacity="0.72">
+    <circle cx="70" cy="185" r="2.8" />
+    <circle cx="140" cy="145" r="3.2" />
+    <circle cx="210" cy="185" r="2.8" />
+    <circle cx="210" cy="265" r="3.2" />
+    <circle cx="140" cy="305" r="3.8" />
+    <circle cx="70" cy="265" r="2.8" />
+    <circle cx="280" cy="145" r="2.8" />
+    <circle cx="350" cy="185" r="3.2" />
+    <circle cx="350" cy="265" r="2.8" />
+    <circle cx="280" cy="305" r="3.2" />
+    <circle cx="420" cy="145" r="3.2" />
+    <circle cx="490" cy="185" r="2.8" />
+    <circle cx="490" cy="265" r="3.4" />
+    <circle cx="420" cy="305" r="3.0" />
+    <circle cx="560" cy="145" r="2.8" />
+    <circle cx="630" cy="185" r="3.2" />
+    <circle cx="630" cy="265" r="2.8" />
+    <circle cx="560" cy="305" r="3.8" />
+    <circle cx="210" cy="425" r="3.2" />
+    <circle cx="280" cy="385" r="2.8" />
+    <circle cx="350" cy="425" r="3.4" />
+    <circle cx="350" cy="505" r="2.8" />
+    <circle cx="280" cy="545" r="3.2" />
+    <circle cx="210" cy="505" r="2.8" />
+    <circle cx="420" cy="385" r="2.8" />
+    <circle cx="490" cy="425" r="3.8" />
+    <circle cx="490" cy="505" r="2.8" />
+    <circle cx="420" cy="545" r="3.2" />
+    <circle cx="560" cy="385" r="2.8" />
+    <circle cx="630" cy="425" r="3.2" />
+    <circle cx="630" cy="505" r="2.8" />
+    <circle cx="560" cy="545" r="3.2" />
+    <circle cx="700" cy="305" r="2.8" />
+    <circle cx="700" cy="385" r="3.2" />
+  </g>
+</svg>
         {/* Dark protection behind headline */}
         <div
           aria-hidden="true"
