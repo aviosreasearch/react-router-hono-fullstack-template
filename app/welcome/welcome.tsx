@@ -794,9 +794,13 @@ export default function Welcome({ message }: { message: string }) {
                               href={product.href}
                               className="mt-6 inline-flex items-center font-semibold text-white transition hover:text-sky-300"
                             >
-                              View research details
-                              <span className="ml-2">→</span>
-                            </a>
+                              <a
+  href={product.href}
+  className="mt-6 inline-flex w-full items-center justify-center rounded-lg border border-sky-500/50 bg-sky-500/10 px-4 py-3 text-sm font-semibold text-sky-300 transition hover:border-sky-400 hover:bg-sky-500/20 hover:text-white"
+>
+  See Options
+  <span className="ml-2">→</span>
+</a>
                           </div>
                         </article>
                       );
