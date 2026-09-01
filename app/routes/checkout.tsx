@@ -11,7 +11,8 @@ export default function Checkout() {
   } = useCart();
 
   const [agreementAccepted, setAgreementAccepted] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+const [startingPayment, setStartingPayment] = useState(false);
+const [paymentError, setPaymentError] = useState("");
 
   const [friendsFamilyCode, setFriendsFamilyCode] = useState("");
   const [friendsFamilyApplied, setFriendsFamilyApplied] = useState(false);
