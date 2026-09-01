@@ -608,7 +608,7 @@ export default function Welcome({ message }: { message: string }) {
           className="pointer-events-none absolute inset-0 hidden sm:block"
           style={{
             background:
-              "linear-gradient(90deg, rgba(2,6,23,0.58) 0%, rgba(2,6,23,0.30) 30%, rgba(2,6,23,0.06) 54%, rgba(2,6,23,0) 72%)",
+             "linear-gradient(90deg, rgba(2,6,23,0.64) 0%, rgba(2,6,23,0.42) 24%, rgba(2,6,23,0.22) 46%, rgba(14,165,233,0.10) 64%, rgba(2,6,23,0.02) 78%, rgba(2,6,23,0) 90%)",)",
           }}
         />
 
