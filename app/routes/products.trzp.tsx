@@ -4,8 +4,8 @@ import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
 
 const sizes = [
-  { label: "10 mg", price: 55.0 },
-  { label: "20 mg", price: 80.0 },
+  { label: "10 mg", price: 54.99 },
+  { label: "20 mg", price: 79.99 },
 ];
 
 export default function TrzpProduct() {
