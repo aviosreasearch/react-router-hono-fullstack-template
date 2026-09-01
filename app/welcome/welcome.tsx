@@ -607,10 +607,17 @@ export default function Welcome({ message }: { message: string }) {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 hidden sm:block"
           style={{
-            background:
-             "linear-gradient(90deg, rgba(2,6,23,0.64) 0%, rgba(2,6,23,0.42) 24%, rgba(2,6,23,0.22) 46%, rgba(14,165,233,0.10) 64%, rgba(2,6,23,0.02) 78%, rgba(2,6,23,0) 90%)",)",
-          }}
-        />
+  background: [
+    "linear-gradient(90deg,",
+    "rgba(2,6,23,0.64) 0%,",
+    "rgba(2,6,23,0.42) 24%,",
+    "rgba(2,6,23,0.22) 46%,",
+    "rgba(14,165,233,0.10) 64%,",
+    "rgba(2,6,23,0.02) 78%,",
+    "rgba(2,6,23,0) 90%)",
+  ].join(" "),
+}}
+/>
 
         <div className="relative z-10 grid items-center gap-7 sm:gap-10 lg:grid-cols-2">
           <div>
