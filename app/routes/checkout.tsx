@@ -1,6 +1,9 @@
 import { useState, type FormEvent } from "react";
 import { useCart } from "../components/CartProvider";
 
+const FREE_SHIPPING_THRESHOLD = 100;
+const STANDARD_SHIPPING = 6.99;
+
 export default function Checkout() {
   const {
     items,
@@ -28,7 +31,20 @@ export default function Checkout() {
     ? cartTotal * friendsFamilyDiscountRate
     : 0;
 
-  const orderTotal = cartTotal - friendsFamilyDiscount;
+  const qualifiesForFreeShipping =
+    cartTotal >= FREE_SHIPPING_THRESHOLD;
+
+  const shippingCost = qualifiesForFreeShipping
+    ? 0
+    : STANDARD_SHIPPING;
+
+  const amountUntilFreeShipping = Math.max(
+    0,
+    FREE_SHIPPING_THRESHOLD - cartTotal,
+  );
+
+  const orderTotal =
+    cartTotal - friendsFamilyDiscount + shippingCost;
 
   async function applyFriendsFamilyCode() {
     const code = friendsFamilyCode.trim();
@@ -715,7 +731,51 @@ export default function Checkout() {
                 <div className="flex items-center justify-between text-slate-400">
                   <span>Shipping</span>
 
-                  <span>Calculated at payment</span>
+                  <span
+                    className={
+                      qualifiesForFreeShipping
+                        ? "font-semibold text-sky-400"
+                        : "text-white"
+                    }
+                  >
+                    {qualifiesForFreeShipping
+                      ? "FREE"
+                      : `$${STANDARD_SHIPPING.toFixed(2)}`}
+                  </span>
+                </div>
+
+                <div
+                  className={`rounded-xl border p-4 ${
+                    qualifiesForFreeShipping
+                      ? "border-sky-500/30 bg-sky-500/10"
+                      : "border-slate-700 bg-slate-950/60"
+                  }`}
+                >
+                  {qualifiesForFreeShipping ? (
+                    <>
+                      <p className="font-semibold text-sky-300">
+                        Free shipping unlocked
+                      </p>
+
+                      <p className="mt-1 text-sm text-slate-400">
+                        Your merchandise subtotal qualifies for
+                        free standard shipping.
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <p className="font-semibold text-white">
+                        Add $
+                        {amountUntilFreeShipping.toFixed(2)} more
+                        for FREE shipping
+                      </p>
+
+                      <p className="mt-1 text-sm text-slate-500">
+                        Free standard shipping on merchandise
+                        subtotals of $100 or more.
+                      </p>
+                    </>
+                  )}
                 </div>
 
                 <div className="border-t border-slate-800 pt-4">
@@ -730,8 +790,7 @@ export default function Checkout() {
                   </div>
 
                   <p className="mt-2 text-xs text-slate-500">
-                    Shipping and any applicable taxes are not
-                    included yet.
+                    Any applicable taxes are not included yet.
                   </p>
                 </div>
               </div>
