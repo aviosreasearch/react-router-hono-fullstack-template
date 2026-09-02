@@ -58,10 +58,12 @@ export default function MotsCProduct() {
               MOTS-C
             </h1>
 
-            <p className="mt-4 max-w-xl text-lg leading-8 text-slate-400">
-              Research compound supported by organized product information,
-              lot records, and available laboratory documentation.
-            </p>
+           <p className="mt-4 max-w-xl text-lg leading-8 text-slate-400">
+  MOTS-C is a mitochondrial-derived peptide encoded within mitochondrial
+  DNA. It is studied in laboratory research involving mitochondrial
+  signaling, cellular metabolism, energy regulation, and metabolic
+  stress-response pathways.
+</p>
 
             {/* Research Use Notice */}
             <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
