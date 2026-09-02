@@ -1,11 +1,12 @@
-
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
+import CompoundDescription from "../components/CompoundDescriptions";
+
 const sizes = [
   {
     label: "10 mg",
-    price: 39.99, 
+    price: 39.99,
   },
 ];
 
@@ -58,10 +59,7 @@ export default function SemaxProduct() {
               Semax
             </h1>
 
-            <p className="mt-4 max-w-xl text-lg leading-8 text-slate-400">
-              Research compound supported by organized product information,
-              lot records, and available laboratory documentation.
-            </p>
+            <CompoundDescription productSlug="semax" />
 
             {/* Research Use Notice */}
             <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
@@ -111,16 +109,20 @@ export default function SemaxProduct() {
                 Price
               </p>
 
-      <p className="mt-1 text-4xl font-bold tracking-tight text-white">
-  ${selectedSize.price.toFixed(2)}
-</p>
+              <p className="mt-1 text-4xl font-bold tracking-tight text-white">
+                ${selectedSize.price.toFixed(2)}
+              </p>
             </div>
-<AddToCartButton
-  id={`semax-${selectedSize.label.replace(/\s+/g, "-").toLowerCase()}`}
-  name="Semax"
-  strength={selectedSize.label}
-  price={selectedSize.price}
-/>
+
+            <AddToCartButton
+              id={`semax-${selectedSize.label
+                .replace(/\s+/g, "-")
+                .toLowerCase()}`}
+              name="Semax"
+              strength={selectedSize.label}
+              price={selectedSize.price}
+            />
+
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
               <h2 className="text-xl font-semibold">
