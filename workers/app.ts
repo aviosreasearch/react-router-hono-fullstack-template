@@ -182,6 +182,8 @@ app.post("/api/create-checkout-session", async (c) => {
 
     const stripeParams = new URLSearchParams();
 
+    let merchandiseSubtotalCents = 0;
+
     /*
       Build Stripe line items using ONLY prices stored
       on the server.
@@ -242,6 +244,9 @@ app.post("/api/create-checkout-session", async (c) => {
           Convert dollars to cents for Stripe.
         */
         const unitAmount = Math.round(price * 100);
+
+        merchandiseSubtotalCents +=
+          unitAmount * quantity;
 
         stripeParams.append(
           `line_items[${index}][price_data][currency]`,
@@ -367,6 +372,36 @@ app.post("/api/create-checkout-session", async (c) => {
     stripeParams.append(
       "shipping_address_collection[allowed_countries][0]",
       "US",
+    );
+
+    /*
+      Shipping:
+      $6.99 for merchandise subtotals under $100.
+      Free shipping for merchandise subtotals of $100 or more.
+    */
+    const qualifiesForFreeShipping =
+      merchandiseSubtotalCents >= 10000;
+
+    stripeParams.append(
+      "shipping_options[0][shipping_rate_data][type]",
+      "fixed_amount",
+    );
+
+    stripeParams.append(
+      "shipping_options[0][shipping_rate_data][fixed_amount][currency]",
+      "usd",
+    );
+
+    stripeParams.append(
+      "shipping_options[0][shipping_rate_data][fixed_amount][amount]",
+      qualifiesForFreeShipping ? "0" : "699",
+    );
+
+    stripeParams.append(
+      "shipping_options[0][shipping_rate_data][display_name]",
+      qualifiesForFreeShipping
+        ? "Free Shipping"
+        : "Standard Shipping",
     );
 
     /*
