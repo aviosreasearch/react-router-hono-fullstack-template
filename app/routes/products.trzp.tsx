@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
+import CompoundDescription from "../components/CompoundDescriptions";
 
 const sizes = [
   { label: "10 mg", price: 54.99 },
@@ -57,10 +57,7 @@ export default function TrzpProduct() {
               TRZP
             </h1>
 
-            <p className="mt-4 max-w-xl text-lg leading-8 text-slate-400">
-              Research compound supported by organized product information,
-              lot records, and available laboratory documentation.
-            </p>
+            <CompoundDescription productSlug="trzp" />
 
             {/* Research Notice */}
             <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
@@ -116,7 +113,9 @@ export default function TrzpProduct() {
             </div>
 
             <AddToCartButton
-              id={`trzp-${selectedSize.label.replace(/\s+/g, "-").toLowerCase()}`}
+              id={`trzp-${selectedSize.label
+                .replace(/\s+/g, "-")
+                .toLowerCase()}`}
               name="TRZP"
               strength={selectedSize.label}
               price={selectedSize.price}
