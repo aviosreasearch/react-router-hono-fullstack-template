@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import ComingSoon from "../components/ComingSoon";
+import CompoundDescription from "../components/CompoundDescriptions";
 
 const sizes = [
   {
@@ -59,10 +59,7 @@ export default function SemaglutideProduct() {
               Semaglutide
             </h1>
 
-            <p className="mt-4 max-w-xl text-lg leading-8 text-slate-400">
-              Research compound supported by organized product information,
-              lot records, and available laboratory documentation.
-            </p>
+            <CompoundDescription productSlug="semaglutide" />
 
             {/* Research Use Notice */}
             <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
