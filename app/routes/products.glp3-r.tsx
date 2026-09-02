@@ -1,6 +1,8 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
+import CompoundDescription from "../components/CompoundDescriptions";
+
 const sizes = [
   {
     label: "10 mg",
@@ -27,6 +29,7 @@ const sizes = [
     price: 189.99,
   },
 ];
+
 export default function Glp3RProduct() {
   const [selectedSize, setSelectedSize] = useState(sizes[0]);
 
@@ -76,10 +79,7 @@ export default function Glp3RProduct() {
               GLP3 R
             </h1>
 
-            <p className="mt-4 max-w-xl text-lg leading-8 text-slate-400">
-              Research compound supported by organized product information,
-              lot records, and available laboratory documentation.
-            </p>
+            <CompoundDescription productSlug="glp3-r" />
 
             {/* Research Notice */}
             <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
@@ -133,12 +133,16 @@ export default function Glp3RProduct() {
                 ${selectedSize.price.toFixed(2)}
               </p>
             </div>
-<AddToCartButton
-id={`glp3-r-${selectedSize.label.replace(/\s+/g, "-").toLowerCase()}`}
-name="GLP3 R"
-strength={selectedSize.label}
-price={selectedSize.price}
-/>
+
+            <AddToCartButton
+              id={`glp3-r-${selectedSize.label
+                .replace(/\s+/g, "-")
+                .toLowerCase()}`}
+              name="GLP3 R"
+              strength={selectedSize.label}
+              price={selectedSize.price}
+            />
+
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
               <h2 className="text-xl font-semibold">
