@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
+import CompoundDescription from "../components/CompoundDescriptions";
 
 const sizes = [
   { label: "100 mg", price: 59.99 },
@@ -56,10 +56,7 @@ export default function GhkCuProduct() {
               GHK-CU
             </h1>
 
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-              Research material supported by organized product information,
-              lot records, and available laboratory documentation.
-            </p>
+            <CompoundDescription productSlug="ghk-cu" />
 
             {/* Research Warning */}
             <div className="mt-8 rounded-2xl border border-cyan-900/70 bg-slate-900/70 p-5">
@@ -105,7 +102,10 @@ export default function GhkCuProduct() {
 
             {/* Price */}
             <div className="mt-6">
-              <p className="text-sm text-slate-400">Price</p>
+              <p className="text-sm text-slate-400">
+                Price
+              </p>
+
               <p className="mt-1 text-4xl font-bold">
                 ${selectedSize.price.toFixed(2)}
               </p>
@@ -122,37 +122,56 @@ export default function GhkCuProduct() {
 
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
-              <h2 className="text-2xl font-bold">Product Information</h2>
+              <h2 className="text-2xl font-bold">
+                Product Information
+              </h2>
 
               <dl className="mt-6 space-y-4 text-sm">
                 <div className="flex items-center justify-between gap-6 border-b border-slate-800 pb-4">
-                  <dt className="text-slate-400">Compound</dt>
-                  <dd className="font-semibold text-slate-200">GHK-CU</dd>
+                  <dt className="text-slate-400">
+                    Compound
+                  </dt>
+
+                  <dd className="font-semibold text-slate-200">
+                    GHK-CU
+                  </dd>
                 </div>
 
                 <div className="flex items-center justify-between gap-6 border-b border-slate-800 pb-4">
-                  <dt className="text-slate-400">Available amount</dt>
+                  <dt className="text-slate-400">
+                    Available amount
+                  </dt>
+
                   <dd className="font-semibold text-slate-200">
                     {selectedSize.label}
                   </dd>
                 </div>
 
                 <div className="flex items-center justify-between gap-6 border-b border-slate-800 pb-4">
-                  <dt className="text-slate-400">Category</dt>
+                  <dt className="text-slate-400">
+                    Category
+                  </dt>
+
                   <dd className="text-right font-semibold text-slate-200">
                     Copper Peptide Research
                   </dd>
                 </div>
 
                 <div className="flex items-center justify-between gap-6 border-b border-slate-800 pb-4">
-                  <dt className="text-slate-400">Expiration</dt>
+                  <dt className="text-slate-400">
+                    Expiration
+                  </dt>
+
                   <dd className="font-semibold text-slate-200">
                     06/05/2028
                   </dd>
                 </div>
 
                 <div className="flex items-center justify-between gap-6">
-                  <dt className="text-slate-400">Laboratory storage</dt>
+                  <dt className="text-slate-400">
+                    Laboratory storage
+                  </dt>
+
                   <dd className="text-right font-semibold text-slate-200">
                     Refrigerated 2°C–8°C (36°F–46°F)
                   </dd>
