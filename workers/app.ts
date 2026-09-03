@@ -4,6 +4,8 @@ import { createRequestHandler } from "react-router";
 type Bindings = {
   FRIENDS_FAMILY_CODE: string;
   STRIPE_SECRET_KEY: string;
+  SHIPSTATION_USERNAME: string;
+  SHIPSTATION_PASSWORD: string;
 };
 
 const app = new Hono<{ Bindings: Bindings }>();
@@ -516,6 +518,322 @@ app.get("/api/create-checkout-session", (c) => {
     },
     405,
   );
+});
+
+/*
+  ShipStation Custom Store integration.
+  Paid Stripe Checkout sessions are exported as orders.
+*/
+const xmlValue = (value: unknown) =>
+  `<![CDATA[${String(value ?? "").replace(
+    /]]>/g,
+    "]]]]><![CDATA[>",
+  )}]]>`;
+
+const stripeMoney = (cents: unknown) =>
+  (
+    (typeof cents === "number" ? cents : 0) / 100
+  ).toFixed(2);
+
+const shipStationDate = (timestamp: number) => {
+  const date = new Date(timestamp * 1000);
+  const pad = (value: number) =>
+    String(value).padStart(2, "0");
+
+  return `${pad(date.getUTCMonth() + 1)}/${pad(
+    date.getUTCDate(),
+  )}/${date.getUTCFullYear()} ${pad(
+    date.getUTCHours(),
+  )}:${pad(date.getUTCMinutes())}`;
+};
+
+const parseShipStationDate = (value: string | undefined) => {
+  if (!value) return null;
+
+  const match = value.match(
+    /^(\d{2})\/(\d{2})\/(\d{4})\s+(\d{2}):(\d{2})$/,
+  );
+
+  if (!match) return null;
+
+  return Math.floor(
+    Date.UTC(
+      Number(match[3]),
+      Number(match[1]) - 1,
+      Number(match[2]),
+      Number(match[4]),
+      Number(match[5]),
+    ) / 1000,
+  );
+};
+
+const shipStationAuthorized = (
+  authorization: string | undefined,
+  username: string,
+  password: string,
+) => {
+  if (!authorization || !username || !password) {
+    return false;
+  }
+
+  return (
+    authorization ===
+    `Basic ${btoa(`${username}:${password}`)}`
+  );
+};
+
+app.get("/api/shipstation", async (c) => {
+  if (
+    !c.env.SHIPSTATION_USERNAME ||
+    !c.env.SHIPSTATION_PASSWORD
+  ) {
+    return c.text(
+      "ShipStation credentials are not configured.",
+      503,
+    );
+  }
+
+  if (
+    !shipStationAuthorized(
+      c.req.header("Authorization"),
+      c.env.SHIPSTATION_USERNAME,
+      c.env.SHIPSTATION_PASSWORD,
+    )
+  ) {
+    return new Response("Unauthorized", {
+      status: 401,
+      headers: {
+        "WWW-Authenticate":
+          'Basic realm="Avios ShipStation"',
+      },
+    });
+  }
+
+  const action = c.req.query("action");
+
+  if (action !== "export") {
+    return c.text("Unsupported action.", 400);
+  }
+
+  const start =
+    parseShipStationDate(c.req.query("start_date")) ??
+    Math.floor(Date.now() / 1000) - 30 * 24 * 60 * 60;
+
+  const end =
+    parseShipStationDate(c.req.query("end_date")) ??
+    Math.floor(Date.now() / 1000);
+
+  const stripeUrl = new URL(
+    "https://api.stripe.com/v1/checkout/sessions",
+  );
+
+  stripeUrl.searchParams.set("limit", "100");
+  stripeUrl.searchParams.set(
+    "created[gte]",
+    String(start),
+  );
+  stripeUrl.searchParams.set(
+    "created[lte]",
+    String(end),
+  );
+  stripeUrl.searchParams.set("status", "complete");
+  stripeUrl.searchParams.append(
+    "expand[]",
+    "data.line_items",
+  );
+
+  const stripeResponse = await fetch(stripeUrl, {
+    headers: {
+      Authorization: `Bearer ${c.env.STRIPE_SECRET_KEY}`,
+    },
+  });
+
+  const stripeData: any =
+    await stripeResponse.json();
+
+  if (!stripeResponse.ok) {
+    console.error(
+      "Stripe order export failed:",
+      stripeData,
+    );
+
+    return c.text(
+      "Unable to retrieve Stripe orders.",
+      502,
+    );
+  }
+
+  const orders = (stripeData.data ?? [])
+    .filter(
+      (session: any) =>
+        session.mode === "payment" &&
+        session.status === "complete" &&
+        session.payment_status === "paid",
+    )
+    .map((session: any) => {
+      const shipping =
+        session.collected_information
+          ?.shipping_details ??
+        session.shipping_details ??
+        {};
+
+      const address = shipping.address ?? {};
+      const customer = session.customer_details ?? {};
+      const email =
+        customer.email ??
+        session.customer_email ??
+        "";
+      const name =
+        shipping.name ??
+        customer.name ??
+        "Customer";
+
+      const orderNumber = `AV-${session.created}-${String(
+        session.id,
+      )
+        .slice(-6)
+        .toUpperCase()}`;
+
+      const items = (
+        session.line_items?.data ?? []
+      )
+        .map((item: any) => {
+          const quantity =
+            typeof item.quantity === "number"
+              ? item.quantity
+              : 1;
+
+          const unitPrice =
+            typeof item.amount_subtotal === "number"
+              ? item.amount_subtotal /
+                quantity
+              : 0;
+
+          const itemName =
+            item.description ?? "Avios Research Product";
+
+          const sku = itemName
+            .toUpperCase()
+            .replace(/[^A-Z0-9]+/g, "-")
+            .replace(/^-|-$/g, "")
+            .slice(0, 50);
+
+          return `
+            <Item>
+              <LineItemID>${xmlValue(item.id)}</LineItemID>
+              <SKU>${xmlValue(sku || item.id)}</SKU>
+              <Name>${xmlValue(itemName)}</Name>
+              <Quantity>${quantity}</Quantity>
+              <UnitPrice>${stripeMoney(unitPrice)}</UnitPrice>
+            </Item>`;
+        })
+        .join("");
+
+      return `
+        <Order>
+          <OrderID>${xmlValue(
+            String(
+              session.payment_intent ?? session.id,
+            ).slice(0, 50),
+          )}</OrderID>
+          <OrderNumber>${xmlValue(orderNumber)}</OrderNumber>
+          <OrderDate>${shipStationDate(
+            session.created,
+          )}</OrderDate>
+          <OrderStatus>${xmlValue("paid")}</OrderStatus>
+          <LastModified>${shipStationDate(
+            session.created,
+          )}</LastModified>
+          <ShippingMethod>${xmlValue(
+            "Standard Shipping",
+          )}</ShippingMethod>
+          <PaymentMethod>${xmlValue(
+            "Credit Card",
+          )}</PaymentMethod>
+          <CurrencyCode>USD</CurrencyCode>
+          <OrderTotal>${stripeMoney(
+            session.amount_total,
+          )}</OrderTotal>
+          <TaxAmount>${stripeMoney(
+            session.total_details?.amount_tax,
+          )}</TaxAmount>
+          <ShippingAmount>${stripeMoney(
+            session.shipping_cost?.amount_total,
+          )}</ShippingAmount>
+          <Customer>
+            <CustomerCode>${xmlValue(
+              email || orderNumber,
+            )}</CustomerCode>
+            <BillTo>
+              <Name>${xmlValue(
+                customer.name ?? name,
+              )}</Name>
+              <Company></Company>
+              <Phone>${xmlValue(
+                customer.phone ?? "",
+              )}</Phone>
+              <Email>${xmlValue(email)}</Email>
+            </BillTo>
+            <ShipTo>
+              <Name>${xmlValue(name)}</Name>
+              <Company>${xmlValue(
+                shipping.company ?? "",
+              )}</Company>
+              <Address1>${xmlValue(
+                address.line1,
+              )}</Address1>
+              <Address2>${xmlValue(
+                address.line2,
+              )}</Address2>
+              <City>${xmlValue(
+                address.city,
+              )}</City>
+              <State>${xmlValue(
+                address.state,
+              )}</State>
+              <PostalCode>${xmlValue(
+                address.postal_code,
+              )}</PostalCode>
+              <Country>${xmlValue(
+                address.country ?? "US",
+              )}</Country>
+              <Phone>${xmlValue(
+                customer.phone ?? "",
+              )}</Phone>
+            </ShipTo>
+          </Customer>
+          <Items>${items}</Items>
+        </Order>`;
+    })
+    .join("");
+
+  return c.body(
+    `<?xml version="1.0" encoding="utf-8"?><Orders pages="1">${orders}</Orders>`,
+    200,
+    {
+      "Content-Type": "application/xml; charset=utf-8",
+    },
+  );
+});
+
+app.post("/api/shipstation", (c) => {
+  if (
+    !shipStationAuthorized(
+      c.req.header("Authorization"),
+      c.env.SHIPSTATION_USERNAME,
+      c.env.SHIPSTATION_PASSWORD,
+    )
+  ) {
+    return new Response("Unauthorized", {
+      status: 401,
+      headers: {
+        "WWW-Authenticate":
+          'Basic realm="Avios ShipStation"',
+      },
+    });
+  }
+
+  return c.text("Shipment notification received.", 200);
 });
 
 /*
