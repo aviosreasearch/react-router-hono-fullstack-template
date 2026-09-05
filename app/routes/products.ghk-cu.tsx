@@ -3,7 +3,8 @@ import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
 
 const sizes = [
-{ label: "100 mg", price: 59.99 },
+  { label: "50 mg", price: 39.99 },
+  { label: "100 mg", price: 59.99 },
 ];
 
 export default function GhkCuProduct() {
