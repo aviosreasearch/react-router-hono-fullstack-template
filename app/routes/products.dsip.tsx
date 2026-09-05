@@ -58,17 +58,6 @@ export default function DsipProduct() {
 
             <CompoundDescription productSlug="dsip" />
 
-            {/* Research Warning */}
-            <div className="mt-8 rounded-2xl border border-cyan-900/70 bg-slate-900/70 p-5">
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-300">
-                For Research Use Only
-              </p>
-
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Not intended for human consumption.
-              </p>
-            </div>
-
             {/* Strength Selector */}
             <div className="mt-8">
               <label
@@ -154,16 +143,6 @@ export default function DsipProduct() {
 
                   <dd className="text-right font-semibold text-slate-200">
                     Research Peptide
-                  </dd>
-                </div>
-
-                <div className="flex items-center justify-between gap-6">
-                  <dt className="text-slate-400">
-                    Intended Use
-                  </dt>
-
-                  <dd className="font-semibold text-slate-200">
-                    Laboratory Research
                   </dd>
                 </div>
               </dl>
