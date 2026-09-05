@@ -1,7 +1,6 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
-import CompoundDescription from "../components/CompoundDescriptions";
 
 const sizes = [
   { label: "10 mg", price: 39.99 },
@@ -56,7 +55,19 @@ export default function DsipProduct() {
               DSIP
             </h1>
 
-            <CompoundDescription productSlug="dsip" />
+            <div className="mt-6 space-y-4 leading-7 text-slate-300">
+              <p>
+                DSIP is a short peptide studied for the way it may interact with
+                signals involved in sleep patterns, stress response, and nervous
+                system activity.
+              </p>
+
+              <p>
+                Laboratory research examines how DSIP behaves under controlled
+                conditions and measures changes in sleep-related signaling,
+                stress markers, and brain activity.
+              </p>
+            </div>
 
             {/* Strength Selector */}
             <div className="mt-8">
@@ -91,9 +102,7 @@ export default function DsipProduct() {
 
             {/* Price */}
             <div className="mt-6">
-              <p className="text-sm text-slate-400">
-                Price
-              </p>
+              <p className="text-sm text-slate-400">Price</p>
 
               <p className="mt-1 text-4xl font-bold">
                 ${selectedSize.price.toFixed(2)}
@@ -111,25 +120,17 @@ export default function DsipProduct() {
 
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
-              <h2 className="text-2xl font-bold">
-                Product Information
-              </h2>
+              <h2 className="text-2xl font-bold">Product Information</h2>
 
               <dl className="mt-6 space-y-4 text-sm">
                 <div className="flex items-center justify-between gap-6 border-b border-slate-800 pb-4">
-                  <dt className="text-slate-400">
-                    Compound
-                  </dt>
+                  <dt className="text-slate-400">Compound</dt>
 
-                  <dd className="font-semibold text-slate-200">
-                    DSIP
-                  </dd>
+                  <dd className="font-semibold text-slate-200">DSIP</dd>
                 </div>
 
                 <div className="flex items-center justify-between gap-6 border-b border-slate-800 pb-4">
-                  <dt className="text-slate-400">
-                    Available amount
-                  </dt>
+                  <dt className="text-slate-400">Available amount</dt>
 
                   <dd className="font-semibold text-slate-200">
                     {selectedSize.label}
@@ -137,9 +138,7 @@ export default function DsipProduct() {
                 </div>
 
                 <div className="flex items-center justify-between gap-6 border-b border-slate-800 pb-4">
-                  <dt className="text-slate-400">
-                    Category
-                  </dt>
+                  <dt className="text-slate-400">Category</dt>
 
                   <dd className="text-right font-semibold text-slate-200">
                     Research Peptide
