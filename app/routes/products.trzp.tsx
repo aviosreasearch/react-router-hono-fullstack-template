@@ -5,6 +5,7 @@ import AddToCartButton from "../components/AddToCartButton";
 const sizes = [
   { label: "10 mg", price: 54.99 },
   { label: "20 mg", price: 79.99 },
+  { label: "30 mg", price: 109.99 },
 ];
 
 export default function TrzpProduct() {
