@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
-import ComingSoon from "../components/ComingSoon";
+import AddToCartButton from "../components/AddToCartButton";
 
 const sizes = [
   {
@@ -62,22 +62,22 @@ export default function IpamorelinProduct() {
             <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
               <p>
                 Ipamorelin is a small research peptide made from five amino
-                acids. It activates the ghrelin receptor, which helps control
-                signals related to hunger, energy use, and growth-hormone
+                acids. It interacts with the ghrelin receptor, which is involved
+                in signaling related to hunger, energy use, and growth-hormone
                 release.
               </p>
 
               <p>
-                When this receptor is activated, the pituitary gland receives
-                a signal to release growth hormone. Researchers study
-                Ipamorelin to better understand this signaling process and
-                how it affects growth-hormone activity in the body.
+                When this receptor is activated, it sends a signal connected
+                with the release of growth hormone. Researchers study
+                Ipamorelin to better understand this signaling process and how
+                it influences growth-hormone activity.
               </p>
 
               <p>
                 Early research found that Ipamorelin produced a more focused
                 growth-hormone signal than some older compounds in the same
-                class. Much of the published evidence comes from laboratory
+                class. Much of the available evidence comes from laboratory
                 and animal studies, and human research remains limited.
               </p>
             </div>
@@ -124,7 +124,14 @@ export default function IpamorelinProduct() {
               </p>
             </div>
 
-            <ComingSoon />
+            <AddToCartButton
+              id={`ipamorelin-${selectedSize.label
+                .replace(/\s+/g, "-")
+                .toLowerCase()}`}
+              name="Ipamorelin"
+              strength={selectedSize.label}
+              price={selectedSize.price}
+            />
 
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
