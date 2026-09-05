@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import ComingSoon from "../components/ComingSoon";
@@ -59,19 +58,27 @@ export default function IpamorelinProduct() {
               Ipamorelin
             </h1>
 
-            <p className="mt-4 max-w-xl text-lg leading-8 text-slate-400">
-              Research peptide supported by organized product information,
-              lot records, and available laboratory documentation.
-            </p>
-
-            {/* Research Use Notice */}
-            <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">
-                For Research Use Only
+            {/* Product Description */}
+            <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
+              <p>
+                Ipamorelin is a small research peptide made from five amino
+                acids. It activates the ghrelin receptor, which helps control
+                signals related to hunger, energy use, and growth-hormone
+                release.
               </p>
 
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Not intended for human consumption.
+              <p>
+                When this receptor is activated, the pituitary gland receives
+                a signal to release growth hormone. Researchers study
+                Ipamorelin to better understand this signaling process and
+                how it affects growth-hormone activity in the body.
+              </p>
+
+              <p>
+                Early research found that Ipamorelin produced a more focused
+                growth-hormone signal than some older compounds in the same
+                class. Much of the published evidence comes from laboratory
+                and animal studies, and human research remains limited.
               </p>
             </div>
 
@@ -153,16 +160,6 @@ export default function IpamorelinProduct() {
 
                   <span className="text-right font-medium">
                     Growth Hormone Research
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">
-                    Intended Use
-                  </span>
-
-                  <span className="font-medium">
-                    Laboratory Research
                   </span>
                 </div>
               </div>
