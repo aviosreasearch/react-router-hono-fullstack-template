@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import ComingSoon from "../components/ComingSoon";
@@ -59,19 +58,27 @@ export default function SermorelinProduct() {
               Sermorelin
             </h1>
 
-            <p className="mt-4 max-w-xl text-lg leading-8 text-slate-400">
-              Research peptide supported by organized product information,
-              lot records, and available laboratory documentation.
-            </p>
-
-            {/* Research Use Notice */}
-            <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">
-                For Research Use Only
+            {/* Product Description */}
+            <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
+              <p>
+                Sermorelin is a lab-made peptide based on part of a natural
+                signal produced by the brain. That signal tells the pituitary
+                gland to release growth hormone.
               </p>
 
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Not intended for human consumption.
+              <p>
+                Rather than acting as growth hormone itself, Sermorelin
+                activates the receptor that controls the body’s own
+                growth-hormone release. Researchers use it to study how the
+                brain and pituitary gland communicate and regulate this
+                hormone system.
+              </p>
+
+              <p>
+                Sermorelin has also been studied as a way to measure how well
+                the pituitary gland responds to a growth-hormone-releasing
+                signal. Its effects depend on the pituitary gland being able
+                to produce and release growth hormone.
               </p>
             </div>
 
@@ -141,11 +148,6 @@ export default function SermorelinProduct() {
                   <span className="text-right font-medium">
                     Growth Hormone Research
                   </span>
-                </div>
-
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">Intended Use</span>
-                  <span className="font-medium">Laboratory Research</span>
                 </div>
               </div>
             </div>
