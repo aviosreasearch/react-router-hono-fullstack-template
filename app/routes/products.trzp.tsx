@@ -1,7 +1,6 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
-import CompoundDescription from "../components/CompoundDescriptions";
 
 const sizes = [
   { label: "10 mg", price: 54.99 },
@@ -57,9 +56,25 @@ export default function TrzpProduct() {
               TRZP
             </h1>
 
-            <CompoundDescription productSlug="trzp" />
+            {/* Product Description */}
+            <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
+              <p>
+                TRZP is a laboratory-made peptide designed to interact with
+                two receptor systems known as GIP and GLP-1.
+              </p>
 
-           
+              <p>
+                These receptors act like receiving stations on cells. When
+                activated, they pass along signals involved in glucose
+                processing, energy use, and other metabolic activity.
+              </p>
+
+              <p>
+                Researchers study TRZP to examine how activating both receptor
+                systems at the same time changes cellular communication and
+                metabolic signaling under controlled conditions.
+              </p>
+            </div>
 
             {/* Strength Selector */}
             <div className="mt-8">
@@ -148,8 +163,6 @@ export default function TrzpProduct() {
                     Metabolic Research
                   </span>
                 </div>
-
-                
               </div>
             </div>
 
