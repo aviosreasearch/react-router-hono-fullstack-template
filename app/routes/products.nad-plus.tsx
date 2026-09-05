@@ -1,7 +1,6 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
-import CompoundDescription from "../components/CompoundDescriptions";
 
 const sizes = [
   { label: "500 mg", price: 54.99 },
@@ -57,18 +56,31 @@ export default function NadPlusProduct() {
               NAD+
             </h1>
 
-            <CompoundDescription productSlug="nad-plus" />
-
-            {/* Research Warning */}
-            <div className="mt-8 rounded-2xl border border-cyan-900/70 bg-slate-900/70 p-5">
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-300">
-                For Research Use Only
+            {/* Product Description */}
+            <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
+              <p>
+                NAD+ is a molecule found in nearly every living cell. Its full
+                name is nicotinamide adenine dinucleotide, but NAD+ is the name
+                most commonly used.
               </p>
 
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Not intended for human consumption.
+              <p>
+                Cells use NAD+ to help transfer energy from nutrients into
+                chemical reactions. It works like a carrier, moving electrons
+                from one reaction to another so important cellular processes
+                can continue.
+              </p>
+
+              <p>
+                Researchers study NAD+ in connection with energy production,
+                mitochondrial activity, DNA maintenance, and the way cells
+                respond to stress and changing energy demands.
               </p>
             </div>
+
+            <p className="mt-4 text-sm leading-6 text-slate-500">
+              For laboratory research only.
+            </p>
 
             {/* Strength Selector */}
             <div className="mt-8">
@@ -166,26 +178,4 @@ export default function NadPlusProduct() {
                   </dd>
                 </div>
 
-                <div className="flex items-center justify-between gap-6">
-                  <dt className="text-slate-400">
-                    Laboratory storage
-                  </dt>
-
-                  <dd className="text-right font-semibold text-slate-200">
-                    Refrigerated 2°C–8°C (36°F–46°F)
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Documentation */}
-      <LotDocumentation
-        productSlug="nad-plus"
-        selectedStrength={selectedSize.label}
-      />
-    </main>
-  );
-}
+                <div className="flex items
