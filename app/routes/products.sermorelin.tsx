@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
-import ComingSoon from "../components/ComingSoon";
+import AddToCartButton from "../components/AddToCartButton";
 
 const sizes = [
   {
@@ -68,17 +68,17 @@ export default function SermorelinProduct() {
 
               <p>
                 Rather than acting as growth hormone itself, Sermorelin
-                activates the receptor that controls the body’s own
-                growth-hormone release. Researchers use it to study how the
+                activates the receptor involved in natural growth-hormone
+                release. Researchers study it to better understand how the
                 brain and pituitary gland communicate and regulate this
                 hormone system.
               </p>
 
               <p>
-                Sermorelin has also been studied as a way to measure how well
-                the pituitary gland responds to a growth-hormone-releasing
-                signal. Its effects depend on the pituitary gland being able
-                to produce and release growth hormone.
+                Sermorelin has also been studied as a way to examine how the
+                pituitary gland responds to a growth-hormone-releasing signal.
+                Its activity depends on the pituitary gland being able to
+                produce and release growth hormone.
               </p>
             </div>
 
@@ -124,7 +124,14 @@ export default function SermorelinProduct() {
               </p>
             </div>
 
-            <ComingSoon />
+            <AddToCartButton
+              id={`sermorelin-${selectedSize.label
+                .replace(/\s+/g, "-")
+                .toLowerCase()}`}
+              name="Sermorelin"
+              strength={selectedSize.label}
+              price={selectedSize.price}
+            />
 
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
@@ -134,17 +141,30 @@ export default function SermorelinProduct() {
 
               <div className="mt-5 space-y-4">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">Compound</span>
-                  <span className="font-medium">Sermorelin</span>
+                  <span className="text-slate-500">
+                    Compound
+                  </span>
+
+                  <span className="font-medium">
+                    Sermorelin
+                  </span>
                 </div>
 
                 <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">Amount</span>
-                  <span className="font-medium">{selectedSize.label}</span>
+                  <span className="text-slate-500">
+                    Amount
+                  </span>
+
+                  <span className="font-medium">
+                    {selectedSize.label}
+                  </span>
                 </div>
 
                 <div className="flex items-center justify-between gap-6 border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">Category</span>
+                  <span className="text-slate-500">
+                    Category
+                  </span>
+
                   <span className="text-right font-medium">
                     Growth Hormone Research
                   </span>
@@ -152,6 +172,7 @@ export default function SermorelinProduct() {
               </div>
             </div>
 
+            {/* Lot and COA Documentation */}
             <LotDocumentation
               productSlug="sermorelin"
               selectedStrength={selectedSize.label}
