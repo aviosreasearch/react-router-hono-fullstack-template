@@ -58,16 +58,9 @@ export default function GhkCuProduct() {
 
             <CompoundDescription productSlug="ghk-cu" />
 
-            {/* Research Warning */}
-            <div className="mt-8 rounded-2xl border border-cyan-900/70 bg-slate-900/70 p-5">
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-300">
-                For Research Use Only
-              </p>
-
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Not intended for human consumption.
-              </p>
-            </div>
+            <p className="mt-4 text-sm leading-6 text-slate-400">
+              For research use only. Not intended for human consumption.
+            </p>
 
             {/* Strength Selector */}
             <div className="mt-8">
