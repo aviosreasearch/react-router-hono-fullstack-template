@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
-import ComingSoon from "../components/ComingSoon";
+import AddToCartButton from "../components/AddToCartButton";
 
 const sizes = [
   {
@@ -68,16 +68,16 @@ export default function GlowProduct() {
               <p>
                 Each component is studied for a different part of cellular
                 activity. GHK-Cu is a copper-binding peptide used to examine
-                copper signaling and the material surrounding cells.
-                BPC-157 is studied in models involving cellular stress and
-                tissue signaling.
+                copper signaling and the material surrounding cells. BPC-157 is
+                studied in models involving cellular stress and tissue
+                signaling.
               </p>
 
               <p>
-                TB-500 is studied in connection with actin, a protein that
-                helps cells maintain their shape and movement. Researchers
-                examine the blend to observe how these three materials behave
-                together under controlled laboratory conditions.
+                TB-500 is studied in connection with actin, a protein that helps
+                cells maintain their shape and movement. Researchers examine the
+                blend to observe how these three materials behave together under
+                controlled laboratory conditions.
               </p>
             </div>
 
@@ -123,7 +123,14 @@ export default function GlowProduct() {
               </p>
             </div>
 
-            <ComingSoon />
+            <AddToCartButton
+              id={`glow-${selectedSize.label
+                .replace(/\s+/g, "-")
+                .toLowerCase()}`}
+              name="GLOW"
+              strength={selectedSize.label}
+              price={selectedSize.price}
+            />
 
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
@@ -221,8 +228,8 @@ export default function GlowProduct() {
 
               <p className="mt-3 leading-7 text-slate-400">
                 Supplier-provided and independently obtained laboratory records
-                are identified according to the source and type of
-                documentation available.
+                are identified according to the source and type of documentation
+                available.
               </p>
             </div>
 
