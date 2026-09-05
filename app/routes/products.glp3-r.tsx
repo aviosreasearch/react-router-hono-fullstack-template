@@ -1,7 +1,6 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
-import CompoundDescription from "../components/CompoundDescriptions";
 
 const sizes = [
   {
@@ -79,7 +78,25 @@ export default function Glp3RProduct() {
               GLP3 R
             </h1>
 
-            <CompoundDescription productSlug="glp3-r" />
+            {/* Product Description */}
+            <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
+              <p>
+                GLP3 R is a laboratory-made peptide designed to interact with
+                three receptor systems: GLP-1, GIP, and glucagon.
+              </p>
+
+              <p>
+                These receptors act like receiving stations on cells. When
+                activated, they pass along signals involved in glucose
+                processing, energy use, and other metabolic activity.
+              </p>
+
+              <p>
+                Researchers study GLP3 R to examine how activating all three
+                receptor systems at once changes cellular communication and
+                metabolic signaling under controlled conditions.
+              </p>
+            </div>
 
             {/* Strength Selector */}
             <div className="mt-8">
