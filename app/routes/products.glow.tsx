@@ -61,17 +61,6 @@ export default function GlowProduct() {
 
             <CompoundDescription productSlug="glow" />
 
-            {/* Research Use Notice */}
-            <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">
-                For Research Use Only
-              </p>
-
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Not intended for human consumption.
-              </p>
-            </div>
-
             {/* Strength Selector */}
             <div className="mt-8">
               <label
@@ -150,16 +139,6 @@ export default function GlowProduct() {
 
                   <span className="text-right font-medium">
                     Peptide Blend Research
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">
-                    Intended Use
-                  </span>
-
-                  <span className="font-medium">
-                    Laboratory Research
                   </span>
                 </div>
               </div>
