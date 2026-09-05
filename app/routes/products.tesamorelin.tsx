@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
@@ -56,19 +55,26 @@ export default function TesamorelinProduct() {
               Tesamorelin
             </h1>
 
-            <p className="mt-4 max-w-xl text-lg leading-8 text-slate-400">
-              Research compound supported by organized product information,
-              lot records, and available laboratory documentation.
-            </p>
-
-            {/* Research Notice */}
-            <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">
-                For Research Use Only
+            {/* Product Description */}
+            <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
+              <p>
+                Tesamorelin is a lab-made version of a signaling peptide
+                naturally found in the body. This signal tells the pituitary
+                gland to release growth hormone.
               </p>
 
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Not intended for human consumption.
+              <p>
+                Researchers study Tesamorelin to understand the body’s natural
+                growth-hormone system and its connection to metabolism, body
+                composition, and visceral fat—the fat stored deep inside the
+                abdomen around internal organs.
+              </p>
+
+              <p>
+                Human clinical trials in adults with HIV-related abdominal fat
+                accumulation found reductions in visceral fat. Those results
+                apply to the specific population and conditions studied and do
+                not establish Tesamorelin as a general weight-loss treatment.
               </p>
             </div>
 
@@ -115,7 +121,9 @@ export default function TesamorelinProduct() {
             </div>
 
             <AddToCartButton
-              id={`tesamorelin-${selectedSize.label.replace(/\s+/g, "-").toLowerCase()}`}
+              id={`tesamorelin-${selectedSize.label
+                .replace(/\s+/g, "-")
+                .toLowerCase()}`}
               name="Tesamorelin"
               strength={selectedSize.label}
               price={selectedSize.price}
@@ -155,16 +163,6 @@ export default function TesamorelinProduct() {
 
                   <span className="text-right font-medium">
                     Growth Hormone Research
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">
-                    Intended Use
-                  </span>
-
-                  <span className="font-medium">
-                    Laboratory Research
                   </span>
                 </div>
               </div>
