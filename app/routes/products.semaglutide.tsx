@@ -1,7 +1,6 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import ComingSoon from "../components/ComingSoon";
-import CompoundDescription from "../components/CompoundDescriptions";
 
 const sizes = [
   {
@@ -59,16 +58,24 @@ export default function SemaglutideProduct() {
               Semaglutide
             </h1>
 
-            <CompoundDescription productSlug="semaglutide" />
-
-            {/* Research Use Notice */}
-            <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">
-                For Research Use Only
+            {/* Product Description */}
+            <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
+              <p>
+                Semaglutide is a laboratory-made peptide based on GLP-1, a
+                naturally occurring signaling molecule involved in metabolic
+                communication.
               </p>
 
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Not intended for human consumption.
+              <p>
+                It binds to the GLP-1 receptor and remains active longer than
+                naturally occurring GLP-1. This allows researchers to examine
+                how sustained receptor activity changes cellular signaling.
+              </p>
+
+              <p>
+                Research involving Semaglutide commonly measures GLP-1 receptor
+                activity, insulin and glucagon signaling, glucose response, and
+                related metabolic pathways under controlled conditions.
               </p>
             </div>
 
@@ -138,11 +145,6 @@ export default function SemaglutideProduct() {
                   <span className="text-right font-medium">
                     Metabolic Research
                   </span>
-                </div>
-
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">Intended Use</span>
-                  <span className="font-medium">Laboratory Research</span>
                 </div>
               </div>
             </div>
