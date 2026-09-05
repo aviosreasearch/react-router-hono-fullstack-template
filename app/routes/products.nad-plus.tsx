@@ -115,7 +115,9 @@ export default function NadPlusProduct() {
 
             {/* Price */}
             <div className="mt-6">
-              <p className="text-sm text-slate-400">Price</p>
+              <p className="text-sm text-slate-400">
+                Price
+              </p>
 
               <p className="mt-1 text-4xl font-bold">
                 ${selectedSize.price.toFixed(2)}
@@ -178,4 +180,26 @@ export default function NadPlusProduct() {
                   </dd>
                 </div>
 
-                <div className="flex items
+                <div className="flex items-center justify-between gap-6">
+                  <dt className="text-slate-400">
+                    Laboratory storage
+                  </dt>
+
+                  <dd className="text-right font-semibold text-slate-200">
+                    Refrigerated 2°C–8°C (36°F–46°F)
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Documentation */}
+      <LotDocumentation
+        productSlug="nad-plus"
+        selectedStrength={selectedSize.label}
+      />
+    </main>
+  );
+}
