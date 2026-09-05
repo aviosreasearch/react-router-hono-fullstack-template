@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import ComingSoon from "../components/ComingSoon";
@@ -59,19 +58,27 @@ export default function EpithalonProduct() {
               Epithalon
             </h1>
 
-            <p className="mt-4 max-w-xl text-lg leading-8 text-slate-400">
-              Research compound supported by organized product information,
-              lot records, and available laboratory documentation.
-            </p>
-
-            {/* Research Use Notice */}
-            <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">
-                For Research Use Only
+            {/* Product Description */}
+            <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
+              <p>
+                Epithalon, also called Epitalon, is a lab-made peptide
+                consisting of four amino acids—the building blocks of
+                proteins. Researchers study it to better understand how
+                cells change as they age.
               </p>
 
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Not intended for human consumption.
+              <p>
+                One area of research focuses on telomeres, the protective
+                ends of chromosomes that help protect genetic material.
+                In a study of human cells grown in a laboratory, Epithalon
+                increased the activity of an enzyme that maintains these
+                ends, and researchers observed longer telomeres.
+              </p>
+
+              <p>
+                These findings concern cells in a laboratory. They do not
+                establish that Epithalon slows aging or extends life in
+                people.
               </p>
             </div>
 
@@ -141,11 +148,6 @@ export default function EpithalonProduct() {
                   <span className="text-right font-medium">
                     Cellular Aging Research
                   </span>
-                </div>
-
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">Intended Use</span>
-                  <span className="font-medium">Laboratory Research</span>
                 </div>
               </div>
             </div>
