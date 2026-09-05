@@ -1,7 +1,6 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import ComingSoon from "../components/ComingSoon";
-import CompoundDescription from "../components/CompoundDescriptions";
 
 const sizes = [
   {
@@ -59,7 +58,28 @@ export default function GlowProduct() {
               GLOW
             </h1>
 
-            <CompoundDescription productSlug="glow" />
+            {/* Product Description */}
+            <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
+              <p>
+                GLOW is a 70 mg research blend containing 50 mg of GHK-Cu,
+                10 mg of BPC-157, and 10 mg of TB-500.
+              </p>
+
+              <p>
+                Each component is studied for a different part of cellular
+                activity. GHK-Cu is a copper-binding peptide used to examine
+                copper signaling and the material surrounding cells.
+                BPC-157 is studied in models involving cellular stress and
+                tissue signaling.
+              </p>
+
+              <p>
+                TB-500 is studied in connection with actin, a protein that
+                helps cells maintain their shape and movement. Researchers
+                examine the blend to observe how these three materials behave
+                together under controlled laboratory conditions.
+              </p>
+            </div>
 
             {/* Strength Selector */}
             <div className="mt-8">
