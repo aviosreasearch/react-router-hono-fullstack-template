@@ -1,7 +1,6 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import ComingSoon from "../components/ComingSoon";
-import CompoundDescription from "../components/CompoundDescriptions";
 
 const sizes = [
   {
@@ -59,16 +58,26 @@ export default function SS31Product() {
               SS-31
             </h1>
 
-            <CompoundDescription productSlug="ss-31" />
-
-            {/* Research Use Notice */}
-            <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">
-                For Research Use Only
+            {/* Product Description */}
+            <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
+              <p>
+                SS-31 is a small research peptide made from four amino acids.
+                It is designed to collect inside mitochondria, the structures
+                that help cells produce usable energy.
               </p>
 
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Not intended for human consumption.
+              <p>
+                Inside mitochondria, SS-31 interacts with cardiolipin, a type
+                of fat that helps form and support the inner mitochondrial
+                membrane. This membrane contains much of the machinery used
+                during cellular energy production.
+              </p>
+
+              <p>
+                Researchers study SS-31 to examine mitochondrial membrane
+                stability, energy production, and oxidative stress—the
+                chemical strain created when highly reactive molecules build
+                up inside cells.
               </p>
             </div>
 
@@ -138,11 +147,6 @@ export default function SS31Product() {
                   <span className="text-right font-medium">
                     Mitochondrial Research
                   </span>
-                </div>
-
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">Intended Use</span>
-                  <span className="font-medium">Laboratory Research</span>
                 </div>
               </div>
             </div>
