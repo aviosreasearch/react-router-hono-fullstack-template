@@ -1,7 +1,6 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
-import CompoundDescription from "../components/CompoundDescriptions";
 
 const sizes = [
   {
@@ -59,16 +58,25 @@ export default function SemaxProduct() {
               Semax
             </h1>
 
-            <CompoundDescription productSlug="semax" />
-
-            {/* Research Use Notice */}
-            <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">
-                For Research Use Only
+            {/* Product Description */}
+            <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
+              <p>
+                Semax is a lab-made peptide consisting of seven amino acids.
+                Its structure is based partly on a small section of ACTH, a
+                naturally occurring signaling hormone.
               </p>
 
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Not intended for human consumption.
+              <p>
+                Semax does not contain the complete ACTH hormone. Researchers
+                study the smaller peptide to examine how it interacts with
+                signaling pathways involved in nerve-cell communication and
+                the way cells respond to stress.
+              </p>
+
+              <p>
+                Laboratory research also examines changes involving BDNF and
+                NGF. These are proteins that help researchers understand the
+                growth, maintenance, and communication of nerve cells.
               </p>
             </div>
 
@@ -157,16 +165,6 @@ export default function SemaxProduct() {
 
                   <span className="text-right font-medium">
                     Laboratory Peptide Research
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">
-                    Intended Use
-                  </span>
-
-                  <span className="font-medium">
-                    Laboratory Research
                   </span>
                 </div>
               </div>
