@@ -58,21 +58,24 @@ export default function MotsCProduct() {
               MOTS-C
             </h1>
 
-           <p className="mt-4 max-w-xl text-lg leading-8 text-slate-400">
-  MOTS-C is a mitochondrial-derived peptide encoded within mitochondrial
-  DNA. It is studied in laboratory research involving mitochondrial
-  signaling, cellular metabolism, energy regulation, and metabolic
-  stress-response pathways.
-</p>
-
-            {/* Research Use Notice */}
-            <div className="mt-7 rounded-xl border border-sky-500/30 bg-sky-500/5 px-5 py-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">
-                For Research Use Only
+            {/* Product Description */}
+            <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
+              <p>
+                MOTS-C is a small peptide produced from instructions found in
+                mitochondrial DNA. Mitochondria are the structures inside cells
+                that help turn nutrients into usable energy.
               </p>
 
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Not intended for human consumption.
+              <p>
+                Researchers study MOTS-C to understand how mitochondria send
+                messages to the rest of a cell. These messages may help cells
+                adjust when their energy needs or surroundings change.
+              </p>
+
+              <p>
+                Laboratory research commonly examines its connection to energy
+                use, glucose processing, cellular stress, and communication
+                between the mitochondria and the cell nucleus.
               </p>
             </div>
 
@@ -117,12 +120,16 @@ export default function MotsCProduct() {
                 ${selectedSize.price.toFixed(2)}
               </p>
             </div>
-<AddToCartButton
-  id={`mots-c-${selectedSize.label.replace(/\s+/g, "-").toLowerCase()}`}
-  name="MOTS-C"
-  strength={selectedSize.label}
-  price={selectedSize.price}
-/>
+
+            <AddToCartButton
+              id={`mots-c-${selectedSize.label
+                .replace(/\s+/g, "-")
+                .toLowerCase()}`}
+              name="MOTS-C"
+              strength={selectedSize.label}
+              price={selectedSize.price}
+            />
+
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
               <h2 className="text-xl font-semibold">
@@ -157,16 +164,6 @@ export default function MotsCProduct() {
 
                   <span className="text-right font-medium">
                     Metabolic / Mitochondrial Research
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <span className="text-slate-500">
-                    Intended Use
-                  </span>
-
-                  <span className="font-medium">
-                    Laboratory Research
                   </span>
                 </div>
               </div>
