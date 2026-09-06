@@ -147,6 +147,17 @@ export default function Welcome({ message }: { message: string }) {
         "Research peptide with organized product documentation and available laboratory records.",
     },
     {
+  name: "Melanotan II",
+  amount: "10 mg",
+  category: "Melanocortin Research",
+  group: "Peptide & Tissue Research",
+  sizes: [{ label: "10 mg", price: 39.99 }],
+  image: "/avios-melanotanII-product.PNG",
+  href: "/products/melanotan-ii",
+  description:
+    "Research peptide with organized product documentation and available laboratory records.",
+},
+    {
   name: "BPC-157",
   amount: "10 mg",
   category: "Peptide Research",
