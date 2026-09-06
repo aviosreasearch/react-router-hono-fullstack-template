@@ -14,22 +14,13 @@ export default [
   route("products/glow", "routes/products.glow.tsx"),
   route("products/ipamorelin", "routes/products.ipamorelin.tsx"),
   route("products/sermorelin", "routes/products.sermorelin.tsx"),
-  route(
-    "products/semaglutide",
-    "routes/products.semaglutide.tsx"
-  ),
+  route("products/semaglutide", "routes/products.semaglutide.tsx"),
   route("products/ss-31", "routes/products.ss-31.tsx"),
   route("products/epithalon", "routes/products.epithalon.tsx"),
 
   route("products/bpc157", "routes/products.bpc157.tsx"),
-  route(
-    "products/wolverine",
-    "routes/products.wolverine.tsx"
-  ),
-  route(
-    "products/melanotanII",
-    "routes/products.melanotanII.tsx"
-  ),
+  route("products/wolverine-blend", "routes/products.wolverine.tsx"),
+  route("products/melanotan-ii", "routes/products.melanotanII.tsx"),
 
   route("research-use", "routes/research-use-policy.tsx"),
   route("contact", "routes/contact.tsx"),
@@ -38,10 +29,7 @@ export default [
   route("privacy", "routes/privacy.tsx"),
   route("shipping", "routes/shipping.tsx"),
   route("returns", "routes/returns.tsx"),
-  route(
-    "api/friends-family",
-    "routes/api.friends-family.ts"
-  ),
+  route("api/friends-family", "routes/api.friends-family.ts"),
   route("checkout", "routes/checkout.tsx"),
   route("cart", "routes/cart.tsx"),
 ] satisfies RouteConfig;
