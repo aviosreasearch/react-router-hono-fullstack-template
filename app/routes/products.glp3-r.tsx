@@ -39,7 +39,7 @@ export default function Glp3RProduct() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <a href="/" className="flex items-center">
             <img
-              src="/AVIOS Research logo.png"
+              src="/AVIOS Research logo.PNG"
               alt="Avios Research"
               className="h-24 w-auto object-contain"
             />
@@ -61,7 +61,7 @@ export default function Glp3RProduct() {
           <div className="overflow-hidden rounded-3xl border border-slate-800 bg-white">
             <div className="aspect-square">
               <img
-                src="/avios-glp3r-product.png"
+                src="/avios-glp3r-product.PNG"
                 alt={`GLP3 R ${selectedSize.label}`}
                 className="h-full w-full object-contain p-10"
               />
