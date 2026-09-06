@@ -152,10 +152,21 @@ export default function Welcome({ message }: { message: string }) {
   category: "Peptide Research",
   group: "Peptide & Tissue Research",
   sizes: [{ label: "10 mg", price: 49.99 }],
-  image: "/avios-bpc-157-product.PNG",
+  image: "/avios-bpc-157-product.png",
   href: "/products/bpc-157",
   description:
     "Research peptide with organized product documentation and available laboratory records.",
+},
+    {
+  name: "Wolverine Blend",
+  amount: "10 mg total",
+  category: "Peptide Blend Research",
+  group: "Peptide & Tissue Research",
+  sizes: [{ label: "5 mg / 5 mg", price: 54.99 }],
+  image: "/avios-wolverine-blend-product.PNG",
+  href: "/products/wolverine-blend",
+  description:
+    "BPC-157 and TB-500 research blend with organized product documentation and available laboratory records.",
 },
     {
       name: "GHK-CU",
