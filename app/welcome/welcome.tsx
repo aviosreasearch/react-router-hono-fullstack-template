@@ -21,7 +21,7 @@ export default function Welcome({ message }: { message: string }) {
         { label: "40 mg", price: 159.99 },
         { label: "50 mg", price: 189.99 },
       ],
-      image: "/avios-glp3r-product.png",
+      image: "/avios-glp3r-product.PNG",
       href: "/products/glp3-r",
       description:
         "Research compound with batch documentation and third-party laboratory records.",
