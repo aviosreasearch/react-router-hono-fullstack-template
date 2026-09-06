@@ -45,7 +45,7 @@ export default function MotsCProduct() {
           <div className="overflow-hidden rounded-3xl border border-slate-800 bg-white">
             <div className="aspect-square">
               <img
-                src="/avios-motsc-product.png"
+                src="/avios-motsc-product.PNG"
                 alt={`MOTS-C ${selectedSize.label}`}
                 className="h-full w-full object-contain p-10"
               />
