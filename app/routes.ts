@@ -27,8 +27,8 @@ export default [
     "routes/products.wolverine.tsx"
   ),
   route(
-    "products/melanotan-ii",
-    "routes/products.melanotan-ii.tsx"
+    "products/melanotanII",
+    "routes/products.melanotanII.tsx"
   ),
 
   route("research-use", "routes/research-use-policy.tsx"),
