@@ -18,7 +18,7 @@ export default [
   route("products/ss-31", "routes/products.ss-31.tsx"),
   route("products/epithalon", "routes/products.epithalon.tsx"),
 
-  route("products/bpc157", "routes/products.bpc157.tsx"),
+  route("products/bpc-157", "routes/products.bpc157.tsx"),
   route("products/wolverine-blend", "routes/products.wolverine.tsx"),
   route("products/melanotan-ii", "routes/products.melanotanII.tsx"),
 
