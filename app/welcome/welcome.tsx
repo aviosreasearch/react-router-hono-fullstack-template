@@ -31,10 +31,11 @@ export default function Welcome({ message }: { message: string }) {
       amount: "Research Compound",
       category: "Metabolic Research",
       group: "Metabolic Research",
-      sizes: [
-        { label: "10 mg", price: 54.99 },
-        { label: "20 mg", price: 79.99 },
-      ],
+     sizes: [
+  { label: "10 mg", price: 54.99 },
+  { label: "20 mg", price: 79.99 },
+  { label: "30 mg", price: 109.99 },
+],
       image: "/avios-trzp-product.PNG",
       href: "/products/trzp",
       description:
