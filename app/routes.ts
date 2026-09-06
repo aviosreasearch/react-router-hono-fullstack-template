@@ -2,6 +2,7 @@ import { type RouteConfig, index, route } from "@react-router/dev/routes";
 
 export default [
   index("routes/home.tsx"),
+
   route("products/glp3-r", "routes/products.glp3-r.tsx"),
   route("products/mots-c", "routes/products.mots-c.tsx"),
   route("products/semax", "routes/products.semax.tsx"),
@@ -13,9 +14,23 @@ export default [
   route("products/glow", "routes/products.glow.tsx"),
   route("products/ipamorelin", "routes/products.ipamorelin.tsx"),
   route("products/sermorelin", "routes/products.sermorelin.tsx"),
-  route("products/semaglutide", "routes/products.semaglutide.tsx"),
+  route(
+    "products/semaglutide",
+    "routes/products.semaglutide.tsx"
+  ),
   route("products/ss-31", "routes/products.ss-31.tsx"),
   route("products/epithalon", "routes/products.epithalon.tsx"),
+
+  route("products/bpc-157", "routes/products.bpc-157.tsx"),
+  route(
+    "products/wolverine-blend",
+    "routes/products.wolverine-blend.tsx"
+  ),
+  route(
+    "products/melanotan-ii",
+    "routes/products.melanotan-ii.tsx"
+  ),
+
   route("research-use", "routes/research-use-policy.tsx"),
   route("contact", "routes/contact.tsx"),
   route("membership", "routes/membership.tsx"),
@@ -23,7 +38,10 @@ export default [
   route("privacy", "routes/privacy.tsx"),
   route("shipping", "routes/shipping.tsx"),
   route("returns", "routes/returns.tsx"),
-  route("api/friends-family", "routes/api.friends-family.ts"),
+  route(
+    "api/friends-family",
+    "routes/api.friends-family.ts"
+  ),
   route("checkout", "routes/checkout.tsx"),
   route("cart", "routes/cart.tsx"),
 ] satisfies RouteConfig;
