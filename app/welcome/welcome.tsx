@@ -57,7 +57,10 @@ export default function Welcome({ message }: { message: string }) {
       amount: "Research Compound",
       category: "Metabolic / Mitochondrial Research",
       group: "Mitochondrial & Cellular Research",
-      sizes: [{ label: "20 mg", price: 54.99 }],
+      sizes: [
+  { label: "10 mg", price: 39.99 },
+  { label: "20 mg", price: 54.99 },
+],
       image: "/avios-motsc-product.PNG",
       href: "/products/mots-c",
       description:
