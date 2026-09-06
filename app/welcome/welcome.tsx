@@ -147,6 +147,17 @@ export default function Welcome({ message }: { message: string }) {
         "Research peptide with organized product documentation and available laboratory records.",
     },
     {
+  name: "BPC-157",
+  amount: "10 mg",
+  category: "Peptide Research",
+  group: "Peptide & Tissue Research",
+  sizes: [{ label: "10 mg", price: 49.99 }],
+  image: "/avios-bpc-157-product.PNG",
+  href: "/products/bpc-157",
+  description:
+    "Research peptide with organized product documentation and available laboratory records.",
+},
+    {
       name: "GHK-CU",
       amount: "100 mg",
       category: "Copper Peptide Research",
