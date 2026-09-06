@@ -23,8 +23,8 @@ export default [
 
   route("products/bpc157", "routes/products.bpc157.tsx"),
   route(
-    "products/wolverine-blend",
-    "routes/products.wolverine-blend.tsx"
+    "products/wolverine",
+    "routes/products.wolverine.tsx"
   ),
   route(
     "products/melanotan-ii",
