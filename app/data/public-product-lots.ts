@@ -111,7 +111,7 @@ export const publicProductLots = {
         {
           label: "Nexus Scientific COA — Task #100585",
           kind: "Independent Lab Report",
-          url: "/coas/SS-31-10mg-coa.jpg",
+          url: "/coas/ss-31-10mg-coa.jpg",
           laboratory: "Nexus Scientific",
         },
       ],
