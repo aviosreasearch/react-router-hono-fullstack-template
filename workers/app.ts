@@ -31,6 +31,7 @@ const PRODUCT_PRICES: Record<string, Record<string, number>> = {
   TRZP: {
     "10 mg": 54.99,
     "20 mg": 79.99,
+    "30 mg": 109.99,
   },
 
   Semaglutide: {
@@ -38,6 +39,7 @@ const PRODUCT_PRICES: Record<string, Record<string, number>> = {
   },
 
   "MOTS-C": {
+    "10 mg": 39.99,
     "20 mg": 54.99,
   },
 
@@ -71,6 +73,7 @@ const PRODUCT_PRICES: Record<string, Record<string, number>> = {
   },
 
   "GHK-CU": {
+    "50 mg": 39.99,
     "100 mg": 59.99,
   },
 
