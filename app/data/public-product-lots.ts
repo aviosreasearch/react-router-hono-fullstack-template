@@ -78,7 +78,21 @@ export const publicProductLots = {
     },
   ] as PublicProductLot[],
 
-  "tesamorelin": [] as PublicProductLot[],
+  "tesamorelin": [
+    {
+      lotNumber: "Reference only — not Avios lot-specific",
+      strength: "10 mg",
+      documents: [
+        {
+          label:
+            "Manufacturer-Supplied Third-Party Customer Test — Not Avios Lot-Specific",
+          kind: "Other Documentation",
+          url: "/coas/tesamorelin-coa.jpg",
+          laboratory: "Nexus Scientific",
+        },
+      ],
+    },
+  ] as PublicProductLot[],
 
   "glow": [
     {
