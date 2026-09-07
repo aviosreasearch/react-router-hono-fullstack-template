@@ -19,7 +19,6 @@ export const publicProductLots = {
   "mots-c": [] as PublicProductLot[],
   "semax": [] as PublicProductLot[],
   "dsip": [] as PublicProductLot[],
-
   "trzp": [
     {
       lotNumber: "TR20010A",
@@ -46,9 +45,7 @@ export const publicProductLots = {
       ],
     },
   ] as PublicProductLot[],
-
   "tesamorelin": [] as PublicProductLot[],
-
   "glow": [
     {
       lotNumber: "41216",
@@ -63,7 +60,6 @@ export const publicProductLots = {
       ],
     },
   ] as PublicProductLot[],
-
   "ipamorelin": [
     {
       lotNumber: "41216",
@@ -78,16 +74,26 @@ export const publicProductLots = {
       ],
     },
   ] as PublicProductLot[],
-
   "sermorelin": [] as PublicProductLot[],
-  "semaglutide": [] as PublicProductLot[],
+  "semaglutide": [
+    {
+      lotNumber: "20260427",
+      strength: "20 mg",
+      documents: [
+        {
+          label: "Nexus Scientific COA — Task #100537",
+          kind: "Independent Lab Report",
+          url: "/coas/Semaglutide-20mg-coa.jpg",
+          laboratory: "Nexus Scientific",
+        },
+      ],
+    },
+  ] as PublicProductLot[],
   "epithalon": [] as PublicProductLot[],
   "ss-31": [] as PublicProductLot[],
-
   "bpc-157": [] as PublicProductLot[],
   "wolverine-blend": [] as PublicProductLot[],
   "melanotan-ii": [] as PublicProductLot[],
-
   "glp3-r": [
     {
       lotNumber: "20260505101",
@@ -102,7 +108,6 @@ export const publicProductLots = {
       ],
     },
   ] as PublicProductLot[],
-
   "nad-plus": [
     {
       lotNumber: "20260503",
@@ -117,7 +122,6 @@ export const publicProductLots = {
       ],
     },
   ] as PublicProductLot[],
-
   "ghk-cu": [
     {
       lotNumber: "SD-260728-1",
