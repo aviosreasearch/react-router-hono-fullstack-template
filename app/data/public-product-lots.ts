@@ -31,6 +31,7 @@ export const publicProductLots = {
       ],
     },
   ] as PublicProductLot[],
+
   "semax": [
     {
       lotNumber: "20260614",
@@ -45,7 +46,22 @@ export const publicProductLots = {
       ],
     },
   ] as PublicProductLot[],
-  "dsip": [] as PublicProductLot[],
+
+  "dsip": [
+    {
+      lotNumber: "Reference only — not Avios lot-specific",
+      strength: "10 mg",
+      documents: [
+        {
+          label:
+            "Manufacturer-Supplied Third-Party Customer Test — Not Avios Lot-Specific",
+          kind: "Other Documentation",
+          url: "/coas/dsip-coa.pdf",
+        },
+      ],
+    },
+  ] as PublicProductLot[],
+
   "trzp": [
     {
       lotNumber: "Reference only — not Avios lot-specific",
@@ -61,7 +77,9 @@ export const publicProductLots = {
       ],
     },
   ] as PublicProductLot[],
+
   "tesamorelin": [] as PublicProductLot[],
+
   "glow": [
     {
       lotNumber: "41216",
@@ -76,6 +94,7 @@ export const publicProductLots = {
       ],
     },
   ] as PublicProductLot[],
+
   "ipamorelin": [
     {
       lotNumber: "41216",
@@ -90,7 +109,9 @@ export const publicProductLots = {
       ],
     },
   ] as PublicProductLot[],
+
   "sermorelin": [] as PublicProductLot[],
+
   "semaglutide": [
     {
       lotNumber: "20260427",
@@ -105,7 +126,9 @@ export const publicProductLots = {
       ],
     },
   ] as PublicProductLot[],
+
   "epithalon": [] as PublicProductLot[],
+
   "ss-31": [
     {
       lotNumber: "20260428",
@@ -120,9 +143,40 @@ export const publicProductLots = {
       ],
     },
   ] as PublicProductLot[],
-  "bpc-157": [] as PublicProductLot[],
-  "wolverine-blend": [] as PublicProductLot[],
+
+  "bpc-157": [
+    {
+      lotNumber: "Reference only — not Avios lot-specific",
+      strength: "10 mg",
+      documents: [
+        {
+          label:
+            "Manufacturer-Supplied Third-Party Customer Test — Not Avios Lot-Specific",
+          kind: "Other Documentation",
+          url: "/coas/bpc-157-coa.jpg",
+          laboratory: "Nexus Scientific",
+        },
+      ],
+    },
+  ] as PublicProductLot[],
+
+  "wolverine-blend": [
+    {
+      lotNumber: "Reference only — not Avios lot-specific",
+      strength: "20 mg",
+      documents: [
+        {
+          label:
+            "Manufacturer-Supplied Third-Party Customer Test — Not Avios Lot-Specific",
+          kind: "Other Documentation",
+          url: "/coas/wolverine-coa.pdf",
+        },
+      ],
+    },
+  ] as PublicProductLot[],
+
   "melanotan-ii": [] as PublicProductLot[],
+
   "glp3-r": [
     {
       lotNumber: "20260505101",
@@ -137,6 +191,7 @@ export const publicProductLots = {
       ],
     },
   ] as PublicProductLot[],
+
   "nad-plus": [
     {
       lotNumber: "20260503",
@@ -151,6 +206,7 @@ export const publicProductLots = {
       ],
     },
   ] as PublicProductLot[],
+
   "ghk-cu": [
     {
       lotNumber: "SD-260728-1",
