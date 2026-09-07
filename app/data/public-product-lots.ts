@@ -34,25 +34,14 @@ export const publicProductLots = {
   "dsip": [] as PublicProductLot[],
   "trzp": [
     {
-      lotNumber: "TR20010A",
-      strength: "20 mg",
+      lotNumber: "Reference only — not Avios lot-specific",
+      strength: "10 mg",
       documents: [
         {
-          label: "Freedom Diagnostics Independent Lab Report — 20 mg",
-          kind: "Independent Lab Report",
-          url: "/coas/TR20.pdf",
-          laboratory: "Freedom Diagnostics",
-        },
-      ],
-    },
-    {
-      lotNumber: "TR30010A",
-      strength: "30 mg",
-      documents: [
-        {
-          label: "Freedom Diagnostics Independent Lab Report — 30 mg",
-          kind: "Independent Lab Report",
-          url: "/coas/TR30.pdf",
+          label:
+            "Manufacturer-Supplied Third-Party Customer Test — Not Avios Lot-Specific",
+          kind: "Other Documentation",
+          url: "/coas/Tirzepatide-10mg-coa.jpg",
           laboratory: "Freedom Diagnostics",
         },
       ],
