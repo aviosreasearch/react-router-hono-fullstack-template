@@ -17,7 +17,20 @@ export type PublicProductLot = {
 
 export const publicProductLots = {
   "mots-c": [] as PublicProductLot[],
-  "semax": [] as PublicProductLot[],
+  "semax": [
+    {
+      lotNumber: "20260614",
+      strength: "10 mg",
+      documents: [
+        {
+          label: "Nexus Scientific COA — Task #101224",
+          kind: "Independent Lab Report",
+          url: "/coas/Semax-10mg-coa.jpg",
+          laboratory: "Nexus Scientific",
+        },
+      ],
+    },
+  ] as PublicProductLot[],
   "dsip": [] as PublicProductLot[],
   "trzp": [
     {
