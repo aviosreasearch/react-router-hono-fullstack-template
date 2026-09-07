@@ -90,7 +90,20 @@ export const publicProductLots = {
     },
   ] as PublicProductLot[],
   "epithalon": [] as PublicProductLot[],
-  "ss-31": [] as PublicProductLot[],
+  "ss-31": [
+    {
+      lotNumber: "20260428",
+      strength: "10 mg",
+      documents: [
+        {
+          label: "Nexus Scientific COA — Task #100585",
+          kind: "Independent Lab Report",
+          url: "/coas/SS-31-10mg-coa.jpg",
+          laboratory: "Nexus Scientific",
+        },
+      ],
+    },
+  ] as PublicProductLot[],
   "bpc-157": [] as PublicProductLot[],
   "wolverine-blend": [] as PublicProductLot[],
   "melanotan-ii": [] as PublicProductLot[],
