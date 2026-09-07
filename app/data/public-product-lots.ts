@@ -16,7 +16,21 @@ export type PublicProductLot = {
 };
 
 export const publicProductLots = {
-  "mots-c": [] as PublicProductLot[],
+  "mots-c": [
+    {
+      lotNumber: "Reference only — not Avios lot-specific",
+      strength: "40 mg",
+      documents: [
+        {
+          label:
+            "Manufacturer-Supplied Third-Party Customer Test — Not Avios Lot-Specific",
+          kind: "Other Documentation",
+          url: "/coas/mots-c-40mg-coa.jpg",
+          laboratory: "Freedom Diagnostics",
+        },
+      ],
+    },
+  ] as PublicProductLot[],
   "semax": [
     {
       lotNumber: "20260614",
