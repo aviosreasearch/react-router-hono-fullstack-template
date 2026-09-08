@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCart } from "../components/CartProvider";
 
+
 export default function Welcome({
   message,
 }: {
@@ -8,9 +9,11 @@ export default function Welcome({
 }) {
   void message;
 
+
   const { cartCount } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] =
     useState(false);
+
 
   const products = [
     {
@@ -32,7 +35,7 @@ export default function Welcome({
         "Research compound with batch documentation and third-party laboratory records.",
     },
     {
-      name: "TRZP",
+      name: "Tirzepatide",
       amount: "Research Compound",
       category: "Metabolic Research",
       group: "Metabolic Research",
@@ -279,6 +282,7 @@ export default function Welcome({
     },
   ];
 
+
   const researchGroups = [
     "Metabolic Research",
     "Mitochondrial & Cellular Research",
@@ -288,9 +292,11 @@ export default function Welcome({
     "Cellular Aging Research",
   ];
 
+
   function closeMobileMenu() {
     setMobileMenuOpen(false);
   }
+
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-slate-950 text-white">
@@ -308,6 +314,7 @@ export default function Welcome({
             />
           </a>
 
+
           <nav className="hidden items-center gap-6 text-sm font-medium text-slate-300 lg:flex">
             <a
               href="#products"
@@ -316,12 +323,14 @@ export default function Welcome({
               Research Compounds
             </a>
 
+
             <a
               href="/membership"
               className="transition hover:text-white"
             >
               Membership
             </a>
+
 
             <a
               href="#verification"
@@ -330,12 +339,14 @@ export default function Welcome({
               COA Verification
             </a>
 
+
             <a
               href="#research"
               className="transition hover:text-white"
             >
               Research Library
             </a>
+
 
             <a
               href="#about"
@@ -345,6 +356,7 @@ export default function Welcome({
             </a>
           </nav>
 
+
           <div className="hidden items-center gap-3 lg:flex">
             <a
               href="#products"
@@ -352,6 +364,7 @@ export default function Welcome({
             >
               View Compounds
             </a>
+
 
             <a
               href="/cart"
@@ -361,6 +374,7 @@ export default function Welcome({
             </a>
           </div>
 
+
           <div className="flex items-center gap-2 lg:hidden">
             <a
               href="/cart"
@@ -368,6 +382,7 @@ export default function Welcome({
             >
               Cart ({cartCount})
             </a>
+
 
             <button
               type="button"
@@ -397,6 +412,7 @@ export default function Welcome({
           </div>
         </div>
 
+
         {mobileMenuOpen ? (
           <div className="border-t border-slate-800 bg-slate-950 px-4 pb-5 pt-3 lg:hidden">
             <nav className="mx-auto flex max-w-7xl flex-col">
@@ -410,6 +426,7 @@ export default function Welcome({
                 Research Compounds
               </a>
 
+
               <a
                 href="/membership"
                 onClick={
@@ -419,6 +436,7 @@ export default function Welcome({
               >
                 Membership
               </a>
+
 
               <a
                 href="#verification"
@@ -430,6 +448,7 @@ export default function Welcome({
                 COA Verification
               </a>
 
+
               <a
                 href="#research"
                 onClick={
@@ -439,6 +458,7 @@ export default function Welcome({
               >
                 Research Library
               </a>
+
 
               <a
                 href="#about"
@@ -450,6 +470,7 @@ export default function Welcome({
                 About
               </a>
 
+
               <a
                 href="/contact"
                 onClick={
@@ -459,6 +480,7 @@ export default function Welcome({
               >
                 Contact
               </a>
+
 
               <a
                 href="/shipping"
@@ -470,6 +492,7 @@ export default function Welcome({
                 Shipping
               </a>
 
+
               <a
                 href="/returns"
                 onClick={
@@ -479,6 +502,7 @@ export default function Welcome({
               >
                 Returns & Refunds
               </a>
+
 
               <a
                 href="/privacy"
@@ -490,6 +514,7 @@ export default function Welcome({
                 Privacy
               </a>
 
+
               <a
                 href="/terms"
                 onClick={
@@ -499,6 +524,7 @@ export default function Welcome({
               >
                 Terms
               </a>
+
 
               <a
                 href="/research-use"
@@ -514,6 +540,7 @@ export default function Welcome({
         ) : null}
       </header>
 
+
       {/* Hero */}
       <section className="relative mx-auto max-w-7xl overflow-hidden px-4 pb-10 pt-7 sm:px-6 sm:pb-16 sm:pt-14">
         <div
@@ -524,6 +551,7 @@ export default function Welcome({
               "radial-gradient(circle at 79% 45%, rgba(14,165,233,0.20) 0%, rgba(37,99,235,0.10) 27%, rgba(2,6,23,0) 58%)",
           }}
         />
+
 
         {/* Molecular background */}
         <svg
@@ -567,6 +595,7 @@ export default function Welcome({
               />
             </linearGradient>
 
+
             <radialGradient
               id="aviosBlueBloom"
               cx="78%"
@@ -595,6 +624,7 @@ export default function Welcome({
               />
             </radialGradient>
 
+
             <radialGradient
               id="aviosNodeGlow"
               cx="50%"
@@ -618,6 +648,7 @@ export default function Welcome({
               />
             </radialGradient>
 
+
             <filter
               id="aviosBlurSoft"
               x="-30%"
@@ -627,6 +658,7 @@ export default function Welcome({
             >
               <feGaussianBlur stdDeviation="8" />
             </filter>
+
 
             <filter
               id="aviosBlurStrong"
@@ -639,11 +671,13 @@ export default function Welcome({
             </filter>
           </defs>
 
+
           <rect
             width="1200"
             height="620"
             fill="url(#aviosBlueBloom)"
           />
+
 
           <g
             fill="#93c5fd"
@@ -694,6 +728,7 @@ export default function Welcome({
             <circle cx="1060" cy="470" r="1.9" />
           </g>
 
+
           <g
             fill="none"
             stroke="url(#aviosMoleculeStroke)"
@@ -716,6 +751,7 @@ export default function Welcome({
             <path d="M490 425 L560 385 L630 425 L630 505 L560 545 L490 505 Z" />
           </g>
 
+
           <g
             fill="none"
             stroke="url(#aviosMoleculeStroke)"
@@ -737,6 +773,7 @@ export default function Welcome({
             <path d="M490 425 L560 385 L630 425 L630 505 L560 545 L490 505 Z" />
           </g>
 
+
           <g
             fill="#60a5fa"
             opacity="0.26"
@@ -750,6 +787,7 @@ export default function Welcome({
             <circle cx="490" cy="425" r="28" />
             <circle cx="700" cy="385" r="22" />
           </g>
+
 
           <g>
             <circle
@@ -958,6 +996,7 @@ export default function Welcome({
             />
           </g>
 
+
           <g fill="#0f172a" opacity="0.72">
             <circle cx="70" cy="185" r="2.8" />
             <circle cx="140" cy="145" r="3.2" />
@@ -996,6 +1035,7 @@ export default function Welcome({
           </g>
         </svg>
 
+
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 hidden sm:block"
@@ -1012,11 +1052,13 @@ export default function Welcome({
           }}
         />
 
+
         <div className="relative z-10 grid items-center gap-7 sm:gap-10 lg:grid-cols-2">
           <div>
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-400 sm:mb-5 sm:text-sm sm:tracking-[0.35em]">
               RESEARCH PEPTIDE CATALOG
             </p>
+
 
             <h1 className="max-w-5xl text-[2.65rem] font-bold leading-[1.02] tracking-tight sm:text-6xl sm:leading-[1.08] lg:text-7xl">
               Premium Research Peptides.
@@ -1026,12 +1068,14 @@ export default function Welcome({
               Backed by Documentation.
             </h1>
 
+
             <p className="mt-5 max-w-2xl text-[15px] leading-6 text-slate-300 sm:mt-7 sm:text-lg sm:leading-8">
               Research compounds supported by organized
               product information, supplier-provided
               laboratory documentation, lot records, and
               scientific literature.
             </p>
+
 
             <div
               id="about"
@@ -1041,9 +1085,11 @@ export default function Welcome({
                 About Avios
               </p>
 
+
               <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
                 Documentation-first research products.
               </h2>
+
 
               <p className="mt-4 leading-7 text-slate-400 sm:leading-8">
                 Avios Research is designed around clear
@@ -1054,6 +1100,7 @@ export default function Welcome({
               </p>
             </div>
           </div>
+
 
           <div className="relative min-h-[250px] overflow-hidden rounded-2xl sm:min-h-[440px] sm:rounded-3xl lg:min-h-[560px]">
             <div
@@ -1067,6 +1114,7 @@ export default function Welcome({
         </div>
       </section>
 
+
       {/* Founding Member Price Examples */}
       <section className="border-y border-sky-500/20 bg-gradient-to-b from-sky-500/10 to-slate-950">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20">
@@ -1075,9 +1123,11 @@ export default function Welcome({
               Founding Member Pricing
             </p>
 
+
             <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
               See what 15% saves.
             </h2>
+
 
             <p className="mx-auto mt-4 max-w-2xl leading-7 text-slate-400">
               Join during the founding membership period for
@@ -1087,85 +1137,104 @@ export default function Welcome({
             </p>
           </div>
 
+
           <div className="mx-auto mt-10 grid max-w-4xl gap-4 sm:grid-cols-3 sm:gap-5">
             <article className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 text-center shadow-xl">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-400">
                 GLP3 R · 10 mg
               </p>
 
+
               <p className="mt-5 text-sm text-slate-500">
                 Regular price
               </p>
+
 
               <p className="mt-1 text-xl font-semibold text-slate-500 line-through decoration-slate-500">
                 $49.99
               </p>
 
+
               <p className="mt-4 text-sm font-semibold text-slate-300">
                 Founding member price
               </p>
 
+
               <p className="mt-1 text-4xl font-bold text-sky-400">
                 $42.49
               </p>
+
 
               <p className="mt-3 text-sm text-emerald-400">
                 Save $7.50
               </p>
             </article>
 
+
             <article className="rounded-2xl border border-sky-500/50 bg-slate-900 p-6 text-center shadow-[0_12px_40px_rgba(14,165,233,0.16)]">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-400">
                 GLP3 R · 20 mg
               </p>
 
+
               <p className="mt-5 text-sm text-slate-500">
                 Regular price
               </p>
+
 
               <p className="mt-1 text-xl font-semibold text-slate-500 line-through decoration-slate-500">
                 $89.99
               </p>
 
+
               <p className="mt-4 text-sm font-semibold text-slate-300">
                 Founding member price
               </p>
 
+
               <p className="mt-1 text-4xl font-bold text-sky-400">
                 $76.49
               </p>
+
 
               <p className="mt-3 text-sm text-emerald-400">
                 Save $13.50
               </p>
             </article>
 
+
             <article className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 text-center shadow-xl">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-400">
                 GHK-Cu · 50 mg
               </p>
 
+
               <p className="mt-5 text-sm text-slate-500">
                 Regular price
               </p>
+
 
               <p className="mt-1 text-xl font-semibold text-slate-500 line-through decoration-slate-500">
                 $39.99
               </p>
 
+
               <p className="mt-4 text-sm font-semibold text-slate-300">
                 Founding member price
               </p>
 
+
               <p className="mt-1 text-4xl font-bold text-sky-400">
                 $33.99
               </p>
+
 
               <p className="mt-3 text-sm text-emerald-400">
                 Save $6.00
               </p>
             </article>
           </div>
+
 
           <div className="mt-9 text-center">
             <a
@@ -1176,6 +1245,7 @@ export default function Welcome({
               <span className="ml-2">→</span>
             </a>
 
+
             <p className="mt-4 text-xs leading-5 text-slate-500">
               Examples reflect 15% off the listed product
               price. Membership discounts exclude shipping,
@@ -1184,6 +1254,7 @@ export default function Welcome({
           </div>
         </div>
       </section>
+
 
       {/* Products */}
       <section
@@ -1196,9 +1267,11 @@ export default function Welcome({
               Avios Catalog
             </p>
 
+
             <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
               Research Compounds
             </h2>
+
 
             <p className="mt-4 max-w-2xl leading-7 text-slate-400">
               Browse research compounds organized by research
@@ -1206,6 +1279,7 @@ export default function Welcome({
               lot information, and laboratory reports.
             </p>
           </div>
+
 
           <div className="mt-12 space-y-16">
             {researchGroups.map(
@@ -1217,6 +1291,7 @@ export default function Welcome({
                       group,
                   );
 
+
                 return (
                   <section key={group}>
                     <div className="mb-6 border-b border-slate-800 pb-4">
@@ -1224,10 +1299,12 @@ export default function Welcome({
                         Research Category
                       </p>
 
+
                       <h3 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
                         {group}
                       </h3>
                     </div>
+
 
                     <div className="grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
                       {groupProducts.map(
@@ -1243,6 +1320,7 @@ export default function Welcome({
                                 (size) =>
                                   size.price,
                               );
+
 
                           return (
                             <article
@@ -1277,6 +1355,7 @@ export default function Welcome({
                                       </span>
                                     </div>
 
+
                                     <p className="mt-4 text-xs uppercase tracking-[0.2em] text-slate-600">
                                       Product
                                       Image
@@ -1285,6 +1364,7 @@ export default function Welcome({
                                 </div>
                               )}
 
+
                               <div className="p-5 sm:p-6">
                                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-400 sm:tracking-[0.22em]">
                                   {
@@ -1292,17 +1372,20 @@ export default function Welcome({
                                   }
                                 </p>
 
+
                                 <h4 className="mt-2 text-2xl font-semibold">
                                   {
                                     product.name
                                   }
                                 </h4>
 
+
                                 <p className="mt-1 text-sm text-slate-500">
                                   {
                                     product.amount
                                   }
                                 </p>
+
 
                                 {product
                                   .sizes
@@ -1313,6 +1396,7 @@ export default function Welcome({
                                       Available
                                       amounts
                                     </label>
+
 
                                     <div className="flex flex-wrap gap-2">
                                       {product.sizes.map(
@@ -1333,6 +1417,7 @@ export default function Welcome({
                                       )}
                                     </div>
 
+
                                     {availablePrices.length >
                                     0 ? (
                                       <p className="mt-4 text-xl font-semibold text-white">
@@ -1347,11 +1432,13 @@ export default function Welcome({
                                   </div>
                                 ) : null}
 
+
                                 <p className="mt-4 leading-7 text-slate-400">
                                   {
                                     product.description
                                   }
                                 </p>
+
 
                                 <a
                                   href={
@@ -1386,6 +1473,7 @@ export default function Welcome({
         </div>
       </section>
 
+
       {/* Verification */}
       <section
         id="verification"
@@ -1397,9 +1485,11 @@ export default function Welcome({
               Documentation
             </p>
 
+
             <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
               COA & Lot Verification
             </h2>
+
 
             <p className="mt-5 max-w-xl leading-7 text-slate-300 sm:leading-8">
               Product documentation can include
@@ -1410,10 +1500,12 @@ export default function Welcome({
             </p>
           </div>
 
+
           <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5 sm:p-8">
             <p className="text-sm uppercase tracking-[0.2em] text-slate-500">
               Documentation System
             </p>
+
 
             <div className="mt-6 space-y-5">
               <div className="flex flex-col gap-1 border-b border-slate-800 pb-4 sm:flex-row sm:justify-between">
@@ -1425,6 +1517,7 @@ export default function Welcome({
                 </span>
               </div>
 
+
               <div className="flex flex-col gap-1 border-b border-slate-800 pb-4 sm:flex-row sm:justify-between">
                 <span className="text-slate-400">
                   Lot Record
@@ -1434,6 +1527,7 @@ export default function Welcome({
                 </span>
               </div>
 
+
               <div className="flex flex-col gap-1 border-b border-slate-800 pb-4 sm:flex-row sm:justify-between">
                 <span className="text-slate-400">
                   Documentation
@@ -1442,6 +1536,7 @@ export default function Welcome({
                   Lot Specific
                 </span>
               </div>
+
 
               <div className="flex flex-col gap-1 border-b border-slate-800 pb-4 sm:flex-row sm:justify-between">
                 <span className="text-slate-400">
@@ -1456,6 +1551,7 @@ export default function Welcome({
         </div>
       </section>
 
+
       {/* Research Library */}
       <section
         id="research"
@@ -1466,9 +1562,11 @@ export default function Welcome({
             Scientific Information
           </p>
 
+
           <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
             Research Library
           </h2>
+
 
           <div className="mt-8 grid gap-5 sm:mt-10 sm:gap-6 md:grid-cols-3">
             <a
@@ -1479,15 +1577,18 @@ export default function Welcome({
                 Compound Profiles
               </h3>
 
+
               <p className="mt-3 leading-7 text-slate-400">
                 Organized background information for
                 research compounds.
               </p>
 
+
               <p className="mt-5 text-sm font-semibold text-sky-400">
                 Browse compounds →
               </p>
             </a>
+
 
             <a
               href="https://pubmed.ncbi.nlm.nih.gov/"
@@ -1499,15 +1600,18 @@ export default function Welcome({
                 Published Literature
               </h3>
 
+
               <p className="mt-3 leading-7 text-slate-400">
                 References to published scientific studies
                 and research literature.
               </p>
 
+
               <p className="mt-5 text-sm font-semibold text-sky-400">
                 Search PubMed ↗
               </p>
             </a>
+
 
             <a
               href="#verification"
@@ -1517,10 +1621,12 @@ export default function Welcome({
                 Research Documentation
               </h3>
 
+
               <p className="mt-3 leading-7 text-slate-400">
                 Organized product, lot, and laboratory
                 documentation where available.
               </p>
+
 
               <p className="mt-5 text-sm font-semibold text-sky-400">
                 View documentation →
@@ -1530,6 +1636,7 @@ export default function Welcome({
         </div>
       </section>
 
+
       {/* Footer */}
       <footer className="border-t border-slate-800">
         <div className="mx-auto flex max-w-7xl flex-col gap-7 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
@@ -1538,11 +1645,13 @@ export default function Welcome({
               AVIOS RESEARCH
             </p>
 
+
             <p className="mt-2 max-w-sm text-sm leading-6 text-slate-500">
-              Research use only. Not intended for human
-              consumption.
+              All products are sold strictly for laboratory research purposes
+              only. Not for human or veterinary use or consumption.
             </p>
           </div>
+
 
           <nav className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-slate-400 sm:flex sm:flex-wrap">
             <a
@@ -1552,12 +1661,14 @@ export default function Welcome({
               Contact
             </a>
 
+
             <a
               href="/research-use"
               className="transition hover:text-white"
             >
               Research Use Policy
             </a>
+
 
             <a
               href="/terms"
@@ -1566,12 +1677,14 @@ export default function Welcome({
               Terms
             </a>
 
+
             <a
               href="/privacy"
               className="transition hover:text-white"
             >
               Privacy
             </a>
+
 
             <a
               href="/shipping"
@@ -1580,6 +1693,7 @@ export default function Welcome({
               Shipping
             </a>
 
+
             <a
               href="/returns"
               className="transition hover:text-white"
@@ -1587,6 +1701,7 @@ export default function Welcome({
               Returns & Refunds
             </a>
           </nav>
+
 
           <p className="text-sm text-slate-600">
             © 2026 Avios Research
