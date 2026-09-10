@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { useCart } from "../components/CartProvider";
 const FREE_SHIPPING_THRESHOLD = 100;
 const STANDARD_SHIPPING = 6.99;
@@ -21,7 +21,25 @@ export default function Checkout() {
   const [friendsFamilyMessage, setFriendsFamilyMessage] = useState("");
   const [checkingFriendsFamilyCode, setCheckingFriendsFamilyCode] =
     useState(false);
-  const friendsFamilyDiscount = friendsFamilyApplied
+  const [bogoSaleActive, setBogoSaleActive] = useState(false);
+  const unitPricesCents = items.flatMap((item) =>
+    Array.from(
+      { length: item.quantity },
+      () => Math.round(item.price * 100),
+    ),
+  );
+  const bogoDiscountCents = bogoSaleActive
+    ? unitPricesCents
+        .sort((a, b) => a - b)
+        .slice(0, Math.floor(unitPricesCents.length / 2))
+        .reduce(
+          (total, price) => total + Math.round(price * 0.75),
+          0,
+        )
+    : 0;
+  const bogoDiscount = bogoDiscountCents / 100;
+  const friendsFamilyDiscount =
+    !bogoSaleActive && friendsFamilyApplied
     ? cartTotal * friendsFamilyDiscountRate
     : 0;
   const qualifiesForFreeShipping =
@@ -34,7 +52,29 @@ export default function Checkout() {
     FREE_SHIPPING_THRESHOLD - cartTotal,
   );
   const orderTotal =
-    cartTotal - friendsFamilyDiscount + shippingCost;
+    cartTotal - bogoDiscount - friendsFamilyDiscount + shippingCost;
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch("/api/sale-status")
+      .then((response) => response.json())
+      .then((data) => {
+        if (!cancelled && data?.active === true) {
+          setBogoSaleActive(true);
+          setFriendsFamilyApplied(false);
+          setFriendsFamilyDiscountRate(0);
+          setFriendsFamilyMessage("");
+        }
+      })
+      .catch(() => {
+        // Checkout remains usable with normal pricing if status lookup fails.
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
   async function applyFriendsFamilyCode() {
     const code = friendsFamilyCode.trim();
     if (!code) {
@@ -130,7 +170,7 @@ export default function Checkout() {
             })),
             email,
             friendsFamilyCode:
-              friendsFamilyApplied
+              !bogoSaleActive && friendsFamilyApplied
                 ? friendsFamilyCode.trim()
                 : "",
             researchUseAcknowledged:
@@ -392,6 +432,18 @@ export default function Checkout() {
                 </span>
               </div>
 
+              {bogoSaleActive ? (
+                <div className="mt-5 rounded-xl border border-cyan-400/30 bg-cyan-400/10 px-4 py-3">
+                  <p className="font-semibold text-cyan-300">
+                    Buy One, Get One 75% Off
+                  </p>
+                  <p className="mt-1 text-xs leading-5 text-slate-300">
+                    The discount is automatically applied to the lowest-priced
+                    item in each complete pair. Other discounts cannot be combined.
+                  </p>
+                </div>
+              ) : null}
+
               <div className="mt-6 space-y-5">
                 {items.map((item) => (
                   <div
@@ -455,42 +507,44 @@ export default function Checkout() {
                 ))}
               </div>
 
-              <div className="mt-6">
-                <label
-                  htmlFor="friendsFamilyCode"
-                  className="mb-2 block text-sm font-semibold text-slate-300"
-                >
-                  Friends &amp; Family code
-                </label>
-                <div className="flex gap-2">
-                  <input
-                    id="friendsFamilyCode"
-                    type="text"
-                    value={friendsFamilyCode}
-                    onChange={(event) =>
-                      handleFriendsFamilyCodeChange(event.target.value)
-                    }
-                    className="min-w-0 flex-1 rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-white outline-none focus:border-sky-500"
-                  />
-                  <button
-                    type="button"
-                    onClick={applyFriendsFamilyCode}
-                    disabled={checkingFriendsFamilyCode}
-                    className="rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold transition hover:border-slate-500 disabled:cursor-not-allowed disabled:opacity-60"
+              {!bogoSaleActive ? (
+                <div className="mt-6">
+                  <label
+                    htmlFor="friendsFamilyCode"
+                    className="mb-2 block text-sm font-semibold text-slate-300"
                   >
-                    {checkingFriendsFamilyCode ? "Checking…" : "Apply"}
-                  </button>
+                    Friends &amp; Family code
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      id="friendsFamilyCode"
+                      type="text"
+                      value={friendsFamilyCode}
+                      onChange={(event) =>
+                        handleFriendsFamilyCodeChange(event.target.value)
+                      }
+                      className="min-w-0 flex-1 rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-white outline-none focus:border-sky-500"
+                    />
+                    <button
+                      type="button"
+                      onClick={applyFriendsFamilyCode}
+                      disabled={checkingFriendsFamilyCode}
+                      className="rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold transition hover:border-slate-500 disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                      {checkingFriendsFamilyCode ? "Checking…" : "Apply"}
+                    </button>
+                  </div>
+                  {friendsFamilyMessage ? (
+                    <p
+                      className={`mt-2 text-sm ${
+                        friendsFamilyApplied ? "text-emerald-400" : "text-slate-400"
+                      }`}
+                    >
+                      {friendsFamilyMessage}
+                    </p>
+                  ) : null}
                 </div>
-                {friendsFamilyMessage ? (
-                  <p
-                    className={`mt-2 text-sm ${
-                      friendsFamilyApplied ? "text-emerald-400" : "text-slate-400"
-                    }`}
-                  >
-                    {friendsFamilyMessage}
-                  </p>
-                ) : null}
-              </div>
+              ) : null}
 
               {amountUntilFreeShipping > 0 ? (
                 <p className="mt-6 rounded-lg border border-sky-500/20 bg-sky-500/10 px-4 py-3 text-sm text-sky-300">
@@ -507,7 +561,13 @@ export default function Checkout() {
                   <span>Subtotal</span>
                   <span>${cartTotal.toFixed(2)}</span>
                 </div>
-                {friendsFamilyApplied ? (
+                {bogoSaleActive && bogoDiscount > 0 ? (
+                  <div className="flex justify-between text-cyan-300">
+                    <span>BOGO 75% savings</span>
+                    <span>−${bogoDiscount.toFixed(2)}</span>
+                  </div>
+                ) : null}
+                {!bogoSaleActive && friendsFamilyApplied ? (
                   <div className="flex justify-between text-emerald-400">
                     <span>Friends &amp; Family discount</span>
                     <span>−${friendsFamilyDiscount.toFixed(2)}</span>
