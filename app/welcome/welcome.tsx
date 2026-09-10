@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "../components/CartProvider";
 export default function Welcome({
   message,
@@ -9,6 +9,27 @@ export default function Welcome({
   const { cartCount } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] =
     useState(false);
+  const [bogoSaleActive, setBogoSaleActive] =
+    useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch("/api/sale-status")
+      .then((response) => response.json())
+      .then((data) => {
+        if (!cancelled) {
+          setBogoSaleActive(data?.active === true);
+        }
+      })
+      .catch(() => {
+        // Keep the sale banner hidden if status cannot be verified.
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
   const products = [
     {
       name: "GLP3 R",
@@ -487,6 +508,26 @@ export default function Welcome({
           </div>
         ) : null}
       </header>
+      {bogoSaleActive ? (
+        <section className="border-b border-cyan-400/30 bg-gradient-to-r from-blue-950 via-cyan-950 to-blue-950">
+          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-4 text-center sm:flex-row sm:px-6 sm:text-left">
+            <div>
+              <p className="text-lg font-bold tracking-tight text-white sm:text-xl">
+                Weekend Sale — Buy One, Get One 75% Off
+              </p>
+              <p className="mt-1 text-sm text-cyan-100/80">
+                Add any two products to your cart. The lower-priced item is automatically discounted.
+              </p>
+            </div>
+            <a
+              href="#products"
+              className="shrink-0 rounded-full border border-cyan-300/50 bg-cyan-300 px-5 py-2 text-sm font-bold text-slate-950 transition hover:bg-white"
+            >
+              Shop the Sale
+            </a>
+          </div>
+        </section>
+      ) : null}
       {/* Hero */}
       <section className="relative mx-auto max-w-7xl overflow-hidden px-4 pb-10 pt-7 sm:px-6 sm:pb-16 sm:pt-14">
         <div
