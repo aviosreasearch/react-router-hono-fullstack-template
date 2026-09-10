@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
-import ComingSoon from "../components/ComingSoon";
+import AddToCartButton from "../components/AddToCartButton";
 
 const sizes = [
   {
@@ -124,7 +124,11 @@ export default function EpithalonProduct() {
               </p>
             </div>
 
-            <ComingSoon />
+            <AddToCartButton
+              name="Epithalon"
+              strength={selectedSize.label}
+              price={selectedSize.price}
+            />
 
             {/* Product Information */}
             <div className="mt-10 border-t border-slate-800 pt-8">
