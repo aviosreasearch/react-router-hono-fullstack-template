@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { createRequestHandler } from "react-router";
 
 type Bindings = {
+  BOGO_SALE_ACTIVE?: string;
   FRIENDS_FAMILY_CODE: string;
   STRIPE_SECRET_KEY: string;
   STRIPE_MEMBERSHIP_PRICE_ID: string;
@@ -10,6 +11,21 @@ type Bindings = {
 };
 
 const app = new Hono<{ Bindings: Bindings }>();
+
+const BOGO_DISCOUNT_RATE = 0.75;
+
+function isBogoSaleActive(value?: string) {
+  return ["true", "1", "yes", "on"].includes(
+    (value ?? "").trim().toLowerCase(),
+  );
+}
+
+app.get("/api/sale-status", (c) => {
+  return c.json({
+    active: isBogoSaleActive(c.env.BOGO_SALE_ACTIVE),
+    discountRate: BOGO_DISCOUNT_RATE,
+  });
+});
 
 /*
   Server-side product pricing.
@@ -350,6 +366,7 @@ app.post(
         new URLSearchParams();
 
       let merchandiseSubtotalCents = 0;
+      const unitPricesCents: number[] = [];
 
       /*
         Build Stripe line items using ONLY prices stored
@@ -421,6 +438,10 @@ app.post(
           merchandiseSubtotalCents +=
             unitAmount * quantity;
 
+          for (let copy = 0; copy < quantity; copy += 1) {
+            unitPricesCents.push(unitAmount);
+          }
+
           stripeParams.append(
             `line_items[${index}][price_data][currency]`,
             "usd",
@@ -442,6 +463,24 @@ app.post(
           );
         },
       );
+
+      const bogoSaleActive = isBogoSaleActive(
+        c.env.BOGO_SALE_ACTIVE,
+      );
+      const discountedItemCount = Math.floor(
+        unitPricesCents.length / 2,
+      );
+      const bogoDiscountCents = bogoSaleActive
+        ? unitPricesCents
+            .sort((a, b) => a - b)
+            .slice(0, discountedItemCount)
+            .reduce(
+              (total, price) =>
+                total +
+                Math.round(price * BOGO_DISCOUNT_RATE),
+              0,
+            )
+        : 0;
 
       /*
         Revalidate Friends & Family discount on the server.
@@ -480,6 +519,7 @@ app.post(
       let activeFoundingMember = false;
 
       if (
+        bogoDiscountCents === 0 &&
         !friendsFamilyValid &&
         checkoutEmail &&
         c.env
@@ -590,29 +630,41 @@ app.post(
       }
 
       const discountPercent =
-        friendsFamilyValid
-          ? 20
-          : activeFoundingMember
-            ? 15
-            : 0;
+        bogoDiscountCents > 0
+          ? 0
+          : friendsFamilyValid
+            ? 20
+            : activeFoundingMember
+              ? 15
+              : 0;
 
       const discountName =
-        friendsFamilyValid
-          ? "Friends & Family"
-          : "Founding Member";
+        bogoDiscountCents > 0
+          ? "Buy One, Get One 75% Off"
+          : friendsFamilyValid
+            ? "Friends & Family"
+            : "Founding Member";
 
       /*
         Create a one-time Stripe coupon for this purchase when a
         verified discount applies.
       */
-      if (discountPercent > 0) {
+      if (bogoDiscountCents > 0 || discountPercent > 0) {
         const couponParams =
           new URLSearchParams();
 
-        couponParams.append(
-          "percent_off",
-          String(discountPercent),
-        );
+        if (bogoDiscountCents > 0) {
+          couponParams.append(
+            "amount_off",
+            String(bogoDiscountCents),
+          );
+          couponParams.append("currency", "usd");
+        } else {
+          couponParams.append(
+            "percent_off",
+            String(discountPercent),
+          );
+        }
 
         couponParams.append(
           "duration",
