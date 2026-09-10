@@ -70,7 +70,7 @@ export default function Welcome({
       category: "Metabolic Research",
       group: "Metabolic Research",
       sizes: [
-        { label: "20 mg", price: 69.99 },
+        { label: "20 mg", price: 44.99 },
       ],
       image: "/avios-semaglutide-product.PNG",
       href: "/products/semaglutide",
