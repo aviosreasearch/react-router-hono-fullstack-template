@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useCart } from "../components/CartProvider";
 export default function Welcome({
   message,
@@ -9,27 +9,9 @@ export default function Welcome({
   const { cartCount } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] =
     useState(false);
-  const [bogoSaleActive, setBogoSaleActive] =
-    useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    fetch("/api/sale-status")
-      .then((response) => response.json())
-      .then((data) => {
-        if (!cancelled) {
-          setBogoSaleActive(data?.active === true);
-        }
-      })
-      .catch(() => {
-        // Keep the sale banner hidden if status cannot be verified.
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const bogoSaleActive =
+    Date.now() <
+    new Date("2026-09-14T05:59:59Z").getTime();
   const products = [
     {
       name: "GLP3 R",
@@ -509,25 +491,36 @@ export default function Welcome({
         ) : null}
       </header>
       {bogoSaleActive ? (
-        <section className="border-b border-cyan-400/30 bg-gradient-to-r from-blue-950 via-cyan-950 to-blue-950">
-          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-4 text-center sm:flex-row sm:px-6 sm:text-left">
-            <div>
-              <p className="text-lg font-bold tracking-tight text-white sm:text-xl">
-                3-Day Sale — Buy One, Get One 75% Off
-              </p>
-              <p className="mt-1 text-sm text-cyan-100/80">
-                Through Sunday, September 13 at 11:59 p.m.
-                MT. Add any two products to your cart and the
-                lower-priced item is automatically
-                discounted. Other discounts cannot be
-                combined.
-              </p>
-            </div>
+        <section className="relative overflow-hidden border-b border-cyan-300/40 bg-gradient-to-br from-blue-950 via-cyan-950 to-slate-950">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_25%,rgba(34,211,238,0.28),transparent_55%)]"
+          />
+          <div className="relative mx-auto max-w-7xl px-4 py-10 text-center sm:px-6 sm:py-14">
+            <p className="inline-flex rounded-full border border-cyan-300/50 bg-cyan-300/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.24em] text-cyan-200 sm:text-sm">
+              3-Day Sale · Ends Sunday
+            </p>
+            <h2 className="mt-5 text-3xl font-black uppercase leading-none tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Buy One, Get One
+              <span className="mt-2 block bg-gradient-to-r from-cyan-300 via-white to-sky-300 bg-clip-text text-5xl text-transparent sm:text-7xl lg:text-8xl">
+                75% Off
+              </span>
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-cyan-50/85 sm:text-base">
+              Add any two products to your cart and the
+              lower-priced item is automatically discounted.
+              No code needed.
+            </p>
+            <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-cyan-300/80 sm:text-sm">
+              Offer ends Sunday, September 13 at 11:59 p.m.
+              MT · Other discounts cannot be combined
+            </p>
             <a
               href="#products"
-              className="shrink-0 rounded-full border border-cyan-300/50 bg-cyan-300 px-5 py-2 text-sm font-bold text-slate-950 transition hover:bg-white"
+              className="mt-7 inline-flex items-center justify-center rounded-full bg-cyan-300 px-8 py-3.5 text-base font-black uppercase tracking-wide text-slate-950 shadow-[0_0_35px_rgba(34,211,238,0.45)] transition hover:scale-105 hover:bg-white"
             >
-              Shop the Sale
+              Shop the 3-Day Sale
+              <span className="ml-2">→</span>
             </a>
           </div>
         </section>
