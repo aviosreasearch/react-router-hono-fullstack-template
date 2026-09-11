@@ -53,10 +53,8 @@ export default function Checkout() {
   );
   const orderTotal =
     cartTotal - bogoDiscount - friendsFamilyDiscount + shippingCost;
-
   useEffect(() => {
     let cancelled = false;
-
     fetch("/api/sale-status")
       .then((response) => response.json())
       .then((data) => {
@@ -70,7 +68,6 @@ export default function Checkout() {
       .catch(() => {
         // Checkout remains usable with normal pricing if status lookup fails.
       });
-
     return () => {
       cancelled = true;
     };
@@ -164,7 +161,9 @@ export default function Checkout() {
           },
           body: JSON.stringify({
             items: items.map((item) => ({
-              name: item.name,
+              name:
+item.name
+,
               strength: item.strength,
               quantity: item.quantity,
             })),
@@ -398,7 +397,6 @@ export default function Checkout() {
                   </div>
                 </div>
               </section>
-
               {/* Research-use acknowledgment */}
               <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-400">
@@ -422,7 +420,6 @@ export default function Checkout() {
                 </label>
               </section>
             </div>
-
             {/* Order summary */}
             <aside className="h-fit rounded-2xl border border-slate-800 bg-slate-900/60 p-7 lg:sticky lg:top-6">
               <div className="flex items-center justify-between">
@@ -431,7 +428,6 @@ export default function Checkout() {
                   {cartCount} {cartCount === 1 ? "item" : "items"}
                 </span>
               </div>
-
               {bogoSaleActive ? (
                 <div className="mt-5 rounded-xl border border-cyan-400/30 bg-cyan-400/10 px-4 py-3">
                   <p className="font-semibold text-cyan-300">
@@ -443,7 +439,6 @@ export default function Checkout() {
                   </p>
                 </div>
               ) : null}
-
               <div className="mt-6 space-y-5">
                 {items.map((item) => (
                   <div
@@ -467,8 +462,7 @@ export default function Checkout() {
                           type="button"
                           onClick={() =>
                             updateQuantity(
-                              item.name,
-                              item.strength,
+                              item.id,
                               Math.max(1, item.quantity - 1),
                             )
                           }
@@ -484,8 +478,7 @@ export default function Checkout() {
                           type="button"
                           onClick={() =>
                             updateQuantity(
-                              item.name,
-                              item.strength,
+                              item.id,
                               item.quantity + 1,
                             )
                           }
@@ -497,7 +490,7 @@ export default function Checkout() {
                       </div>
                       <button
                         type="button"
-                        onClick={() => removeItem(item.name, item.strength)}
+                        onClick={() => removeItem(item.id)}
                         className="text-sm text-slate-500 transition hover:text-red-400"
                       >
                         Remove
@@ -506,14 +499,13 @@ export default function Checkout() {
                   </div>
                 ))}
               </div>
-
               {!bogoSaleActive ? (
                 <div className="mt-6">
                   <label
                     htmlFor="friendsFamilyCode"
                     className="mb-2 block text-sm font-semibold text-slate-300"
                   >
-                    Friends &amp; Family code
+                    Friends & Family code
                   </label>
                   <div className="flex gap-2">
                     <input
@@ -545,7 +537,6 @@ export default function Checkout() {
                   ) : null}
                 </div>
               ) : null}
-
               {amountUntilFreeShipping > 0 ? (
                 <p className="mt-6 rounded-lg border border-sky-500/20 bg-sky-500/10 px-4 py-3 text-sm text-sky-300">
                   Add ${amountUntilFreeShipping.toFixed(2)} more for free shipping.
@@ -555,7 +546,6 @@ export default function Checkout() {
                   Your order qualifies for free shipping.
                 </p>
               )}
-
               <div className="mt-6 space-y-3 border-t border-slate-800 pt-6 text-sm">
                 <div className="flex justify-between text-slate-300">
                   <span>Subtotal</span>
@@ -569,7 +559,7 @@ export default function Checkout() {
                 ) : null}
                 {!bogoSaleActive && friendsFamilyApplied ? (
                   <div className="flex justify-between text-emerald-400">
-                    <span>Friends &amp; Family discount</span>
+                    <span>Friends & Family discount</span>
                     <span>−${friendsFamilyDiscount.toFixed(2)}</span>
                   </div>
                 ) : null}
@@ -582,13 +572,11 @@ export default function Checkout() {
                   <span>${orderTotal.toFixed(2)}</span>
                 </div>
               </div>
-
               {paymentError ? (
                 <p className="mt-5 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
                   {paymentError}
                 </p>
               ) : null}
-
               <button
                 type="submit"
                 disabled={!agreementAccepted || startingPayment}
