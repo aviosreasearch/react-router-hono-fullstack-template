@@ -513,10 +513,14 @@ export default function Welcome({
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-4 text-center sm:flex-row sm:px-6 sm:text-left">
             <div>
               <p className="text-lg font-bold tracking-tight text-white sm:text-xl">
-                Weekend Sale — Buy One, Get One 75% Off
+                3-Day Sale — Buy One, Get One 75% Off
               </p>
               <p className="mt-1 text-sm text-cyan-100/80">
-                Add any two products to your cart. The lower-priced item is automatically discounted.
+                Through Sunday, September 13 at 11:59 p.m.
+                MT. Add any two products to your cart and the
+                lower-priced item is automatically
+                discounted. Other discounts cannot be
+                combined.
               </p>
             </div>
             <a
@@ -1061,8 +1065,9 @@ export default function Welcome({
         </div>
       </section>
       {/* Founding Member Price Examples */}
-      <section className="border-y border-sky-500/20 bg-gradient-to-b from-sky-500/10 to-slate-950">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20">
+      {!bogoSaleActive ? (
+        <section className="border-y border-sky-500/20 bg-gradient-to-b from-sky-500/10 to-slate-950">
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-400 sm:text-sm sm:tracking-[0.3em]">
               Founding Member Pricing
@@ -1153,8 +1158,9 @@ export default function Welcome({
               taxes, and fees.
             </p>
           </div>
-        </div>
-      </section>
+          </div>
+        </section>
+      ) : null}
       {/* Products */}
       <section
         id="products"
