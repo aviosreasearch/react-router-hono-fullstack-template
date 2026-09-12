@@ -1,74 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://aviospeptides.com/</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/glp3-r</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/trzp</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/semaglutide</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/mots-c</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/nad-plus</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/ss-31</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/tesamorelin</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/ipamorelin</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/sermorelin</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/semax</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/dsip</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/ghk-cu</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/glow</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/epithalon</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/bpc-157</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/wolverine</loc>
-  </url>
-
-  <url>
-    <loc>https://aviospeptides.com/products/melanotan-ii</loc>
-  </url>
+  <url><loc>https://aviospeptides.com/</loc></url>
+  <url><loc>https://aviospeptides.com/products/glp3-r</loc></url>
+  <url><loc>https://aviospeptides.com/products/trzp</loc></url>
+  <url><loc>https://aviospeptides.com/products/semaglutide</loc></url>
+  <url><loc>https://aviospeptides.com/products/mots-c</loc></url>
+  <url><loc>https://aviospeptides.com/products/nad-plus</loc></url>
+  <url><loc>https://aviospeptides.com/products/ss-31</loc></url>
+  <url><loc>https://aviospeptides.com/products/tesamorelin</loc></url>
+  <url><loc>https://aviospeptides.com/products/ipamorelin</loc></url>
+  <url><loc>https://aviospeptides.com/products/sermorelin</loc></url>
+  <url><loc>https://aviospeptides.com/products/semax</loc></url>
+  <url><loc>https://aviospeptides.com/products/dsip</loc></url>
+  <url><loc>https://aviospeptides.com/products/ghk-cu</loc></url>
+  <url><loc>https://aviospeptides.com/products/glow</loc></url>
+  <url><loc>https://aviospeptides.com/products/epithalon</loc></url>
+  <url><loc>https://aviospeptides.com/products/bpc-157</loc></url>
+  <url><loc>https://aviospeptides.com/products/wolverine-blend</loc></url>
+  <url><loc>https://aviospeptides.com/products/melanotan-ii</loc></url>
+  <url><loc>https://aviospeptides.com/research-use</loc></url>
+  <url><loc>https://aviospeptides.com/contact</loc></url>
+  <url><loc>https://aviospeptides.com/membership</loc></url>
+  <url><loc>https://aviospeptides.com/terms</loc></url>
+  <url><loc>https://aviospeptides.com/privacy</loc></url>
+  <url><loc>https://aviospeptides.com/shipping</loc></url>
+  <url><loc>https://aviospeptides.com/returns</loc></url>
 </urlset>
