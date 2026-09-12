@@ -6,9 +6,9 @@ import { ProductSeo, buildProductMeta } from "../components/ProductSeo";
 export const meta = buildProductMeta("trzp");
 
 const sizes = [
-  { label: "10 mg", price: 54.99 },
-  { label: "20 mg", price: 79.99 },
-  { label: "30 mg", price: 109.99 },
+  { label: "10 mg", price: 44.99 },
+  { label: "20 mg", price: 69.99 },
+  { label: "30 mg", price: 94.99 },
 ];
 
 export default function TrzpProduct() {
