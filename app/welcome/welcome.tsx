@@ -37,9 +37,9 @@ export default function Welcome({
       category: "Metabolic Research",
       group: "Metabolic Research",
       sizes: [
-        { label: "10 mg", price: 54.99 },
-        { label: "20 mg", price: 79.99 },
-        { label: "30 mg", price: 109.99 },
+        { label: "10 mg", price: 44.99 },
+        { label: "20 mg", price: 69.99 },
+        { label: "30 mg", price: 94.99 },
       ],
       image: "/avios-trzp-product.PNG",
       href: "/products/trzp",
@@ -98,7 +98,7 @@ export default function Welcome({
       group:
         "Mitochondrial & Cellular Research",
       sizes: [
-        { label: "10 mg", price: 44.99 },
+        { label: "10 mg", price: 39.99 },
       ],
       image: "/avios-ss-31-product.PNG",
       href: "/products/ss-31",
