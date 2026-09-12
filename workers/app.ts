@@ -45,13 +45,13 @@ const PRODUCT_PRICES: Record<string, Record<string, number>> = {
   },
 
   TRZP: {
-    "10 mg": 54.99,
-    "20 mg": 79.99,
-    "30 mg": 109.99,
+    "10 mg": 44.99,
+    "20 mg": 69.99,
+    "30 mg": 94.99,
   },
 
   Semaglutide: {
-    "20 mg": 69.99,
+    "20 mg": 44.99,
   },
 
   "MOTS-C": {
@@ -65,7 +65,7 @@ const PRODUCT_PRICES: Record<string, Record<string, number>> = {
   },
 
   "SS-31": {
-    "10 mg": 44.99,
+    "10 mg": 39.99,
   },
 
   Tesamorelin: {
