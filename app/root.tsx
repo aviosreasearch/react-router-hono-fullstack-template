@@ -11,6 +11,16 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import { CartProvider } from "./components/CartProvider";
 
+export const meta: Route.MetaFunction = () => [
+  { title: "Avios Research | Research Peptides with COA Documentation" },
+  {
+    name: "description",
+    content:
+      "Avios Research supplies research peptides with transparent documentation, lot traceability, secure checkout, and fast U.S. shipping. Research use only.",
+  },
+  { property: "og:site_name", content: "Avios Research" },
+];
+
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -24,6 +34,15 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Avios Research",
+  url: "https://aviospeptides.com/",
+  logo: "https://aviospeptides.com/AVIOS%20Research%20logo.png",
+  email: "support@aviospeptides.com",
+};
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -32,6 +51,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
 
         {/* Google tag (gtag.js) */}
         <script
