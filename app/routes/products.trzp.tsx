@@ -1,6 +1,9 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
+import { ProductSeo, buildProductMeta } from "../components/ProductSeo";
+
+export const meta = buildProductMeta("trzp");
 
 const sizes = [
   { label: "10 mg", price: 54.99 },
@@ -13,6 +16,7 @@ export default function TrzpProduct() {
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
+      <ProductSeo slug="trzp" />
       {/* Navigation */}
       <header className="border-b border-slate-800 bg-slate-950/95">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">

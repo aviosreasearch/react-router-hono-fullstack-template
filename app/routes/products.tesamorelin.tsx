@@ -1,6 +1,9 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
+import { ProductSeo, buildProductMeta } from "../components/ProductSeo";
+
+export const meta = buildProductMeta("tesamorelin");
 
 const sizes = [
   { label: "5 mg", price: 44.99 },
@@ -11,6 +14,7 @@ export default function TesamorelinProduct() {
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
+      <ProductSeo slug="tesamorelin" />
       {/* Navigation */}
       <header className="border-b border-slate-800 bg-slate-950/95">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">

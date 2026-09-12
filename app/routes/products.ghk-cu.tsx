@@ -1,6 +1,9 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
+import { ProductSeo, buildProductMeta } from "../components/ProductSeo";
+
+export const meta = buildProductMeta("ghk-cu");
 
 const sizes = [
   { label: "50 mg", price: 39.99 },
@@ -12,6 +15,7 @@ const [selectedSize, setSelectedSize] = useState(sizes[0]);
 
 return (
 <main className="min-h-screen bg-slate-950 text-white">
+<ProductSeo slug="ghk-cu" />
 {/* Navigation */}
 <header className="border-b border-slate-800 bg-slate-950/95">
 <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">

@@ -1,67 +1,21 @@
 import { useState } from "react";
-import type { MetaFunction } from "react-router";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
+import { ProductSeo, buildProductMeta } from "../components/ProductSeo";
+
+export const meta = buildProductMeta("mots-c");
 
 const sizes = [
   { label: "10 mg", price: 39.99 },
   { label: "20 mg", price: 54.99 },
 ];
 
-const pageUrl = "https://aviospeptides.com/products/mots-c";
-const pageDescription =
-  "Explore MOTS-C research peptide in 10 mg and 20 mg sizes from Avios Research, with available lot documentation and fast U.S. shipping. Research use only.";
-
-export const meta: MetaFunction = () => [
-  { title: "MOTS-C Research Peptide | Avios Research" },
-  { name: "description", content: pageDescription },
-  { tagName: "link", rel: "canonical", href: pageUrl },
-  { property: "og:title", content: "MOTS-C Research Peptide | Avios Research" },
-  { property: "og:description", content: pageDescription },
-  { property: "og:type", content: "product" },
-  { property: "og:url", content: pageUrl },
-  {
-    property: "og:image",
-    content: "https://aviospeptides.com/avios-motsc-product.PNG",
-  },
-  { name: "twitter:card", content: "summary_large_image" },
-  { name: "twitter:title", content: "MOTS-C Research Peptide | Avios Research" },
-  { name: "twitter:description", content: pageDescription },
-  {
-    name: "twitter:image",
-    content: "https://aviospeptides.com/avios-motsc-product.PNG",
-  },
-];
-
-const productSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name: "MOTS-C Research Peptide",
-  description: pageDescription,
-  image: "https://aviospeptides.com/avios-motsc-product.PNG",
-  sku: "MOTS-C",
-  category: "Research Peptides",
-  brand: { "@type": "Brand", name: "Avios Research" },
-  offers: sizes.map((size) => ({
-    "@type": "Offer",
-    name: `MOTS-C ${size.label}`,
-    url: pageUrl,
-    priceCurrency: "USD",
-    price: size.price.toFixed(2),
-    availability: "https://schema.org/InStock",
-    itemCondition: "https://schema.org/NewCondition",
-  })),
-};
-
 export default function MotsCProduct() {
   const [selectedSize, setSelectedSize] = useState(sizes[0]);
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
-      />
+      <ProductSeo slug="mots-c" />
 
       <header className="border-b border-slate-800 bg-slate-950/95">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">

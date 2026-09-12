@@ -1,6 +1,9 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
+import { ProductSeo, buildProductMeta } from "../components/ProductSeo";
+
+export const meta = buildProductMeta("ss-31");
 
 const sizes = [
   {
@@ -14,6 +17,7 @@ export default function SS31Product() {
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
+      <ProductSeo slug="ss-31" />
       {/* Navigation */}
       <header className="border-b border-slate-800 bg-slate-950/95">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">

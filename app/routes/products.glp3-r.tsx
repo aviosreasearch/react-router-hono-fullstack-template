@@ -1,6 +1,9 @@
 import { useState } from "react";
 import LotDocumentation from "../components/LotDocumentation";
 import AddToCartButton from "../components/AddToCartButton";
+import { ProductSeo, buildProductMeta } from "../components/ProductSeo";
+
+export const meta = buildProductMeta("glp3-r");
 
 const sizes = [
   {
@@ -34,6 +37,7 @@ export default function Glp3RProduct() {
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
+      <ProductSeo slug="glp3-r" />
       {/* Navigation */}
       <header className="border-b border-slate-800 bg-slate-950/95">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
