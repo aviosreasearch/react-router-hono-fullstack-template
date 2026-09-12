@@ -8,7 +8,7 @@ export const meta = buildProductMeta("ss-31");
 const sizes = [
   {
     label: "10 mg",
-    price: 44.99,
+    price: 39.99,
   },
 ];
 
