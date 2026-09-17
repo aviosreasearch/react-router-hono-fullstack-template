@@ -8,7 +8,7 @@ export const meta = buildProductMeta("epithalon");
 const sizes = [
   {
     label: "10 mg",
-    price: 44.99,
+    price: 36.99,
   },
 ];
 
