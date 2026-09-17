@@ -6,7 +6,7 @@ import { ProductSeo, buildProductMeta } from "../components/ProductSeo";
 export const meta = buildProductMeta("dsip");
 
 const sizes = [
-  { label: "10 mg", price: 39.99 },
+  { label: "10 mg", price: 34.99 },
 ];
 
 export default function DsipProduct() {
