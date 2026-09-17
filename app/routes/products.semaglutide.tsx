@@ -8,7 +8,7 @@ export const meta = buildProductMeta("semaglutide");
 const sizes = [
   {
     label: "20 mg",
-    price: 44.99,
+    price: 34.99,
   },
 ];
 
@@ -18,6 +18,7 @@ export default function SemaglutideProduct() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       <ProductSeo slug="semaglutide" />
+
       {/* Navigation */}
       <header className="border-b border-slate-800 bg-slate-950/95">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
@@ -46,7 +47,7 @@ export default function SemaglutideProduct() {
             <div className="aspect-square">
               <img
                 src="/avios-semaglutide-product.PNG"
-                alt={`Semaglutide ${selectedSize.label}`}
+                alt={`GLP-1 ${selectedSize.label}`}
                 className="h-full w-full object-contain p-10"
               />
             </div>
@@ -59,27 +60,26 @@ export default function SemaglutideProduct() {
             </p>
 
             <h1 className="mt-4 text-5xl font-bold tracking-tight">
-              Semaglutide
+              GLP-1
             </h1>
 
             {/* Product Description */}
             <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
               <p>
-                Semaglutide is a laboratory-made peptide based on GLP-1, a
-                naturally occurring signaling molecule involved in metabolic
-                communication.
+                GLP-1 is a laboratory research material studied in connection
+                with metabolic signaling and GLP-1 receptor activity.
               </p>
 
               <p>
-                It binds to the GLP-1 receptor and remains active longer than
-                naturally occurring GLP-1. This allows researchers to examine
-                how sustained receptor activity changes cellular signaling.
+                GLP-1 receptor signaling is studied under controlled laboratory
+                conditions to examine changes in cellular communication and
+                metabolic pathways.
               </p>
 
               <p>
-                Research involving Semaglutide commonly measures GLP-1 receptor
-                activity, insulin and glucagon signaling, glucose response, and
-                related metabolic pathways under controlled conditions.
+                Research involving GLP-1 commonly examines receptor activity,
+                glucose-related signaling, and other metabolic pathways under
+                controlled conditions.
               </p>
             </div>
 
@@ -126,7 +126,7 @@ export default function SemaglutideProduct() {
             </div>
 
             <AddToCartButton
-              name="Semaglutide"
+              name="GLP-1"
               strength={selectedSize.label}
               price={selectedSize.price}
             />
@@ -140,7 +140,7 @@ export default function SemaglutideProduct() {
               <div className="mt-5 space-y-4">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-4">
                   <span className="text-slate-500">Compound</span>
-                  <span className="font-medium">Semaglutide</span>
+                  <span className="font-medium">GLP-1</span>
                 </div>
 
                 <div className="flex items-center justify-between border-b border-slate-800 pb-4">
@@ -246,8 +246,8 @@ export default function SemaglutideProduct() {
           </h2>
 
           <p className="mt-4 max-w-4xl leading-7 text-slate-400">
-            Semaglutide products offered by Avios Research are presented solely
-            as research materials. They are not intended for human consumption,
+            GLP-1 products offered by Avios Research are presented solely as
+            research materials. They are not intended for human consumption,
             therapeutic use, diagnosis, treatment, or prevention of disease.
           </p>
         </div>
