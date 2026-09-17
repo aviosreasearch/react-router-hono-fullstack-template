@@ -6,8 +6,8 @@ import { ProductSeo, buildProductMeta } from "../components/ProductSeo";
 export const meta = buildProductMeta("ghk-cu");
 
 const sizes = [
-  { label: "50 mg", price: 39.99 },
-  { label: "100 mg", price: 59.99 },
+  { label: "50 mg", price: 32.99 },
+  { label: "100 mg", price: 49.99 },
 ];
 
 export default function GhkCuProduct() {
