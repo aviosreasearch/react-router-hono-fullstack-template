@@ -85,8 +85,8 @@ export default function Membership() {
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-400">
             Avios Research Membership is $5 per month and
-            provides discounted pricing on eligible research
-            products while the membership remains active.
+            provides 7% off eligible research products while
+            the membership remains active.
           </p>
         </div>
 
@@ -120,7 +120,7 @@ export default function Membership() {
             </div>
 
             <p className="mt-5 text-2xl font-bold text-white">
-              Save 15%
+              Save 7%
             </p>
 
             <p className="mt-2 text-sm leading-6 text-slate-400">
@@ -136,7 +136,7 @@ export default function Membership() {
               </span>
 
               <p className="text-slate-300">
-                15% off eligible research product purchases.
+                7% off eligible research product purchases.
               </p>
             </div>
 
@@ -146,7 +146,7 @@ export default function Membership() {
               </span>
 
               <p className="text-slate-300">
-                Founding members keep their 15% rate while
+                Founding members keep their 7% rate while
                 their membership remains continuously active.
               </p>
             </div>
@@ -209,32 +209,6 @@ export default function Membership() {
           </p>
         </div>
 
-        {/* Standard Membership */}
-        <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-slate-800 bg-slate-900/50 p-7">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-400">
-            Standard Membership
-          </p>
-
-          <div className="mt-4 flex items-end gap-2">
-            <span className="text-3xl font-bold">$5</span>
-
-            <span className="pb-1 text-slate-400">
-              / month
-            </span>
-          </div>
-
-          <p className="mt-4 text-xl font-semibold text-white">
-            Save 10%
-          </p>
-
-          <p className="mt-3 leading-7 text-slate-400">
-            After the founding membership period closes, new
-            Avios Research members will receive 10% off
-            eligible research product purchases while their
-            membership remains active.
-          </p>
-        </div>
-
         {/* Membership Terms */}
         <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
           <h2 className="text-2xl font-semibold">
@@ -249,17 +223,10 @@ export default function Membership() {
             </p>
 
             <p>
-              Founding members receive a 15% discount on
+              Founding members receive a 7% discount on
               eligible research products and retain that rate
               while the founding membership remains
               continuously active.
-            </p>
-
-            <p>
-              Customers joining after the founding membership
-              period receive a 10% discount on eligible
-              research products while their membership remains
-              active.
             </p>
 
             <p>
