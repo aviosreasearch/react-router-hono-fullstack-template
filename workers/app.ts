@@ -5,7 +5,6 @@ type Bindings = {
   BOGO_SALE_ACTIVE?: string;
   FRIENDS_FAMILY_CODE: string;
   STRIPE_SECRET_KEY: string;
-  STRIPE_MEMBERSHIP_PRICE_ID: string;
   SHIPSTATION_USERNAME: string;
   SHIPSTATION_PASSWORD: string;
 };
@@ -163,159 +162,6 @@ app.get("/api/friends-family", (c) => {
 });
 
 /*
-  Create the recurring Stripe Checkout Session used by the
-  Founding Membership enrollment button.
-*/
-app.post("/api/create-membership-checkout", async (c) => {
-  try {
-    if (!c.env.STRIPE_SECRET_KEY) {
-      return c.json(
-        {
-          error: "Payment processing is not configured.",
-        },
-        500,
-      );
-    }
-
-    if (!c.env.STRIPE_MEMBERSHIP_PRICE_ID) {
-      return c.json(
-        {
-          error: "Membership enrollment is not configured.",
-        },
-        500,
-      );
-    }
-
-    const body = await c.req.json().catch(() => ({}));
-
-    const email =
-      typeof body?.email === "string"
-        ? body.email.trim()
-        : "";
-
-    const stripeParams = new URLSearchParams();
-
-    stripeParams.append("mode", "subscription");
-
-    stripeParams.append(
-      "line_items[0][price]",
-      c.env.STRIPE_MEMBERSHIP_PRICE_ID,
-    );
-
-    stripeParams.append(
-      "line_items[0][quantity]",
-      "1",
-    );
-
-    stripeParams.append(
-      "payment_method_types[0]",
-      "card",
-    );
-
-    stripeParams.append(
-      "success_url",
-      `${new URL(c.req.url).origin}/membership?membership=success&session_id={CHECKOUT_SESSION_ID}`,
-    );
-
-    stripeParams.append(
-      "cancel_url",
-      `${new URL(c.req.url).origin}/membership?membership=cancelled`,
-    );
-
-    stripeParams.append(
-      "subscription_data[metadata][membership_tier]",
-      "founding",
-    );
-
-    stripeParams.append(
-      "subscription_data[metadata][discount_rate]",
-      "15",
-    );
-
-    if (email) {
-      stripeParams.append(
-        "customer_email",
-        email,
-      );
-    }
-
-    const stripeResponse = await fetch(
-      "https://api.stripe.com/v1/checkout/sessions",
-      {
-        method: "POST",
-        headers: {
-          Authorization:
-            `Bearer ${c.env.STRIPE_SECRET_KEY}`,
-          "Content-Type":
-            "application/x-www-form-urlencoded",
-        },
-        body: stripeParams.toString(),
-      },
-    );
-
-    const stripeData: any =
-      await stripeResponse.json();
-
-    if (!stripeResponse.ok) {
-      console.error(
-        "Stripe membership Checkout Session failed:",
-        stripeData,
-      );
-
-      return c.json(
-        {
-          error:
-            stripeData?.error?.message ??
-            "Unable to start membership enrollment.",
-        },
-        500,
-      );
-    }
-
-    if (!stripeData.url) {
-      return c.json(
-        {
-          error:
-            "Stripe did not return a membership checkout URL.",
-        },
-        500,
-      );
-    }
-
-    return c.json({
-      url: stripeData.url,
-    });
-  } catch (error) {
-    console.error(
-      "Membership checkout error:",
-      error,
-    );
-
-    return c.json(
-      {
-        error:
-          error instanceof Error
-            ? error.message
-            : "Unable to start membership enrollment.",
-      },
-      500,
-    );
-  }
-});
-
-app.get(
-  "/api/create-membership-checkout",
-  (c) => {
-    return c.json(
-      {
-        error: "Method not allowed",
-      },
-      405,
-    );
-  },
-);
-
-/*
   Create Stripe Checkout Session
 */
 app.post(
@@ -438,7 +284,11 @@ app.post(
           merchandiseSubtotalCents +=
             unitAmount * quantity;
 
-          for (let copy = 0; copy < quantity; copy += 1) {
+          for (
+            let copy = 0;
+            copy < quantity;
+            copy += 1
+          ) {
             unitPricesCents.push(unitAmount);
           }
 
@@ -464,23 +314,34 @@ app.post(
         },
       );
 
-      const bogoSaleActive = isBogoSaleActive(
-        c.env.BOGO_SALE_ACTIVE,
-      );
-      const discountedItemCount = Math.floor(
-        unitPricesCents.length / 2,
-      );
-      const bogoDiscountCents = bogoSaleActive
-        ? unitPricesCents
-            .sort((a, b) => a - b)
-            .slice(0, discountedItemCount)
-            .reduce(
-              (total, price) =>
-                total +
-                Math.round(price * BOGO_DISCOUNT_RATE),
-              0,
-            )
-        : 0;
+      const bogoSaleActive =
+        isBogoSaleActive(
+          c.env.BOGO_SALE_ACTIVE,
+        );
+
+      const discountedItemCount =
+        Math.floor(
+          unitPricesCents.length / 2,
+        );
+
+      const bogoDiscountCents =
+        bogoSaleActive
+          ? unitPricesCents
+              .sort((a, b) => a - b)
+              .slice(
+                0,
+                discountedItemCount,
+              )
+              .reduce(
+                (total, price) =>
+                  total +
+                  Math.round(
+                    price *
+                      BOGO_DISCOUNT_RATE,
+                  ),
+                0,
+              )
+          : 0;
 
       /*
         Revalidate Friends & Family discount on the server.
@@ -505,151 +366,29 @@ app.post(
       }
 
       /*
-        Check Stripe for an active founding membership belonging
-        to the email entered at checkout. Friends & Family takes
-        priority because discounts cannot be combined.
+        BOGO takes priority over Friends & Family because
+        discounts cannot be combined.
       */
-      const checkoutEmail =
-        typeof body.email === "string"
-          ? body.email
-              .trim()
-              .toLowerCase()
-          : "";
-
-      let activeFoundingMember = false;
-
-      if (
-        bogoDiscountCents === 0 &&
-        !friendsFamilyValid &&
-        checkoutEmail &&
-        c.env
-          .STRIPE_MEMBERSHIP_PRICE_ID
-      ) {
-        const customerUrl = new URL(
-          "https://api.stripe.com/v1/customers",
-        );
-
-        customerUrl.searchParams.set(
-          "email",
-          checkoutEmail,
-        );
-
-        customerUrl.searchParams.set(
-          "limit",
-          "100",
-        );
-
-        const customerResponse =
-          await fetch(customerUrl, {
-            headers: {
-              Authorization:
-                `Bearer ${c.env.STRIPE_SECRET_KEY}`,
-            },
-          });
-
-        const customerData: any =
-          await customerResponse.json();
-
-        if (!customerResponse.ok) {
-          console.error(
-            "Stripe membership customer lookup failed:",
-            customerData,
-          );
-        } else {
-          for (
-            const customer of
-            customerData.data ?? []
-          ) {
-            const subscriptionUrl =
-              new URL(
-                "https://api.stripe.com/v1/subscriptions",
-              );
-
-            subscriptionUrl.searchParams.set(
-              "customer",
-              customer.id,
-            );
-
-            subscriptionUrl.searchParams.set(
-              "status",
-              "active",
-            );
-
-            subscriptionUrl.searchParams.set(
-              "limit",
-              "100",
-            );
-
-            const subscriptionResponse =
-              await fetch(
-                subscriptionUrl,
-                {
-                  headers: {
-                    Authorization:
-                      `Bearer ${c.env.STRIPE_SECRET_KEY}`,
-                  },
-                },
-              );
-
-            const subscriptionData: any =
-              await subscriptionResponse.json();
-
-            if (
-              !subscriptionResponse.ok
-            ) {
-              console.error(
-                "Stripe membership subscription lookup failed:",
-                subscriptionData,
-              );
-
-              continue;
-            }
-
-            activeFoundingMember = (
-              subscriptionData.data ?? []
-            ).some(
-              (subscription: any) =>
-                (
-                  subscription.items
-                    ?.data ?? []
-                ).some(
-                  (item: any) =>
-                    item.price?.id ===
-                    c.env
-                      .STRIPE_MEMBERSHIP_PRICE_ID,
-                ),
-            );
-
-            if (
-              activeFoundingMember
-            ) {
-              break;
-            }
-          }
-        }
-      }
-
       const discountPercent =
         bogoDiscountCents > 0
           ? 0
           : friendsFamilyValid
             ? 20
-            : activeFoundingMember
-              ? 15
-              : 0;
+            : 0;
 
       const discountName =
         bogoDiscountCents > 0
           ? "Buy One, Get One 75% Off"
-          : friendsFamilyValid
-            ? "Friends & Family"
-            : "Founding Member";
+          : "Friends & Family";
 
       /*
         Create a one-time Stripe coupon for this purchase when a
         verified discount applies.
       */
-      if (bogoDiscountCents > 0 || discountPercent > 0) {
+      if (
+        bogoDiscountCents > 0 ||
+        discountPercent > 0
+      ) {
         const couponParams =
           new URLSearchParams();
 
@@ -658,7 +397,11 @@ app.post(
             "amount_off",
             String(bogoDiscountCents),
           );
-          couponParams.append("currency", "usd");
+
+          couponParams.append(
+            "currency",
+            "usd",
+          );
         } else {
           couponParams.append(
             "percent_off",
@@ -822,8 +565,7 @@ app.post(
         return c.json(
           {
             error:
-              stripeData?.error
-                ?.message ??
+              stripeData?.error?.message ??
               "Unable to start payment.",
           },
           500,
