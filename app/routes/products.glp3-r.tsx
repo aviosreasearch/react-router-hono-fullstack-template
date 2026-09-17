@@ -16,19 +16,19 @@ const sizes = [
   },
   {
     label: "20 mg",
-    price: 39.99,
+    price: 44.99,
   },
   {
     label: "30 mg",
-    price: 49.99,
+    price: 54.99,
   },
   {
     label: "40 mg",
-    price: 64.99,
+    price: 69.99,
   },
   {
     label: "50 mg",
-    price: 79.99,
+    price: 84.99,
   },
 ];
 
