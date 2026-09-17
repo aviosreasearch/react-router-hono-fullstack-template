@@ -24,7 +24,6 @@ export default [
 
   route("research-use", "routes/research-use-policy.tsx"),
   route("contact", "routes/contact.tsx"),
-  route("membership", "routes/membership.tsx"),
   route("terms", "routes/terms.tsx"),
   route("privacy", "routes/privacy.tsx"),
   route("shipping", "routes/shipping.tsx"),
