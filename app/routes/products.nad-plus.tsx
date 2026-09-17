@@ -6,8 +6,8 @@ import { ProductSeo, buildProductMeta } from "../components/ProductSeo";
 export const meta = buildProductMeta("nad-plus");
 
 const sizes = [
-  { label: "500 mg", price: 54.99 },
-  { label: "1000 mg", price: 89.99 },
+  { label: "500 mg", price: 34.99 },
+  { label: "1000 mg", price: 49.99 },
 ];
 
 export default function NadPlusProduct() {
