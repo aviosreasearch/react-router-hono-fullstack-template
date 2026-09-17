@@ -8,27 +8,27 @@ export const meta = buildProductMeta("glp3-r");
 const sizes = [
   {
     label: "10 mg",
-    price: 49.99,
+    price: 29.99,
   },
   {
     label: "15 mg",
-    price: 69.99,
+    price: 34.99,
   },
   {
     label: "20 mg",
-    price: 89.99,
+    price: 39.99,
   },
   {
     label: "30 mg",
-    price: 119.99,
+    price: 49.99,
   },
   {
     label: "40 mg",
-    price: 159.99,
+    price: 64.99,
   },
   {
     label: "50 mg",
-    price: 189.99,
+    price: 79.99,
   },
 ];
 
