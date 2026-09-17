@@ -8,7 +8,7 @@ export const meta = buildProductMeta("bpc-157");
 const sizes = [
   {
     label: "10 mg",
-    price: 49.99,
+    price: 39.99,
   },
 ];
 
