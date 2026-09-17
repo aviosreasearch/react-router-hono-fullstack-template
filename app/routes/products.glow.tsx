@@ -8,7 +8,7 @@ export const meta = buildProductMeta("glow");
 const sizes = [
   {
     label: "70 mg",
-    price: 79.99,
+    price: 54.99,
   },
 ];
 
