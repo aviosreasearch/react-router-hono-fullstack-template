@@ -6,7 +6,7 @@ import { ProductSeo, buildProductMeta } from "../components/ProductSeo";
 export const meta = buildProductMeta("tesamorelin");
 
 const sizes = [
-  { label: "5 mg", price: 44.99 },
+  { label: "5 mg", price: 36.99 },
 ];
 
 export default function TesamorelinProduct() {
