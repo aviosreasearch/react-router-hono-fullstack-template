@@ -6,8 +6,8 @@ import { ProductSeo, buildProductMeta } from "../components/ProductSeo";
 export const meta = buildProductMeta("mots-c");
 
 const sizes = [
-  { label: "10 mg", price: 39.99 },
-  { label: "20 mg", price: 54.99 },
+  { label: "10 mg", price: 29.99 },
+  { label: "20 mg", price: 39.99 },
 ];
 
 export default function MotsCProduct() {
