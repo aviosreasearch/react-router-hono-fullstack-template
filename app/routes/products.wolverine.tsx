@@ -8,7 +8,7 @@ export const meta = buildProductMeta("wolverine-blend");
 const sizes = [
   {
     label: "10 mg total",
-    price: 54.99,
+    price: 44.99,
   },
 ];
 
