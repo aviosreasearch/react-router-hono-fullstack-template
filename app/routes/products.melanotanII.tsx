@@ -8,7 +8,7 @@ export const meta = buildProductMeta("melanotan-ii");
 const sizes = [
   {
     label: "10 mg",
-    price: 39.99,
+    price: 34.99,
   },
 ];
 
