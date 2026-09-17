@@ -35,32 +35,32 @@ app.get("/api/sale-status", (c) => {
 */
 const PRODUCT_PRICES: Record<string, Record<string, number>> = {
   "GLP3 R": {
-    "10 mg": 49.99,
-    "15 mg": 69.99,
-    "20 mg": 89.99,
-    "30 mg": 119.99,
-    "40 mg": 159.99,
-    "50 mg": 189.99,
+    "10 mg": 29.99,
+    "15 mg": 34.99,
+    "20 mg": 44.99,
+    "30 mg": 59.99,
+    "40 mg": 74.99,
+    "50 mg": 89.99,
   },
 
   TRZP: {
-    "10 mg": 44.99,
-    "20 mg": 69.99,
-    "30 mg": 94.99,
+    "10 mg": 29.99,
+    "20 mg": 44.99,
+    "30 mg": 59.99,
   },
 
   Semaglutide: {
-    "20 mg": 44.99,
+    "20 mg": 34.99,
   },
 
   "MOTS-C": {
-    "10 mg": 39.99,
-    "20 mg": 54.99,
+    "10 mg": 29.99,
+    "20 mg": 39.99,
   },
 
   "NAD+": {
-    "500 mg": 54.99,
-    "1000 mg": 89.99,
+    "500 mg": 34.99,
+    "1000 mg": 49.99,
   },
 
   "SS-31": {
@@ -68,36 +68,48 @@ const PRODUCT_PRICES: Record<string, Record<string, number>> = {
   },
 
   Tesamorelin: {
-    "5 mg": 44.99,
+    "5 mg": 36.99,
   },
 
   Ipamorelin: {
-    "10 mg": 39.99,
+    "10 mg": 34.99,
   },
 
   Sermorelin: {
-    "10 mg": 44.99,
+    "10 mg": 36.99,
   },
 
   Semax: {
-    "10 mg": 39.99,
+    "10 mg": 34.99,
   },
 
   DSIP: {
+    "10 mg": 34.99,
+  },
+
+  "Melanotan II": {
+    "10 mg": 34.99,
+  },
+
+  "BPC-157": {
     "10 mg": 39.99,
   },
 
+  "Wolverine Blend": {
+    "10 mg": 44.99,
+  },
+
   "GHK-CU": {
-    "50 mg": 39.99,
-    "100 mg": 59.99,
+    "50 mg": 32.99,
+    "100 mg": 49.99,
   },
 
   GLOW: {
-    "70 mg": 79.99,
+    "70 mg": 54.99,
   },
 
   Epithalon: {
-    "10 mg": 44.99,
+    "10 mg": 36.99,
   },
 };
 
@@ -144,7 +156,7 @@ app.post("/api/friends-family", async (c) => {
 
   return c.json({
     valid,
-    discountRate: valid ? 0.2 : 0,
+    discountRate: valid ? 0.1 : 0,
   });
 });
 
@@ -373,7 +385,7 @@ app.post(
         bogoDiscountCents > 0
           ? 0
           : friendsFamilyValid
-            ? 20
+            ? 10
             : 0;
 
       const discountName =
