@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useCart } from "./CartProvider";
 
@@ -28,6 +27,26 @@ export default function AddToCartButton({
       price,
       image,
     });
+
+    // Google Analytics 4: add_to_cart
+    if (
+      typeof window !== "undefined" &&
+      typeof (window as any).gtag === "function"
+    ) {
+      (window as any).gtag("event", "add_to_cart", {
+        currency: "USD",
+        value: price,
+        items: [
+          {
+            item_id: id,
+            item_name: name,
+            item_variant: strength,
+            price,
+            quantity: 1,
+          },
+        ],
+      });
+    }
 
     setAdded(true);
 
