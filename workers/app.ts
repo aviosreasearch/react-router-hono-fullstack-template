@@ -95,9 +95,9 @@ const PRODUCT_PRICES: Record<string, Record<string, number>> = {
     "10 mg": 39.99,
   },
 
-  "Wolverine Blend": {
-    "10 mg": 44.99,
-  },
+"Wolverine Blend": {
+  "5 mg BPC-157 / 5 mg TB-500": 44.99,
+},
 
   "GHK-CU": {
     "50 mg": 32.99,
