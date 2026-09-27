@@ -15,22 +15,23 @@ export default function TrzpProduct() {
   const [selectedSize, setSelectedSize] = useState(sizes[0]);
 
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main className="min-h-screen overflow-x-hidden bg-slate-950 text-white">
       <ProductSeo slug="trzp" />
+
       {/* Navigation */}
       <header className="border-b border-slate-800 bg-slate-950/95">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-          <a href="/" className="flex items-center">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-5">
+          <a href="/" className="min-w-0">
             <img
               src="/AVIOS Research logo.png"
               alt="Avios Research"
-              className="h-24 w-auto object-contain"
+              className="h-16 w-auto object-contain sm:h-24"
             />
           </a>
 
           <a
             href="/#products"
-            className="rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-slate-500 hover:text-white"
+            className="shrink-0 rounded-lg border border-slate-700 px-3 py-2 text-xs font-semibold text-slate-300 transition hover:border-slate-500 hover:text-white sm:px-4 sm:text-sm"
           >
             ← Back to Compounds
           </a>
@@ -38,31 +39,31 @@ export default function TrzpProduct() {
       </header>
 
       {/* Product */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-12 lg:grid-cols-2">
+      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-16">
+        <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Product Image */}
-          <div className="overflow-hidden rounded-3xl border border-slate-800 bg-white">
+          <div className="min-w-0 overflow-hidden rounded-2xl border border-slate-800 bg-white sm:rounded-3xl">
             <div className="aspect-square">
               <img
                 src="/avios-trzp-product.PNG"
                 alt={`TRZP ${selectedSize.label}`}
-                className="h-full w-full object-contain p-10"
+                className="h-full w-full object-contain p-6 sm:p-10"
               />
             </div>
           </div>
 
           {/* Product Information */}
-          <div className="flex flex-col justify-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-400">
+          <div className="flex min-w-0 flex-col justify-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-400 sm:text-sm sm:tracking-[0.3em]">
               Metabolic Research
             </p>
 
-            <h1 className="mt-4 text-5xl font-bold tracking-tight">
+            <h1 className="mt-3 text-4xl font-bold tracking-tight sm:mt-4 sm:text-5xl">
               TRZP
             </h1>
 
             {/* Product Description */}
-            <div className="mt-4 max-w-xl space-y-4 text-lg leading-8 text-slate-400">
+            <div className="mt-4 max-w-xl space-y-4 text-base leading-7 text-slate-400 sm:text-lg sm:leading-8">
               <p>
                 TRZP is a laboratory-made peptide designed to interact with
                 two receptor systems known as GIP and GLP-1.
@@ -118,7 +119,7 @@ export default function TrzpProduct() {
                 Price
               </p>
 
-              <p className="mt-1 text-4xl font-bold tracking-tight">
+              <p className="mt-1 text-3xl font-bold tracking-tight sm:text-4xl">
                 ${selectedSize.price.toFixed(2)}
               </p>
             </div>
@@ -139,27 +140,27 @@ export default function TrzpProduct() {
               </h2>
 
               <div className="mt-5 space-y-4">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div className="flex items-center justify-between gap-4 border-b border-slate-800 pb-4">
                   <span className="text-slate-500">
                     Compound
                   </span>
 
-                  <span className="font-medium">
+                  <span className="text-right font-medium">
                     TRZP
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div className="flex items-center justify-between gap-4 border-b border-slate-800 pb-4">
                   <span className="text-slate-500">
                     Amount
                   </span>
 
-                  <span className="font-medium">
+                  <span className="text-right font-medium">
                     {selectedSize.label}
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between gap-6 border-b border-slate-800 pb-4">
+                <div className="flex items-center justify-between gap-4 border-b border-slate-800 pb-4">
                   <span className="text-slate-500">
                     Category
                   </span>
@@ -182,13 +183,13 @@ export default function TrzpProduct() {
 
       {/* Research Documentation */}
       <section className="border-y border-slate-800 bg-slate-900/40">
-        <div className="mx-auto max-w-7xl px-6 py-20">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20">
           <div className="mb-10 max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-400 sm:text-sm sm:tracking-[0.3em]">
               Documentation
             </p>
 
-            <h2 className="mt-3 text-3xl font-bold tracking-tight">
+            <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
               Research Material Records
             </h2>
 
@@ -200,7 +201,7 @@ export default function TrzpProduct() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-7">
+            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6 sm:p-7">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
                 Lot Records
               </p>
@@ -215,7 +216,7 @@ export default function TrzpProduct() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-7">
+            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6 sm:p-7">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
                 Laboratory Records
               </p>
@@ -231,7 +232,7 @@ export default function TrzpProduct() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-7">
+            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6 sm:p-7">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
                 Storage
               </p>
@@ -250,8 +251,8 @@ export default function TrzpProduct() {
       </section>
 
       {/* Research Material Notice */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="rounded-2xl border border-slate-800 bg-slate-900 p-8">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">
+        <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6 sm:p-8">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
             Research Material
           </p>
@@ -270,7 +271,7 @@ export default function TrzpProduct() {
 
       {/* Footer */}
       <footer className="border-t border-slate-800">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-10 md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="font-bold tracking-[0.15em]">
               AVIOS RESEARCH
