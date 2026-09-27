@@ -431,7 +431,7 @@ export default function Welcome({
                               <img
                                 src={product.image}
                                 alt={`${product.name} ${product.amount}`}
-                                className="h-full w-full scale-[1.38] object-contain scale-[0.82]"
+                                className="h-full w-full scale-[1.12] object-contain"
                               />
                             </div>
                           </a>
