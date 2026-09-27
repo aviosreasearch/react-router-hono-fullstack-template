@@ -504,7 +504,7 @@ export default function Welcome({
                             <img
                               src={product.image}
                               alt={`${product.name} ${product.amount}`}
-                              className="max-h-32 w-full object-contain sm:h-full sm:max-h-full"
+                              className="max-h-40 w-full object-contain sm:h-full sm:max-h-full sm:scale-125"
                             />
                           </a>
 
